@@ -1,0 +1,183 @@
+{
+  "ticketId": 1000028349,
+  "roundId": 2439,
+  "date": "2026-05-08 19:30",
+  "matches": [
+    {
+      "row": 1,
+      "home": "K'lautern",
+      "away": "Bielefeld",
+      "league": "Germany - 2. Bundesliga",
+      "result": "1",
+      "score": "2-0",
+      "odds_1": 3.15,
+      "odds_x": 3.75,
+      "odds_2": 2.15
+    },
+    {
+      "row": 2,
+      "home": "Ham Kam",
+      "away": "Valerenga",
+      "league": "Norway 1",
+      "result": "1",
+      "score": "1-0",
+      "odds_1": 2.95,
+      "odds_x": 3.5,
+      "odds_2": 2.35
+    },
+    {
+      "row": 3,
+      "home": "Ranheim",
+      "away": "Kongsvinger",
+      "league": "Norway 2",
+      "result": "X",
+      "score": "1-1",
+      "odds_1": 2.95,
+      "odds_x": 3.5,
+      "odds_2": 2.2
+    },
+    {
+      "row": 4,
+      "home": "Elfsborg",
+      "away": "Brommapojkarna",
+      "league": "Sweden - Allsvenskan",
+      "result": "1",
+      "score": "2-0",
+      "odds_1": 2.15,
+      "odds_x": 3.4,
+      "odds_2": 3.4
+    },
+    {
+      "row": 5,
+      "home": "Orebro",
+      "away": "Brage",
+      "league": "Sweden - Superettan",
+      "result": "2",
+      "score": "0-3",
+      "odds_1": 2.3,
+      "odds_x": 3.3,
+      "odds_2": 2.9
+    },
+    {
+      "row": 6,
+      "home": "Varbergs BoIS FC",
+      "away": "Varnamo",
+      "league": "Sweden - Superettan",
+      "result": "1",
+      "score": "3-2",
+      "odds_1": 2.35,
+      "odds_x": 3.3,
+      "odds_2": 2.85
+    },
+    {
+      "row": 7,
+      "home": "Rapperswil",
+      "away": "Xamax",
+      "league": "Switzerland - Challenge League",
+      "result": "2",
+      "score": "2-3",
+      "odds_1": 2.75,
+      "odds_x": 3.4,
+      "odds_2": 2.35
+    },
+    {
+      "row": 8,
+      "home": "Wil",
+      "away": "Yverdon",
+      "league": "Switzerland - Challenge League",
+      "result": "2",
+      "score": "0-1",
+      "odds_1": 3.0,
+      "odds_x": 3.4,
+      "odds_2": 2.2
+    },
+    {
+      "row": 9,
+      "home": "Arbroath",
+      "away": "Dunfermline",
+      "league": "Scotland First Division Play Off",
+      "result": "X",
+      "score": "0-0",
+      "odds_1": 2.0,
+      "odds_x": 3.5,
+      "odds_2": 3.7
+    },
+    {
+      "row": 10,
+      "home": "Catanzaro",
+      "away": "Bari",
+      "league": "Italy - Serie B",
+      "result": "2",
+      "score": "2-3",
+      "odds_1": 2.7,
+      "odds_x": 3.35,
+      "odds_2": 2.6
+    },
+    {
+      "row": 11,
+      "home": "Pescara",
+      "away": "Spezia",
+      "league": "Italy - Serie B",
+      "result": "X",
+      "score": "1-1",
+      "odds_1": 2.2,
+      "odds_x": 3.5,
+      "odds_2": 3.15
+    },
+    {
+      "row": 12,
+      "home": "Reggiana",
+      "away": "Sampdoria",
+      "league": "Italy - Serie B",
+      "result": "1",
+      "score": "1-0",
+      "odds_1": 3.6,
+      "odds_x": 3.35,
+      "odds_2": 2.1
+    },
+    {
+      "row": 13,
+      "home": "Cadiz",
+      "away": "La Coruna",
+      "league": "Spain - Segunda Division",
+      "result": "2",
+      "score": "0-1",
+      "odds_1": 3.8,
+      "odds_x": 3.45,
+      "odds_2": 2.0
+    },
+    {
+      "row": 14,
+      "home": "Torino",
+      "away": "Sassuolo",
+      "league": "Italy - Serie A",
+      "result": "1",
+      "score": "2-1",
+      "odds_1": 2.6,
+      "odds_x": 3.4,
+      "odds_2": 2.7
+    },
+    {
+      "row": 15,
+      "home": "Standard",
+      "away": "Leuven",
+      "league": "Belgium 1 Play Off Ii",
+      "result": "1",
+      "score": "2-1",
+      "odds_1": 2.15,
+      "odds_x": 3.45,
+      "odds_2": 3.35
+    },
+    {
+      "row": 16,
+      "home": "Levante",
+      "away": "Osasuna",
+      "league": "Spain - Primera Division",
+      "result": "1",
+      "score": "3-2",
+      "odds_1": 2.5,
+      "odds_x": 3.3,
+      "odds_2": 2.85
+    }
+  ]
+}

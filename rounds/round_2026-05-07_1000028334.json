@@ -1,0 +1,183 @@
+{
+  "ticketId": 1000028334,
+  "roundId": 2438,
+  "date": "2026-05-07 19:00",
+  "matches": [
+    {
+      "row": 1,
+      "home": "El Jadida",
+      "away": "Hassania A.",
+      "league": "Marocco - Gnf 1",
+      "result": "X",
+      "score": "2-2",
+      "odds_1": 2.9,
+      "odds_x": 2.95,
+      "odds_2": 2.5
+    },
+    {
+      "row": 2,
+      "home": "Krasnodar",
+      "away": "Dinamo Moscow",
+      "league": "Russia  -  Cup",
+      "result": "X",
+      "score": "0-0",
+      "odds_1": 2.1,
+      "odds_x": 3.35,
+      "odds_2": 3.25
+    },
+    {
+      "row": 3,
+      "home": "O'Higgins",
+      "away": "Sao Paulo",
+      "league": "Copa Sudamericana",
+      "result": "X",
+      "score": "0-0",
+      "odds_1": 2.95,
+      "odds_x": 3.25,
+      "odds_2": 2.45
+    },
+    {
+      "row": 4,
+      "home": "Platense",
+      "away": "Penarol",
+      "league": "Copa Libertadores",
+      "result": "X",
+      "score": "1-1",
+      "odds_1": 2.25,
+      "odds_x": 3.15,
+      "odds_2": 3.45
+    },
+    {
+      "row": 5,
+      "home": "Coquimbo Unido",
+      "away": "Universitario",
+      "league": "Copa Libertadores",
+      "result": "1",
+      "score": "2-1",
+      "odds_1": 2.2,
+      "odds_x": 3.15,
+      "odds_2": 3.6
+    },
+    {
+      "row": 6,
+      "home": "CPD Junior",
+      "away": "Cerro Porteno",
+      "league": "Copa Libertadores",
+      "result": "2",
+      "score": "0-1",
+      "odds_1": 2.05,
+      "odds_x": 3.35,
+      "odds_2": 3.8
+    },
+    {
+      "row": 7,
+      "home": "Ilves",
+      "away": "AC Oulu",
+      "league": "Finland - Veikkausliiga",
+      "result": "1",
+      "score": "1-0",
+      "odds_1": 2.5,
+      "odds_x": 3.3,
+      "odds_2": 2.65
+    },
+    {
+      "row": 8,
+      "home": "K'lautern",
+      "away": "Bielefeld",
+      "league": "Germany - 2. Bundesliga",
+      "result": "1",
+      "score": "2-0",
+      "odds_1": 3.2,
+      "odds_x": 3.5,
+      "odds_2": 2.2
+    },
+    {
+      "row": 9,
+      "home": "Ham Kam",
+      "away": "Valerenga",
+      "league": "Norway 1",
+      "result": "1",
+      "score": "1-0",
+      "odds_1": 2.5,
+      "odds_x": 3.4,
+      "odds_2": 2.8
+    },
+    {
+      "row": 10,
+      "home": "Ranheim",
+      "away": "Kongsvinger",
+      "league": "Norway 2",
+      "result": "X",
+      "score": "1-1",
+      "odds_1": 3.05,
+      "odds_x": 3.5,
+      "odds_2": 2.15
+    },
+    {
+      "row": 11,
+      "home": "Catanzaro",
+      "away": "Bari",
+      "league": "Italy - Serie B",
+      "result": "2",
+      "score": "2-3",
+      "odds_1": 2.6,
+      "odds_x": 3.35,
+      "odds_2": 2.7
+    },
+    {
+      "row": 12,
+      "home": "Pescara",
+      "away": "Spezia",
+      "league": "Italy - Serie B",
+      "result": "X",
+      "score": "1-1",
+      "odds_1": 2.2,
+      "odds_x": 3.5,
+      "odds_2": 3.2
+    },
+    {
+      "row": 13,
+      "home": "Reggiana",
+      "away": "Sampdoria",
+      "league": "Italy - Serie B",
+      "result": "1",
+      "score": "1-0",
+      "odds_1": 3.5,
+      "odds_x": 3.3,
+      "odds_2": 2.15
+    },
+    {
+      "row": 14,
+      "home": "Cadiz",
+      "away": "La Coruna",
+      "league": "Spain - Segunda Division",
+      "result": "2",
+      "score": "0-1",
+      "odds_1": 3.6,
+      "odds_x": 3.45,
+      "odds_2": 2.05
+    },
+    {
+      "row": 15,
+      "home": "Torino",
+      "away": "Sassuolo",
+      "league": "Italy - Serie A",
+      "result": "1",
+      "score": "2-1",
+      "odds_1": 2.5,
+      "odds_x": 3.35,
+      "odds_2": 2.85
+    },
+    {
+      "row": 16,
+      "home": "Levante",
+      "away": "Osasuna",
+      "league": "Spain - Primera Division",
+      "result": "1",
+      "score": "3-2",
+      "odds_1": 2.6,
+      "odds_x": 3.25,
+      "odds_2": 2.8
+    }
+  ]
+}

@@ -459,6 +459,32 @@ def tab_run_forecast(jackpot: str):
 # ================================================================
 # TAB 3 — LOG RESULTS
 # ================================================================
+def find_unscored_local_forecasts(jackpot: str) -> list:
+    """
+    Return all local forecast files that have no actuals block yet.
+    Returns list of (filename, filepath, card_file, generated_at) tuples.
+    """
+    cfg     = JACKPOTS[jackpot]
+    pattern = os.path.join(ROOT, cfg["output_dir"], cfg["forecast_pattern"])
+    files   = sorted(glob.glob(pattern), key=os.path.getmtime, reverse=True)
+    unscored = []
+    for fpath in files:
+        try:
+            with open(fpath, encoding="utf-8") as f:
+                data = json.load(f)
+            if "actuals" not in data:
+                unscored.append({
+                    "filename"    : os.path.basename(fpath),
+                    "filepath"    : fpath,
+                    "card_file"   : data.get("card_file", "unknown"),
+                    "generated_at": data.get("generated_at", "")[:16].replace("_", " "),
+                    "data"        : data,
+                })
+        except Exception:
+            continue
+    return unscored
+
+
 def tab_log_results(jackpot: str):
     cfg = JACKPOTS[jackpot]
     n   = cfg["num_games"]
@@ -487,8 +513,42 @@ def tab_log_results(jackpot: str):
 
     results_data = read_results_json()
 
-    # Get match names from latest Supabase forecast
-    forecast_data = get_latest_forecast(jackpot)
+    # --- Forecast selector (handles overlapping rounds) ---
+    unscored = find_unscored_local_forecasts(jackpot)
+
+    if not unscored:
+        st.info(
+            "No unscored forecasts found locally. "
+            "All forecasts have been logged, or no forecasts exist yet."
+        )
+        return
+
+    if len(unscored) == 1:
+        # Only one unscored — use it directly, no selector needed
+        selected_forecast = unscored[0]
+        st.caption(
+            f"Logging results for: **{selected_forecast['card_file']}** "
+            f"(generated {selected_forecast['generated_at']})"
+        )
+    else:
+        # Multiple unscored — show selector
+        st.warning(
+            f"Found {len(unscored)} unscored forecasts. "
+            f"Select which round you are logging results for."
+        )
+        options = {
+            f"{u['generated_at']} — {u['card_file']}": u
+            for u in unscored
+        }
+        chosen_label = st.selectbox(
+            "Select forecast to log",
+            list(options.keys()),
+            key=f"forecast_selector_{jackpot}",
+        )
+        selected_forecast = options[chosen_label]
+
+    forecast_data = selected_forecast["data"]
+    target_filename = selected_forecast["filename"]
     match_names   = []
     if forecast_data:
         tickets = forecast_data.get("tickets", {})
@@ -568,23 +628,45 @@ def tab_log_results(jackpot: str):
         with open(results_path, "w", encoding="utf-8") as f:
             json.dump(confirmed, f, indent=2)
 
-        # Run log_actuals.py
+        # Run log_actuals.py — pass --target so it logs the correct forecast
+        # when two rounds exist on the same day
         with st.spinner("Logging actuals..."):
             ok, output = run_script(
                 "log_actuals.py",
-                ["--jackpot", jackpot, "--file", "results.json"]
+                ["--jackpot", jackpot,
+                 "--file",   "results.json",
+                 "--target", target_filename]
             )
 
         st.code(output, language="text")
 
         if ok:
             # Read the updated forecast file and push actuals to Supabase
-            local_data = find_latest_local_forecast(jackpot)
+            # Re-read the specific forecast file after log_actuals updated it
+            local_data = None
+            try:
+                with open(selected_forecast["filepath"], encoding="utf-8") as f:
+                    local_data = json.load(f)
+            except Exception:
+                pass
+
             if local_data and "actuals" in local_data:
-                if forecast_data:
+                # Find the matching Supabase forecast by generated_at + card_file
+                sb_forecast = get_latest_forecast(jackpot)
+                if sb_forecast and sb_forecast.get("card_file") == forecast_data.get("card_file"):
+                    pass  # already matched
+                else:
+                    from db import list_forecasts
+                    all_fc = list_forecasts(jackpot, limit=10)
+                    sb_forecast = next(
+                        (f for f in all_fc
+                         if f.get("card_file") == forecast_data.get("card_file")),
+                        None
+                    )
+                if sb_forecast:
                     saved = save_actuals(
                         jackpot,
-                        forecast_data["id"],
+                        sb_forecast["id"],
                         local_data["actuals"]
                     )
                     if saved:

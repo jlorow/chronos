@@ -82,36 +82,39 @@ def run():
     print(f"Got {len(all_rounds)} rounds from API")
 
     # Filter: Super Jackpot only (16 rows), has results
-    settled = []
+    seen_dates = {}
     for r in all_rounds:
         if not is_super_jackpot(r):
             continue
         if not has_results(r["matches"]):
-            print(f"  ⏳ Ticket {r['id']} (Round {r['roundId']}) — results not out yet, skipping")
             continue
-        settled.append(r)
+        date_key = datetime.fromtimestamp(r["matches"][0]["time"] / 1000).strftime("%Y-%m-%d")
+        if date_key not in seen_dates:
+            seen_dates[date_key] = r
+
+    # Sort by date descending, take latest two unique dates
+    settled = [seen_dates[d] for d in sorted(seen_dates, reverse=True)]
 
     if not settled:
         print("\n⏳ No settled Super Jackpot rounds available yet.")
         return
 
-    # Get only the LATEST one (first in list = most recent)
-    latest = settled[0]
-    cleaned = clean_round(latest)
+    for latest in settled[:2]:
+        cleaned = clean_round(latest)
 
-    first_match_time = latest["matches"][0]["time"] / 1000
-    date_str = datetime.fromtimestamp(first_match_time).strftime("%Y-%m-%d %H:%M")
+        first_match_time = latest["matches"][0]["time"] / 1000
+        date_str = datetime.fromtimestamp(first_match_time).strftime("%Y-%m-%d %H:%M")
 
-    if already_saved(latest["id"], date_str):
-        print(f"\n⏭️  Latest round already saved (Ticket {latest['id']}, {cleaned['date']}). Nothing to do.")
-        return
+        if already_saved(latest["id"], date_str):
+            print(f"\n⏭️  Round already saved (Ticket {latest['id']}, {cleaned['date']}). Skipping.")
+            continue
 
-    filepath = save_round(cleaned)
-    print(f"\n✅ Saved latest round:")
-    print(f"   Ticket ID : {latest['id']}")
-    print(f"   Round     : {latest['roundId']}")
-    print(f"   Date      : {cleaned['date']}")
-    print(f"   File      : {os.path.basename(filepath)}")
-    print(f"   Matches   : {len(cleaned['matches'])}")
+        filepath = save_round(cleaned)
+        print(f"\n✅ Saved round:")
+        print(f"   Ticket ID : {latest['id']}")
+        print(f"   Round     : {latest['roundId']}")
+        print(f"   Date      : {cleaned['date']}")
+        print(f"   File      : {os.path.basename(filepath)}")
+        print(f"   Matches   : {len(cleaned['matches'])}")
 
 run()
