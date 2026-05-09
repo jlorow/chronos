@@ -301,6 +301,64 @@ def tab_forecast(jackpot: str):
             else:
                 st.caption("Not available")
 
+    # Pro tickets — only for SportPesa Mega (17 games)
+    pro_tickets = data.get("pro_tickets", {})
+    if pro_tickets:
+        st.markdown("---")
+        st.markdown("**Pro Variant Tickets**")
+        st.caption(
+            "Top-confidence picks from the Base ticket. "
+            "Each Pro ticket is a subset of the Base ticket ordered by confidence."
+        )
+
+        pro_keys = sorted(
+            pro_tickets.keys(),
+            key=lambda k: int(k.split("_")[1]),
+            reverse=True,
+        )
+
+        pro_tabs = st.tabs([
+            f"Pro-{k.split('_')[1]} ({len(pro_tickets[k])} games)"
+            for k in pro_keys
+        ])
+
+        for tab, key in zip(pro_tabs, pro_keys):
+            with tab:
+                matches_pro = pro_tickets[key]
+                rows = []
+                for p in matches_pro:
+                    pred    = p.get("pred", "")
+                    home    = p.get("home", "")
+                    away    = p.get("away", "")
+                    conf    = p.get("confidence", 0)
+                    label_p = OUTCOME_LABELS.get(pred, pred)
+                    rows.append({
+                        "#"          : p.get("order", ""),
+                        "Match"      : f"{home} vs {away}",
+                        "Pred"       : pred,
+                        "Result"     : label_p,
+                        "Confidence" : round(conf, 2),
+                    })
+
+                if rows:
+                    import pandas as pd
+                    df = pd.DataFrame(rows)
+                    st.dataframe(
+                        df,
+                        hide_index          = True,
+                        use_container_width = True,
+                        column_config       = {
+                            "#"          : st.column_config.NumberColumn(width="small"),
+                            "Pred"       : st.column_config.TextColumn(width="small"),
+                            "Result"     : st.column_config.TextColumn(width="small"),
+                            "Confidence" : st.column_config.NumberColumn(
+                                               width="small", format="%.2f"
+                                           ),
+                        }
+                    )
+                    ticket_str = " - ".join(p["pred"] for p in matches_pro)
+                    st.code(ticket_str, language="text")
+
     # Pick type legend
     st.markdown("---")
     legend_cols = st.columns(6)
