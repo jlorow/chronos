@@ -7,6 +7,8 @@ python sportpesa_forecast.py
 
 python midweek_forecast.py
 
+p
+
 
 
 Routine
@@ -20,3 +22,6 @@ python log_actuals.py --jackpot mozzart --file results.json
 python mozzart_jackpot_complete.py
 5. Get forecast 
 python mozzart_forecast.py
+
+
+

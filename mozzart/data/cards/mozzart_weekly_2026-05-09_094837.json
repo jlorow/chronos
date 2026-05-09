@@ -1,0 +1,242 @@
+[
+  {
+    "match_id": 9735012,
+    "home": "Fulham",
+    "away": "Bournemouth",
+    "league": "England - Premier",
+    "kick_off": "09 May 2026 14:00 UTC",
+    "odds": {
+      "1": "2.65",
+      "X": "3.70",
+      "2": "2.60"
+    }
+  },
+  {
+    "match_id": 9734985,
+    "home": "Sunderland",
+    "away": "Man.Utd.",
+    "league": "England - Premier",
+    "kick_off": "09 May 2026 14:00 UTC",
+    "odds": {
+      "1": "3.90",
+      "X": "3.50",
+      "2": "1.95"
+    }
+  },
+  {
+    "match_id": 9735045,
+    "home": "Sevilla",
+    "away": "Espanyol",
+    "league": "Spain - Primera Division",
+    "kick_off": "09 May 2026 14:15 UTC",
+    "odds": {
+      "1": "2.15",
+      "X": "3.35",
+      "2": "3.80"
+    }
+  },
+  {
+    "match_id": 9735069,
+    "home": "Atl.Madrid",
+    "away": "Celta",
+    "league": "Spain - Primera Division",
+    "kick_off": "09 May 2026 16:30 UTC",
+    "odds": {
+      "1": "2.10",
+      "X": "3.45",
+      "2": "3.50"
+    }
+  },
+  {
+    "match_id": 9735054,
+    "home": "Valladolid",
+    "away": "Zaragoza",
+    "league": "Spain - Segunda Division",
+    "kick_off": "09 May 2026 16:30 UTC",
+    "odds": {
+      "1": "2.05",
+      "X": "3.45",
+      "2": "3.60"
+    }
+  },
+  {
+    "match_id": 9735476,
+    "home": "Nurnberg",
+    "away": "Schalke",
+    "league": "Germany - 2. Bundesliga",
+    "kick_off": "09 May 2026 18:30 UTC",
+    "odds": {
+      "1": "2.10",
+      "X": "3.50",
+      "2": "3.40"
+    }
+  },
+  {
+    "match_id": 9735043,
+    "home": "Motherwell",
+    "away": "Hearts",
+    "league": "Scotland Premier Play Off",
+    "kick_off": "09 May 2026 19:00 UTC",
+    "odds": {
+      "1": "2.95",
+      "X": "3.40",
+      "2": "2.40"
+    }
+  },
+  {
+    "match_id": 9735062,
+    "home": "Sociedad",
+    "away": "Betis",
+    "league": "Spain - Primera Division",
+    "kick_off": "09 May 2026 19:00 UTC",
+    "odds": {
+      "1": "2.60",
+      "X": "3.35",
+      "2": "2.70"
+    }
+  },
+  {
+    "match_id": 9735086,
+    "home": "Celtic",
+    "away": "Rangers",
+    "league": "Scotland Premier Play Off",
+    "kick_off": "10 May 2026 11:00 UTC",
+    "odds": {
+      "1": "2.05",
+      "X": "3.50",
+      "2": "3.50"
+    }
+  },
+  {
+    "match_id": 9735482,
+    "home": "Fortuna Dusseldorf",
+    "away": "Elversberg",
+    "league": "Germany - 2. Bundesliga",
+    "kick_off": "10 May 2026 11:30 UTC",
+    "odds": {
+      "1": "3.35",
+      "X": "3.60",
+      "2": "2.10"
+    }
+  },
+  {
+    "match_id": 9735003,
+    "home": "Gent",
+    "away": "Anderlecht",
+    "league": "Belgium 1 Play Off I",
+    "kick_off": "10 May 2026 11:30 UTC",
+    "odds": {
+      "1": "2.35",
+      "X": "3.45",
+      "2": "2.95"
+    }
+  },
+  {
+    "match_id": 9735620,
+    "home": "Rosenborg",
+    "away": "Lillestrom",
+    "league": "Norway 1",
+    "kick_off": "10 May 2026 12:30 UTC",
+    "odds": {
+      "1": "3.00",
+      "X": "3.50",
+      "2": "2.30"
+    }
+  },
+  {
+    "match_id": 9734975,
+    "home": "Nott.Forest",
+    "away": "Newcastle",
+    "league": "England - Premier",
+    "kick_off": "10 May 2026 13:00 UTC",
+    "odds": {
+      "1": "2.75",
+      "X": "3.35",
+      "2": "2.55"
+    }
+  },
+  {
+    "match_id": 9735019,
+    "home": "Leganes",
+    "away": "Santander",
+    "league": "Spain - Segunda Division",
+    "kick_off": "10 May 2026 14:15 UTC",
+    "odds": {
+      "1": "3.00",
+      "X": "3.50",
+      "2": "2.30"
+    }
+  },
+  {
+    "match_id": 9735031,
+    "home": "Oviedo",
+    "away": "Getafe",
+    "league": "Spain - Primera Division",
+    "kick_off": "10 May 2026 16:30 UTC",
+    "odds": {
+      "1": "3.00",
+      "X": "3.05",
+      "2": "2.55"
+    }
+  },
+  {
+    "match_id": 9734837,
+    "home": "Mirandes",
+    "away": "Eibar",
+    "league": "Spain - Segunda Division",
+    "kick_off": "10 May 2026 16:30 UTC",
+    "odds": {
+      "1": "2.85",
+      "X": "3.30",
+      "2": "2.50"
+    }
+  },
+  {
+    "match_id": 9735462,
+    "home": "Milan",
+    "away": "Atalanta",
+    "league": "Italy - Serie A",
+    "kick_off": "10 May 2026 18:45 UTC",
+    "odds": {
+      "1": "2.15",
+      "X": "3.50",
+      "2": "3.60"
+    }
+  },
+  {
+    "match_id": 9734965,
+    "home": "Auxerre",
+    "away": "Nice",
+    "league": "France - Ligue 1",
+    "kick_off": "10 May 2026 19:00 UTC",
+    "odds": {
+      "1": "2.45",
+      "X": "3.45",
+      "2": "3.05"
+    }
+  },
+  {
+    "match_id": 9734970,
+    "home": "Le Havre",
+    "away": "Olympique Marseille",
+    "league": "France - Ligue 1",
+    "kick_off": "10 May 2026 19:00 UTC",
+    "odds": {
+      "1": "3.60",
+      "X": "3.50",
+      "2": "2.05"
+    }
+  },
+  {
+    "match_id": 9735463,
+    "home": "Monaco",
+    "away": "Lille",
+    "league": "France - Ligue 1",
+    "kick_off": "10 May 2026 19:00 UTC",
+    "odds": {
+      "1": "2.40",
+      "X": "3.75",
+      "2": "2.90"
+    }
+  }
+]

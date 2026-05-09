@@ -1,0 +1,717 @@
+[
+  {
+    "id": 8862911,
+    "smsId": 1948,
+    "competition": {},
+    "country": {
+      "id": 172,
+      "name": "Sweden",
+      "iso": "swe"
+    },
+    "sport": {},
+    "competitors": [
+      {
+        "id": 84659,
+        "name": "Varbergs Bois"
+      },
+      {
+        "id": 85674,
+        "name": "IFK Varnamo"
+      }
+    ],
+    "dateTimestamp": 1778259600000,
+    "date": "2026-05-08T17:00:00.000Z",
+    "state": {
+      "result": "-:-"
+    },
+    "markets": [
+      {
+        "columns": 3,
+        "columnsApp": 3,
+        "selections": [
+          {
+            "id": 2664931129,
+            "name": "Varbergs Bois",
+            "odds": "2.26",
+            "shortName": "1",
+            "specValue": 0
+          },
+          {
+            "id": 2664931135,
+            "name": "Draw",
+            "odds": "3.30",
+            "shortName": "X",
+            "specValue": 0
+          },
+          {
+            "id": 2664931141,
+            "name": "IFK Varnamo",
+            "odds": "2.65",
+            "shortName": "2",
+            "specValue": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8862915,
+    "smsId": 2002,
+    "competition": {},
+    "country": {
+      "id": 217,
+      "name": "Norway",
+      "iso": "nor"
+    },
+    "sport": {},
+    "competitors": [
+      {
+        "id": 84671,
+        "name": "Ham-Kam"
+      },
+      {
+        "id": 84258,
+        "name": "Valerenga"
+      }
+    ],
+    "dateTimestamp": 1778259600000,
+    "date": "2026-05-08T17:00:00.000Z",
+    "state": {
+      "result": "-:-"
+    },
+    "markets": [
+      {
+        "columns": 3,
+        "columnsApp": 3,
+        "selections": [
+          {
+            "id": 2664931547,
+            "name": "Ham-Kam",
+            "odds": "2.80",
+            "shortName": "1",
+            "specValue": 0
+          },
+          {
+            "id": 2664931553,
+            "name": "Draw",
+            "odds": "3.55",
+            "shortName": "X",
+            "specValue": 0
+          },
+          {
+            "id": 2664931557,
+            "name": "Valerenga",
+            "odds": "2.28",
+            "shortName": "2",
+            "specValue": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8870009,
+    "smsId": 2233,
+    "competition": {},
+    "country": {
+      "id": 59,
+      "name": "Egypt",
+      "iso": "egy"
+    },
+    "sport": {},
+    "competitors": [
+      {
+        "id": 614565,
+        "name": "Future FC"
+      },
+      {
+        "id": 17716,
+        "name": "El Ittihad Alexandria"
+      }
+    ],
+    "dateTimestamp": 1778259600000,
+    "date": "2026-05-08T17:00:00.000Z",
+    "state": {
+      "result": "-:-"
+    },
+    "markets": [
+      {
+        "columns": 3,
+        "columnsApp": 3,
+        "selections": [
+          {
+            "id": 2665581133,
+            "name": "Future FC",
+            "odds": "3.25",
+            "shortName": "1",
+            "specValue": 0
+          },
+          {
+            "id": 2665581135,
+            "name": "Draw",
+            "odds": "2.55",
+            "shortName": "X",
+            "specValue": 0
+          },
+          {
+            "id": 2665581137,
+            "name": "El Ittihad Alexandria",
+            "odds": "2.38",
+            "shortName": "2",
+            "specValue": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8870015,
+    "smsId": 5411,
+    "competition": {},
+    "country": {
+      "id": 59,
+      "name": "Egypt",
+      "iso": "egy"
+    },
+    "sport": {},
+    "competitors": [
+      {
+        "id": 568942,
+        "name": "Kahroba AL Ismailia"
+      },
+      {
+        "id": 540072,
+        "name": "Farco FC"
+      }
+    ],
+    "dateTimestamp": 1778259600000,
+    "date": "2026-05-08T17:00:00.000Z",
+    "state": {
+      "result": "-:-"
+    },
+    "markets": [
+      {
+        "columns": 3,
+        "columnsApp": 3,
+        "selections": [
+          {
+            "id": 2665581151,
+            "name": "Kahroba AL Ismailia",
+            "odds": "2.85",
+            "shortName": "1",
+            "specValue": 0
+          },
+          {
+            "id": 2665581153,
+            "name": "Draw",
+            "odds": "2.75",
+            "shortName": "X",
+            "specValue": 0
+          },
+          {
+            "id": 2665581155,
+            "name": "Farco FC",
+            "odds": "2.49",
+            "shortName": "2",
+            "specValue": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8867603,
+    "smsId": 3626,
+    "competition": {},
+    "country": {
+      "id": 172,
+      "name": "Sweden",
+      "iso": "swe"
+    },
+    "sport": {},
+    "competitors": [
+      {
+        "id": 535464,
+        "name": "Vanersborgs IF"
+      },
+      {
+        "id": 98002,
+        "name": "Lidkopings FK"
+      }
+    ],
+    "dateTimestamp": 1778260500000,
+    "date": "2026-05-08T17:15:00.000Z",
+    "state": {
+      "result": "-:-"
+    },
+    "markets": [
+      {
+        "columns": 3,
+        "columnsApp": 3,
+        "selections": [
+          {
+            "id": 2665404131,
+            "name": "Vanersborgs IF",
+            "odds": "2.20",
+            "shortName": "1",
+            "specValue": 0
+          },
+          {
+            "id": 2665404137,
+            "name": "Draw",
+            "odds": "3.30",
+            "shortName": "X",
+            "specValue": 0
+          },
+          {
+            "id": 2665404143,
+            "name": "Lidkopings FK",
+            "odds": "2.80",
+            "shortName": "2",
+            "specValue": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8867695,
+    "smsId": 5640,
+    "competition": {},
+    "country": {
+      "id": 172,
+      "name": "Sweden",
+      "iso": "swe"
+    },
+    "sport": {},
+    "competitors": [
+      {
+        "id": 97998,
+        "name": "Dalstorps IF"
+      },
+      {
+        "id": 545050,
+        "name": "Landvetter IS"
+      }
+    ],
+    "dateTimestamp": 1778261400000,
+    "date": "2026-05-08T17:30:00.000Z",
+    "state": {
+      "result": "-:-"
+    },
+    "markets": [
+      {
+        "columns": 3,
+        "columnsApp": 3,
+        "selections": [
+          {
+            "id": 2665410399,
+            "name": "Dalstorps IF",
+            "odds": "2.44",
+            "shortName": "1",
+            "specValue": 0
+          },
+          {
+            "id": 2665410405,
+            "name": "Draw",
+            "odds": "3.50",
+            "shortName": "X",
+            "specValue": 0
+          },
+          {
+            "id": 2665410411,
+            "name": "Landvetter IS",
+            "odds": "2.47",
+            "shortName": "2",
+            "specValue": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8862881,
+    "smsId": 5542,
+    "competition": {},
+    "country": {
+      "id": 94,
+      "name": "Italy",
+      "iso": "ita"
+    },
+    "sport": {},
+    "competitors": [
+      {
+        "id": 86170,
+        "name": "Catanzaro"
+      },
+      {
+        "id": 484,
+        "name": "Bari"
+      }
+    ],
+    "dateTimestamp": 1778265000000,
+    "date": "2026-05-08T18:30:00.000Z",
+    "state": {
+      "result": "-:-"
+    },
+    "markets": [
+      {
+        "columns": 3,
+        "columnsApp": 3,
+        "selections": [
+          {
+            "id": 2664928877,
+            "name": "Catanzaro",
+            "odds": "2.65",
+            "shortName": "1",
+            "specValue": 0
+          },
+          {
+            "id": 2664928989,
+            "name": "Draw",
+            "odds": "3.15",
+            "shortName": "X",
+            "specValue": 0
+          },
+          {
+            "id": 2664929065,
+            "name": "Bari",
+            "odds": "2.55",
+            "shortName": "2",
+            "specValue": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8850001,
+    "smsId": 3961,
+    "competition": {},
+    "country": {
+      "id": 94,
+      "name": "Italy",
+      "iso": "ita"
+    },
+    "sport": {},
+    "competitors": [
+      {
+        "id": 101,
+        "name": "Torino"
+      },
+      {
+        "id": 498,
+        "name": "Sassuolo"
+      }
+    ],
+    "dateTimestamp": 1778265900000,
+    "date": "2026-05-08T18:45:00.000Z",
+    "state": {
+      "result": "-:-"
+    },
+    "markets": [
+      {
+        "columns": 3,
+        "columnsApp": 3,
+        "selections": [
+          {
+            "id": 2663997261,
+            "name": "Torino",
+            "odds": "2.60",
+            "shortName": "1",
+            "specValue": 0
+          },
+          {
+            "id": 2663997265,
+            "name": "Draw",
+            "odds": "3.25",
+            "shortName": "X",
+            "specValue": 0
+          },
+          {
+            "id": 2663997271,
+            "name": "Sassuolo",
+            "odds": "2.90",
+            "shortName": "2",
+            "specValue": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8867161,
+    "smsId": 1589,
+    "competition": {},
+    "country": {
+      "id": 92,
+      "name": "Ireland",
+      "iso": "irl"
+    },
+    "sport": {},
+    "competitors": [
+      {
+        "id": 476,
+        "name": "Dundalk FC"
+      },
+      {
+        "id": 471,
+        "name": "Bohemians FC"
+      }
+    ],
+    "dateTimestamp": 1778265900000,
+    "date": "2026-05-08T18:45:00.000Z",
+    "state": {
+      "result": "-:-"
+    },
+    "markets": [
+      {
+        "columns": 3,
+        "columnsApp": 3,
+        "selections": [
+          {
+            "id": 2665363251,
+            "name": "Dundalk FC",
+            "odds": "2.60",
+            "shortName": "1",
+            "specValue": 0
+          },
+          {
+            "id": 2665363367,
+            "name": "Draw",
+            "odds": "3.45",
+            "shortName": "X",
+            "specValue": 0
+          },
+          {
+            "id": 2665363431,
+            "name": "Bohemians FC",
+            "odds": "2.47",
+            "shortName": "2",
+            "specValue": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8867171,
+    "smsId": 1134,
+    "competition": {},
+    "country": {
+      "id": 92,
+      "name": "Ireland",
+      "iso": "irl"
+    },
+    "sport": {},
+    "competitors": [
+      {
+        "id": 475,
+        "name": "Drogheda Utd"
+      },
+      {
+        "id": 474,
+        "name": "Derry City"
+      }
+    ],
+    "dateTimestamp": 1778265900000,
+    "date": "2026-05-08T18:45:00.000Z",
+    "state": {
+      "result": "-:-"
+    },
+    "markets": [
+      {
+        "columns": 3,
+        "columnsApp": 3,
+        "selections": [
+          {
+            "id": 2665364349,
+            "name": "Drogheda Utd",
+            "odds": "3.25",
+            "shortName": "1",
+            "specValue": 0
+          },
+          {
+            "id": 2665364433,
+            "name": "Draw",
+            "odds": "3.25",
+            "shortName": "X",
+            "specValue": 0
+          },
+          {
+            "id": 2665364479,
+            "name": "Derry City",
+            "odds": "2.16",
+            "shortName": "2",
+            "specValue": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8867857,
+    "smsId": 1890,
+    "competition": {},
+    "country": {
+      "id": 92,
+      "name": "Ireland",
+      "iso": "irl"
+    },
+    "sport": {},
+    "competitors": [
+      {
+        "id": 84687,
+        "name": "Athlone Town"
+      },
+      {
+        "id": 615365,
+        "name": "Treaty United"
+      }
+    ],
+    "dateTimestamp": 1778265900000,
+    "date": "2026-05-08T18:45:00.000Z",
+    "state": {
+      "result": "-:-"
+    },
+    "markets": [
+      {
+        "columns": 3,
+        "columnsApp": 3,
+        "selections": [
+          {
+            "id": 2665422175,
+            "name": "Athlone Town",
+            "odds": "1.92",
+            "shortName": "1",
+            "specValue": 0
+          },
+          {
+            "id": 2665422181,
+            "name": "Draw",
+            "odds": "3.25",
+            "shortName": "X",
+            "specValue": 0
+          },
+          {
+            "id": 2665422187,
+            "name": "Treaty United",
+            "odds": "3.45",
+            "shortName": "2",
+            "specValue": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8867865,
+    "smsId": 4349,
+    "competition": {},
+    "country": {
+      "id": 92,
+      "name": "Ireland",
+      "iso": "irl"
+    },
+    "sport": {},
+    "competitors": [
+      {
+        "id": 86110,
+        "name": "Finn Harps"
+      },
+      {
+        "id": 658003,
+        "name": "Kerry FC"
+      }
+    ],
+    "dateTimestamp": 1778265900000,
+    "date": "2026-05-08T18:45:00.000Z",
+    "state": {
+      "result": "-:-"
+    },
+    "markets": [
+      {
+        "columns": 3,
+        "columnsApp": 3,
+        "selections": [
+          {
+            "id": 2665422315,
+            "name": "Finn Harps",
+            "odds": "2.41",
+            "shortName": "1",
+            "specValue": 0
+          },
+          {
+            "id": 2665422321,
+            "name": "Draw",
+            "odds": "3.05",
+            "shortName": "X",
+            "specValue": 0
+          },
+          {
+            "id": 2665422325,
+            "name": "Kerry FC",
+            "odds": "2.65",
+            "shortName": "2",
+            "specValue": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8850021,
+    "smsId": 2489,
+    "competition": {},
+    "country": {
+      "id": 166,
+      "name": "Spain",
+      "iso": "esp"
+    },
+    "sport": {},
+    "competitors": [
+      {
+        "id": 174,
+        "name": "Levante"
+      },
+      {
+        "id": 177,
+        "name": "Osasuna"
+      }
+    ],
+    "dateTimestamp": 1778266800000,
+    "date": "2026-05-08T19:00:00.000Z",
+    "state": {
+      "result": "-:-"
+    },
+    "markets": [
+      {
+        "columns": 3,
+        "columnsApp": 3,
+        "selections": [
+          {
+            "id": 2664001217,
+            "name": "Levante",
+            "odds": "2.50",
+            "shortName": "1",
+            "specValue": 0
+          },
+          {
+            "id": 2664001371,
+            "name": "Draw",
+            "odds": "3.30",
+            "shortName": "X",
+            "specValue": 0
+          },
+          {
+            "id": 2664001445,
+            "name": "Osasuna",
+            "odds": "2.95",
+            "shortName": "2",
+            "specValue": 0
+          }
+        ]
+      }
+    ]
+  }
+]

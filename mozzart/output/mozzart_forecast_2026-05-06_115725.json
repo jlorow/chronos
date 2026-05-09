@@ -794,5 +794,95 @@
       "reason": "spread=1.05 \u2014 moderate uncertainty",
       "league_draw_pct": 30.0
     }
-  ]
+  ],
+  "actuals": {
+    "logged_at": "2026-05-07_092701",
+    "results": [
+      "1",
+      "1",
+      "1",
+      "1",
+      "2",
+      "1",
+      "X",
+      "X",
+      "X",
+      "X",
+      "2",
+      "X",
+      "X",
+      "X",
+      "2",
+      "1"
+    ],
+    "scores": [
+      "1-0",
+      "3-2",
+      "1-0",
+      "1-0",
+      "0-1",
+      "3-1",
+      "1-1",
+      "1-1",
+      "1-1",
+      "1-1",
+      "1-2",
+      "1-1",
+      "1-1",
+      "2-2",
+      "1-2",
+      "2-1"
+    ],
+    "distribution": {
+      "actual_draws": 7,
+      "actual_homes": 6,
+      "actual_aways": 3
+    },
+    "ticket_scores": {
+      "conservative": 5,
+      "base": 8,
+      "draw_heavy": 12
+    },
+    "best_ticket": "draw_heavy",
+    "best_score": 12,
+    "distribution_error": {
+      "predicted_draws": 5.0,
+      "predicted_homes": 4.0,
+      "predicted_aways": 4.1,
+      "actual_draws": 7,
+      "actual_homes": 6,
+      "actual_aways": 3,
+      "draw_error": 2,
+      "home_error": 2,
+      "away_error": -1,
+      "draw_within_1": false,
+      "draw_direction": "under"
+    },
+    "signal_accuracy": {
+      "mirror_ge3": {
+        "fired": true,
+        "signal": "draw-heavy expected",
+        "actual": "7 draws",
+        "correct": true
+      }
+    },
+    "per_match_accuracy": {
+      "Home": {
+        "predicted": 4,
+        "correct": 2,
+        "accuracy": 50.0
+      },
+      "Draw": {
+        "predicted": 5,
+        "correct": 4,
+        "accuracy": 80.0
+      },
+      "Away": {
+        "predicted": 7,
+        "correct": 2,
+        "accuracy": 28.6
+      }
+    },
+    "_saved_to": "mozzart_forecast_2026-05-06_115725.json"
+  }
 }

@@ -1,0 +1,145 @@
+[
+  {
+    "order": 1948,
+    "event_id": 8862911,
+    "home": "Varbergs Bois",
+    "away": "IFK Varnamo",
+    "country": "Sweden",
+    "kickoff": "2026-05-08T17:00:00.000Z",
+    "home_odd": "2.26",
+    "draw_odd": "3.30",
+    "away_odd": "2.65"
+  },
+  {
+    "order": 2002,
+    "event_id": 8862915,
+    "home": "Ham-Kam",
+    "away": "Valerenga",
+    "country": "Norway",
+    "kickoff": "2026-05-08T17:00:00.000Z",
+    "home_odd": "2.80",
+    "draw_odd": "3.55",
+    "away_odd": "2.28"
+  },
+  {
+    "order": 2233,
+    "event_id": 8870009,
+    "home": "Future FC",
+    "away": "El Ittihad Alexandria",
+    "country": "Egypt",
+    "kickoff": "2026-05-08T17:00:00.000Z",
+    "home_odd": "3.25",
+    "draw_odd": "2.55",
+    "away_odd": "2.38"
+  },
+  {
+    "order": 5411,
+    "event_id": 8870015,
+    "home": "Kahroba AL Ismailia",
+    "away": "Farco FC",
+    "country": "Egypt",
+    "kickoff": "2026-05-08T17:00:00.000Z",
+    "home_odd": "2.85",
+    "draw_odd": "2.75",
+    "away_odd": "2.49"
+  },
+  {
+    "order": 3626,
+    "event_id": 8867603,
+    "home": "Vanersborgs IF",
+    "away": "Lidkopings FK",
+    "country": "Sweden",
+    "kickoff": "2026-05-08T17:15:00.000Z",
+    "home_odd": "2.20",
+    "draw_odd": "3.30",
+    "away_odd": "2.80"
+  },
+  {
+    "order": 5640,
+    "event_id": 8867695,
+    "home": "Dalstorps IF",
+    "away": "Landvetter IS",
+    "country": "Sweden",
+    "kickoff": "2026-05-08T17:30:00.000Z",
+    "home_odd": "2.44",
+    "draw_odd": "3.50",
+    "away_odd": "2.47"
+  },
+  {
+    "order": 5542,
+    "event_id": 8862881,
+    "home": "Catanzaro",
+    "away": "Bari",
+    "country": "Italy",
+    "kickoff": "2026-05-08T18:30:00.000Z",
+    "home_odd": "2.65",
+    "draw_odd": "3.15",
+    "away_odd": "2.55"
+  },
+  {
+    "order": 3961,
+    "event_id": 8850001,
+    "home": "Torino",
+    "away": "Sassuolo",
+    "country": "Italy",
+    "kickoff": "2026-05-08T18:45:00.000Z",
+    "home_odd": "2.60",
+    "draw_odd": "3.25",
+    "away_odd": "2.90"
+  },
+  {
+    "order": 1589,
+    "event_id": 8867161,
+    "home": "Dundalk FC",
+    "away": "Bohemians FC",
+    "country": "Ireland",
+    "kickoff": "2026-05-08T18:45:00.000Z",
+    "home_odd": "2.60",
+    "draw_odd": "3.45",
+    "away_odd": "2.47"
+  },
+  {
+    "order": 1134,
+    "event_id": 8867171,
+    "home": "Drogheda Utd",
+    "away": "Derry City",
+    "country": "Ireland",
+    "kickoff": "2026-05-08T18:45:00.000Z",
+    "home_odd": "3.25",
+    "draw_odd": "3.25",
+    "away_odd": "2.16"
+  },
+  {
+    "order": 1890,
+    "event_id": 8867857,
+    "home": "Athlone Town",
+    "away": "Treaty United",
+    "country": "Ireland",
+    "kickoff": "2026-05-08T18:45:00.000Z",
+    "home_odd": "1.92",
+    "draw_odd": "3.25",
+    "away_odd": "3.45"
+  },
+  {
+    "order": 4349,
+    "event_id": 8867865,
+    "home": "Finn Harps",
+    "away": "Kerry FC",
+    "country": "Ireland",
+    "kickoff": "2026-05-08T18:45:00.000Z",
+    "home_odd": "2.41",
+    "draw_odd": "3.05",
+    "away_odd": "2.65"
+  },
+  {
+    "order": 2489,
+    "event_id": 8850021,
+    "home": "Levante",
+    "away": "Osasuna",
+    "country": "Spain",
+    "kickoff": "2026-05-08T19:00:00.000Z",
+    "home_odd": "2.50",
+    "draw_odd": "3.30",
+    "away_odd": "2.95"
+  }
+]

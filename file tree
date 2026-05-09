@@ -1,0 +1,94 @@
+Chronos/
+├─ .venv/
+│  
+│  
+├─ midweek/
+│  ├─ data/
+│  │  ├─ batches/
+│  │  │  ├─ BATCH_1_enriched.json
+│  │  │  ├─ BATCH_2_enriched.json
+│  │  │  ├─ BATCH_3_enriched.json
+│  │  │  ├─ BATCH_4_enriched.json
+│  │  │  └─ BATCH_5_enriched.json
+│  │  ├─ cards/
+│  │  │  ├─ jackpot_parsed_2026-05-01T13-10-04Z.json
+│  │  │  ├─ jackpot_parsed_2026-05-08T07-49-09Z.json
+│  │  │  └─ jackpot_raw_2026-05-08T07-49-09Z.json
+│  │  └─ enriched/
+│  ├─ output/
+│  │  ├─ midweek_forecast_2026-05-04_225915.json
+│  │  └─ midweek_forecast_2026-05-08_111840.json
+│  ├─ fetch_sportpesa_midweek_jackpot.py
+│  ├─ midweek_forecast.py
+│  
+├─ mozzart/
+│  ├─ data/
+│  │  ├─ batches/
+│  │  │  ├─ batch-1.json
+│  │  │  ├─ batch-2.json
+│  │  │  └─ batch-3.json
+│  │  ├─ cards/
+│  │  │  ├─ mozzart_daily_2026-05-02_132342.json
+│  │  │  ├─ mozzart_daily_2026-05-03_154643.json
+│  │  │  ├─ mozzart_daily_2026-05-04_151536.json
+│  │  │  ├─ mozzart_daily_2026-05-05_141356.json
+│  │  │  ├─ mozzart_daily_2026-05-06_111537.json
+│  │  │  └─ mozzart_daily_2026-05-07_094626.json
+│  │  └─ enriched/
+│  ├─ output/
+│  │  ├─ mozzart_forecast_2026-05-03_161427.json
+│  │  ├─ mozzart_forecast_2026-05-03_162521.json
+│  │  ├─ mozzart_forecast_2026-05-04_151645.json
+│  │  ├─ mozzart_forecast_2026-05-05_142212.json
+│  │  ├─ mozzart_forecast_2026-05-06_115725.json
+│  │  └─ mozzart_forecast_2026-05-07_095156.json
+│  ├─ mozzart_betting_scraper.py
+│  ├─ mozzart_forecast.py
+│  └─ mozzart_jackpot_complete.py (fetch mozzart jackpot)
+├─ rounds/
+│  ├─ round_2026-04-28.json
+│  ├─ round_2026-04-29.json
+│  ├─ round_2026-04-30.json
+│  ├─ round_2026-05-01.json
+│  ├─ round_2026-05-02.json
+│  ├─ round_2026-05-03.json
+│  ├─ round_2026-05-05_1000028315.json
+│  └─ round_2026-05-06_1000028326.json
+├─ shared/
+├─ sofa-stats/
+│  ├─ AEK Larnaca vs Apollon Limassol live score, H2H and lineups _ Sofascore.mhtml
+│  ├─ Almere City FC vs De Graafschap live score, H2H and lineups _ Sofascore.mhtml
+│  ├─ AmaZulu FC vs Lamontville Golden Arrows live score, H2H and lineups _ Sofascore.mhtml
+│  ├─ Aris Limassol vs APOEL Nicosia live score, H2H and lineups _ Sofascore.mhtml
+│  ├─ Audax Italiano vs Vasco da Gama live score, H2H and lineups _ Sofascore.mhtml
+│  ├─ Barracas Central vs Olimpia live score, H2H and lineups _ Sofascore.mhtml
+│  ├─ Botafogo vs Racing Club live score, H2H and lineups _ Sofascore.mhtml
+│  ├─ Cusco FC vs Estudiantes de La Plata live score, H2H and lineups _ Sofascore.mhtml
+│  ├─ Deportivo La Guaira vs Bolívar live score, H2H and lineups _ Sofascore.mhtml
+│  ├─ FC Hegelmann vs FK Panevėžys live score, H2H and lineups _ Sofascore.mhtml
+│  ├─ FK Spartak Varna vs FK Dobrudzha Dobrich live score, H2H and lineups _ Sofascore.mhtml
+│  ├─ FK Transinvest vs FK Sūduva Marijampolė live score, H2H and lineups _ Sofascore.mhtml
+│  ├─ FS Jelgava vs SK Super Nova live score, H2H and lineups _ Sofascore.mhtml
+│  ├─ Hapoel Tel Aviv vs Beitar Jerusalem live score, H2H and lineups _ Sofascore.mhtml
+│  ├─ Macará vs Tigre live score, H2H and lineups _ Sofascore.mhtml
+│  ├─ Marumo Gallants FC vs TS Galaxy live score, H2H and lineups _ Sofascore.mhtml
+│  └─ sofascore_parsed_batch.json
+├─ sportpesa/
+│  ├─ data/
+│  │  ├─ batches/
+│  │  │  └─ mega_jackpot_enriched.json
+│  │  ├─ cards/
+│  │  │  └─ mega_jackpot_parsed_2026-05-02T22-31-42Z.json
+│  │  └─ enriched/
+│  ├─ output/
+│  │  └─ sportpesa_forecast_2026-05-04_115935.json
+│  ├─ fetch_sportpesa_mega_jackpot.py 
+│  ├─ sportpesa_forecast.py
+│  └─ sportpesa_scraper.py
+├─ commnads
+├─ log_actuals.py
+├─ mozzart_v21.md
+├─ results.json
+├─ round_to_results.py 
+├─ sofascore_parser.py
+└─ super_jackpot_results.py

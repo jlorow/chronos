@@ -1,0 +1,183 @@
+{
+  "ticketId": 1000028326,
+  "roundId": 2438,
+  "date": "2026-05-06 18:00",
+  "matches": [
+    {
+      "row": 1,
+      "home": "Jelgava",
+      "away": "Super Nova",
+      "league": "Latvia - Virsliga",
+      "result": "1",
+      "score": "1-0",
+      "odds_1": 2.3,
+      "odds_x": 3.2,
+      "odds_2": 3.0
+    },
+    {
+      "row": 2,
+      "home": "Hegelmann Litauen",
+      "away": "Panevezis",
+      "league": "Lithuania - A Lyga",
+      "result": "1",
+      "score": "3-2",
+      "odds_1": 2.4,
+      "odds_x": 3.2,
+      "odds_2": 2.85
+    },
+    {
+      "row": 3,
+      "home": "AEK Larnaca",
+      "away": "Apollon Lim.",
+      "league": "Cyprus 1 - Championship Round",
+      "result": "1",
+      "score": "1-0",
+      "odds_1": 2.05,
+      "odds_x": 3.25,
+      "odds_2": 3.5
+    },
+    {
+      "row": 4,
+      "home": "Aris Limmasol",
+      "away": "Apoel Nicosia",
+      "league": "Cyprus 1 - Championship Round",
+      "result": "1",
+      "score": "1-0",
+      "odds_1": 2.7,
+      "odds_x": 3.3,
+      "odds_2": 2.45
+    },
+    {
+      "row": 5,
+      "home": "Hapoel T.A.",
+      "away": "Beitar J.",
+      "league": "Israel 1 - Play Off",
+      "result": "2",
+      "score": "0-1",
+      "odds_1": 3.15,
+      "odds_x": 3.35,
+      "odds_2": 2.15
+    },
+    {
+      "row": 6,
+      "home": "Almere",
+      "away": "De Graafschap",
+      "league": "Netherlands - Erste Divisie Play Off",
+      "result": "1",
+      "score": "3-1",
+      "odds_1": 2.3,
+      "odds_x": 3.5,
+      "odds_2": 2.75
+    },
+    {
+      "row": 7,
+      "home": "Spartak Varna",
+      "away": "Dobrudzha",
+      "league": "Bulgaria 1 - Play Out",
+      "result": "X",
+      "score": "1-1",
+      "odds_1": 3.0,
+      "odds_x": 3.2,
+      "odds_2": 2.3
+    },
+    {
+      "row": 8,
+      "home": "Transinvest",
+      "away": "Suduva",
+      "league": "Lithuania - A Lyga",
+      "result": "X",
+      "score": "1-1",
+      "odds_1": 2.2,
+      "odds_x": 3.3,
+      "odds_2": 3.1
+    },
+    {
+      "row": 9,
+      "home": "Amazulu",
+      "away": "Golden Arrows",
+      "league": "South Africa - Psl",
+      "result": "X",
+      "score": "1-1",
+      "odds_1": 2.0,
+      "odds_x": 3.25,
+      "odds_2": 3.7
+    },
+    {
+      "row": 10,
+      "home": "Marumo Gallants",
+      "away": "Galaxy",
+      "league": "South Africa - Psl",
+      "result": "X",
+      "score": "1-1",
+      "odds_1": 2.4,
+      "odds_x": 3.0,
+      "odds_2": 3.0
+    },
+    {
+      "row": 11,
+      "home": "Audax Italiano",
+      "away": "Vasco da Gama",
+      "league": "Copa Sudamericana",
+      "result": "2",
+      "score": "1-2",
+      "odds_1": 2.55,
+      "odds_x": 3.15,
+      "odds_2": 2.9
+    },
+    {
+      "row": 12,
+      "home": "Cusco",
+      "away": "Estudiantes",
+      "league": "Copa Libertadores",
+      "result": "X",
+      "score": "1-1",
+      "odds_1": 3.25,
+      "odds_x": 3.15,
+      "odds_2": 2.35
+    },
+    {
+      "row": 13,
+      "home": "Dep.La Guaira",
+      "away": "Bolivar",
+      "league": "Copa Libertadores",
+      "result": "X",
+      "score": "1-1",
+      "odds_1": 2.95,
+      "odds_x": 3.1,
+      "odds_2": 2.55
+    },
+    {
+      "row": 14,
+      "home": "Macara",
+      "away": "Tigre",
+      "league": "Copa Sudamericana",
+      "result": "X",
+      "score": "2-2",
+      "odds_1": 2.9,
+      "odds_x": 3.0,
+      "odds_2": 2.7
+    },
+    {
+      "row": 15,
+      "home": "Barracas",
+      "away": "Olimpia",
+      "league": "Copa Sudamericana",
+      "result": "2",
+      "score": "1-2",
+      "odds_1": 2.7,
+      "odds_x": 2.95,
+      "odds_2": 2.9
+    },
+    {
+      "row": 16,
+      "home": "Botafogo",
+      "away": "Racing Club",
+      "league": "Copa Sudamericana",
+      "result": "1",
+      "score": "2-1",
+      "odds_1": 2.2,
+      "odds_x": 3.4,
+      "odds_2": 3.3
+    }
+  ]
+}

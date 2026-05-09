@@ -1,0 +1,3380 @@
+{
+  "batch_info": {
+    "total_files_found": 16,
+    "files_processed": 16,
+    "files_skipped": 0,
+    "output_file": "C:\\Users\\User\\Desktop\\Chronos\\sofa-stats\\sofascore_parsed_batch.json"
+  },
+  "results": [
+    {
+      "page_type": "match",
+      "source_file": "AEK Larnaca vs Apollon Limassol live score, H2H and lineups _ Sofascore.mhtml",
+      "match_context": {
+        "home_team": "AEK Larnaca",
+        "away_team": "Apollon Limassol",
+        "tournament": null,
+        "season": null,
+        "round": null,
+        "status": null,
+        "start_timestamp": null,
+        "venue": null,
+        "referee": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "standings": {
+        "home_position": null,
+        "away_position": null
+      },
+      "home_team": {
+        "name": "AEK Larnaca"
+      },
+      "away_team": {
+        "name": "Apollon Limassol"
+      },
+      "home_team_form": {
+        "team": "AEK Larnaca",
+        "form_last5": "D,D,D,D,L",
+        "goals_scored_last5": 5,
+        "goals_conceded_last5": 6,
+        "match_history": [
+          {
+            "date": "05/04/26",
+            "home": "Apollon",
+            "away": "AEK Larnaca",
+            "home_score": 1,
+            "away_score": 1,
+            "is_home": false,
+            "our_goals": 1,
+            "opp_goals": 1,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "14/02/26",
+            "home": "AEK Larnaca",
+            "away": "Apollon",
+            "home_score": 0,
+            "away_score": 0,
+            "is_home": true,
+            "our_goals": 0,
+            "opp_goals": 0,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "02/11/25",
+            "home": "Apollon",
+            "away": "AEK Larnaca",
+            "home_score": 1,
+            "away_score": 1,
+            "is_home": false,
+            "our_goals": 1,
+            "opp_goals": 1,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "12/05/25",
+            "home": "AEK Larnaca",
+            "away": "Apollon",
+            "home_score": 3,
+            "away_score": 3,
+            "is_home": true,
+            "our_goals": 3,
+            "opp_goals": 3,
+            "result": "D",
+            "competition": "Cyprus League by Stoiximan"
+          },
+          {
+            "date": "03/05/26",
+            "home": "APOEL",
+            "away": "AEK Larnaca",
+            "home_score": 1,
+            "away_score": 0,
+            "is_home": false,
+            "our_goals": 0,
+            "opp_goals": 1,
+            "result": "L",
+            "competition": ""
+          },
+          {
+            "date": "25/04/26",
+            "home": "AEK Larnaca",
+            "away": "Aris",
+            "home_score": 2,
+            "away_score": 0,
+            "is_home": true,
+            "our_goals": 2,
+            "opp_goals": 0,
+            "result": "W",
+            "competition": ""
+          }
+        ]
+      },
+      "away_team_form": {
+        "team": "Apollon Limassol",
+        "form_last5": "D,D,D,D,L",
+        "goals_scored_last5": 5,
+        "goals_conceded_last5": 6,
+        "match_history": [
+          {
+            "date": "05/04/26",
+            "home": "Apollon",
+            "away": "AEK Larnaca",
+            "home_score": 1,
+            "away_score": 1,
+            "is_home": false,
+            "our_goals": 1,
+            "opp_goals": 1,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "14/02/26",
+            "home": "AEK Larnaca",
+            "away": "Apollon",
+            "home_score": 0,
+            "away_score": 0,
+            "is_home": false,
+            "our_goals": 0,
+            "opp_goals": 0,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "02/11/25",
+            "home": "Apollon",
+            "away": "AEK Larnaca",
+            "home_score": 1,
+            "away_score": 1,
+            "is_home": false,
+            "our_goals": 1,
+            "opp_goals": 1,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "12/05/25",
+            "home": "AEK Larnaca",
+            "away": "Apollon",
+            "home_score": 3,
+            "away_score": 3,
+            "is_home": false,
+            "our_goals": 3,
+            "opp_goals": 3,
+            "result": "D",
+            "competition": "Cyprus League by Stoiximan"
+          },
+          {
+            "date": "03/05/26",
+            "home": "APOEL",
+            "away": "AEK Larnaca",
+            "home_score": 1,
+            "away_score": 0,
+            "is_home": false,
+            "our_goals": 0,
+            "opp_goals": 1,
+            "result": "L",
+            "competition": ""
+          },
+          {
+            "date": "25/04/26",
+            "home": "AEK Larnaca",
+            "away": "Aris",
+            "home_score": 2,
+            "away_score": 0,
+            "is_home": false,
+            "our_goals": 0,
+            "opp_goals": 2,
+            "result": "L",
+            "competition": ""
+          }
+        ]
+      },
+      "h2h_history": [
+        {
+          "date": "05/04/26",
+          "status": "FT",
+          "home": "Apollon",
+          "away": "AEK Larnaca",
+          "home_score": 1,
+          "away_score": 1,
+          "ht_home": 1,
+          "ht_away": 1,
+          "competition": "",
+          "result": "D",
+          "our_goals": 1,
+          "opp_goals": 1,
+          "is_home": false
+        },
+        {
+          "date": "14/02/26",
+          "status": "FT",
+          "home": "AEK Larnaca",
+          "away": "Apollon",
+          "home_score": 0,
+          "away_score": 0,
+          "ht_home": 1,
+          "ht_away": 1,
+          "competition": "",
+          "result": "D",
+          "our_goals": 0,
+          "opp_goals": 0,
+          "is_home": true
+        },
+        {
+          "date": "02/11/25",
+          "status": "FT",
+          "home": "Apollon",
+          "away": "AEK Larnaca",
+          "home_score": 1,
+          "away_score": 1,
+          "ht_home": 2,
+          "ht_away": 2,
+          "competition": "",
+          "result": "D",
+          "our_goals": 1,
+          "opp_goals": 1,
+          "is_home": false
+        },
+        {
+          "date": "12/05/25",
+          "status": "FT",
+          "home": "AEK Larnaca",
+          "away": "Apollon",
+          "home_score": 3,
+          "away_score": 3,
+          "ht_home": 0,
+          "ht_away": 0,
+          "competition": "Cyprus League by Stoiximan",
+          "result": "D",
+          "our_goals": 3,
+          "opp_goals": 3,
+          "is_home": true
+        },
+        {
+          "date": "03/05/26",
+          "status": "FT",
+          "home": "APOEL",
+          "away": "AEK Larnaca",
+          "home_score": 1,
+          "away_score": 0,
+          "ht_home": null,
+          "ht_away": null,
+          "competition": "",
+          "result": "L",
+          "our_goals": 0,
+          "opp_goals": 1,
+          "is_home": false
+        },
+        {
+          "date": "25/04/26",
+          "status": "FT",
+          "home": "AEK Larnaca",
+          "away": "Aris",
+          "home_score": 2,
+          "away_score": 0,
+          "ht_home": null,
+          "ht_away": null,
+          "competition": "",
+          "result": "W",
+          "our_goals": 2,
+          "opp_goals": 0,
+          "is_home": true
+        }
+      ],
+      "h2h_summary": {
+        "team": "AEK Larnaca",
+        "played": 6,
+        "wins": 1,
+        "draws": 4,
+        "losses": 1,
+        "goals_for": 7,
+        "goals_against": 6
+      }
+    },
+    {
+      "page_type": "match",
+      "source_file": "Almere City FC vs De Graafschap live score, H2H and lineups _ Sofascore.mhtml",
+      "match_context": {
+        "home_team": "Almere City FC",
+        "away_team": "De Graafschap",
+        "tournament": null,
+        "season": null,
+        "round": null,
+        "status": null,
+        "start_timestamp": null,
+        "venue": null,
+        "referee": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "standings": {
+        "home_position": null,
+        "away_position": null
+      },
+      "home_team": {
+        "name": "Almere City FC"
+      },
+      "away_team": {
+        "name": "De Graafschap"
+      },
+      "home_team_form": {
+        "team": "Almere City FC",
+        "form_last5": "D,D,D,L,W",
+        "goals_scored_last5": 10,
+        "goals_conceded_last5": 12,
+        "match_history": [
+          {
+            "date": "18/01/26",
+            "home": "Almere",
+            "away": "De Graafschap",
+            "home_score": 2,
+            "away_score": 2,
+            "is_home": false,
+            "our_goals": 2,
+            "opp_goals": 2,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "29/09/25",
+            "home": "De Graafschap",
+            "away": "Almere",
+            "home_score": 3,
+            "away_score": 3,
+            "is_home": false,
+            "our_goals": 3,
+            "opp_goals": 3,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "20/01/23",
+            "home": "Almere",
+            "away": "De Graafschap",
+            "home_score": 2,
+            "away_score": 2,
+            "is_home": false,
+            "our_goals": 2,
+            "opp_goals": 2,
+            "result": "D",
+            "competition": "VriendenLoterij Eredivisie"
+          },
+          {
+            "date": "02/05/26",
+            "home": "Almere",
+            "away": "Den Bosch",
+            "home_score": 3,
+            "away_score": 0,
+            "is_home": false,
+            "our_goals": 0,
+            "opp_goals": 3,
+            "result": "L",
+            "competition": ""
+          },
+          {
+            "date": "29/04/26",
+            "home": "Den Bosch",
+            "away": "Almere",
+            "home_score": 2,
+            "away_score": 3,
+            "is_home": false,
+            "our_goals": 3,
+            "opp_goals": 2,
+            "result": "W",
+            "competition": "Eerste Divisie"
+          }
+        ]
+      },
+      "away_team_form": {
+        "team": "De Graafschap",
+        "form_last5": "D,D,D,L,W",
+        "goals_scored_last5": 10,
+        "goals_conceded_last5": 12,
+        "match_history": [
+          {
+            "date": "18/01/26",
+            "home": "Almere",
+            "away": "De Graafschap",
+            "home_score": 2,
+            "away_score": 2,
+            "is_home": false,
+            "our_goals": 2,
+            "opp_goals": 2,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "29/09/25",
+            "home": "De Graafschap",
+            "away": "Almere",
+            "home_score": 3,
+            "away_score": 3,
+            "is_home": true,
+            "our_goals": 3,
+            "opp_goals": 3,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "20/01/23",
+            "home": "Almere",
+            "away": "De Graafschap",
+            "home_score": 2,
+            "away_score": 2,
+            "is_home": false,
+            "our_goals": 2,
+            "opp_goals": 2,
+            "result": "D",
+            "competition": "VriendenLoterij Eredivisie"
+          },
+          {
+            "date": "02/05/26",
+            "home": "Almere",
+            "away": "Den Bosch",
+            "home_score": 3,
+            "away_score": 0,
+            "is_home": false,
+            "our_goals": 0,
+            "opp_goals": 3,
+            "result": "L",
+            "competition": ""
+          },
+          {
+            "date": "29/04/26",
+            "home": "Den Bosch",
+            "away": "Almere",
+            "home_score": 2,
+            "away_score": 3,
+            "is_home": false,
+            "our_goals": 3,
+            "opp_goals": 2,
+            "result": "W",
+            "competition": "Eerste Divisie"
+          }
+        ]
+      },
+      "h2h_history": [
+        {
+          "date": "18/01/26",
+          "status": "FT",
+          "home": "Almere",
+          "away": "De Graafschap",
+          "home_score": 2,
+          "away_score": 2,
+          "ht_home": 0,
+          "ht_away": 0,
+          "competition": "",
+          "result": "D",
+          "our_goals": 2,
+          "opp_goals": 2,
+          "is_home": false
+        },
+        {
+          "date": "29/09/25",
+          "status": "FT",
+          "home": "De Graafschap",
+          "away": "Almere",
+          "home_score": 3,
+          "away_score": 3,
+          "ht_home": 2,
+          "ht_away": 2,
+          "competition": "",
+          "result": "D",
+          "our_goals": 3,
+          "opp_goals": 3,
+          "is_home": false
+        },
+        {
+          "date": "20/01/23",
+          "status": "FT",
+          "home": "Almere",
+          "away": "De Graafschap",
+          "home_score": 2,
+          "away_score": 2,
+          "ht_home": 2,
+          "ht_away": 2,
+          "competition": "VriendenLoterij Eredivisie",
+          "result": "D",
+          "our_goals": 2,
+          "opp_goals": 2,
+          "is_home": false
+        },
+        {
+          "date": "02/05/26",
+          "status": "FT",
+          "home": "Almere",
+          "away": "Den Bosch",
+          "home_score": 3,
+          "away_score": 0,
+          "ht_home": null,
+          "ht_away": null,
+          "competition": "",
+          "result": "L",
+          "our_goals": 0,
+          "opp_goals": 3,
+          "is_home": false
+        },
+        {
+          "date": "29/04/26",
+          "status": "FT",
+          "home": "Den Bosch",
+          "away": "Almere",
+          "home_score": 2,
+          "away_score": 3,
+          "ht_home": null,
+          "ht_away": null,
+          "competition": "Eerste Divisie",
+          "result": "W",
+          "our_goals": 3,
+          "opp_goals": 2,
+          "is_home": false
+        }
+      ],
+      "h2h_summary": {
+        "team": "Almere City FC",
+        "played": 5,
+        "wins": 1,
+        "draws": 3,
+        "losses": 1,
+        "goals_for": 10,
+        "goals_against": 12
+      }
+    },
+    {
+      "page_type": "match",
+      "source_file": "AmaZulu FC vs Lamontville Golden Arrows live score, H2H and lineups _ Sofascore.mhtml",
+      "match_context": {
+        "home_team": "AmaZulu FC",
+        "away_team": "Lamontville Golden Arrows",
+        "tournament": null,
+        "season": null,
+        "round": null,
+        "status": null,
+        "start_timestamp": null,
+        "venue": null,
+        "referee": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "standings": {
+        "home_position": null,
+        "away_position": null
+      },
+      "home_team": {
+        "name": "AmaZulu FC"
+      },
+      "away_team": {
+        "name": "Lamontville Golden Arrows"
+      },
+      "home_team_form": {
+        "team": "AmaZulu FC",
+        "form_last5": "D,D,D,D,L",
+        "goals_scored_last5": 4,
+        "goals_conceded_last5": 8,
+        "match_history": [
+          {
+            "date": "02/12/25",
+            "home": "Golden Arrows",
+            "away": "AmaZulu",
+            "home_score": 0,
+            "away_score": 0,
+            "is_home": false,
+            "our_goals": 0,
+            "opp_goals": 0,
+            "result": "D",
+            "competition": "Club Friendly Games"
+          },
+          {
+            "date": "26/07/25",
+            "home": "AmaZulu",
+            "away": "Golden Arrows",
+            "home_score": 3,
+            "away_score": 3,
+            "is_home": false,
+            "our_goals": 3,
+            "opp_goals": 3,
+            "result": "D",
+            "competition": "South African Premier Division"
+          },
+          {
+            "date": "26/04/25",
+            "home": "Golden Arrows",
+            "away": "AmaZulu",
+            "home_score": 0,
+            "away_score": 0,
+            "is_home": false,
+            "our_goals": 0,
+            "opp_goals": 0,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "04/01/25",
+            "home": "AmaZulu",
+            "away": "Golden Arrows",
+            "home_score": 0,
+            "away_score": 0,
+            "is_home": false,
+            "our_goals": 0,
+            "opp_goals": 0,
+            "result": "D",
+            "competition": "South African Premier Division"
+          },
+          {
+            "date": "25/04/26",
+            "home": "AmaZulu",
+            "away": "Chippa Utd",
+            "home_score": 5,
+            "away_score": 1,
+            "is_home": false,
+            "our_goals": 1,
+            "opp_goals": 5,
+            "result": "L",
+            "competition": ""
+          },
+          {
+            "date": "18/04/26",
+            "home": "Orlando Pirates",
+            "away": "AmaZulu",
+            "home_score": 3,
+            "away_score": 0,
+            "is_home": false,
+            "our_goals": 0,
+            "opp_goals": 3,
+            "result": "L",
+            "competition": ""
+          }
+        ]
+      },
+      "away_team_form": {
+        "team": "Lamontville Golden Arrows",
+        "form_last5": "D,D,D,D,L",
+        "goals_scored_last5": 4,
+        "goals_conceded_last5": 8,
+        "match_history": [
+          {
+            "date": "02/12/25",
+            "home": "Golden Arrows",
+            "away": "AmaZulu",
+            "home_score": 0,
+            "away_score": 0,
+            "is_home": false,
+            "our_goals": 0,
+            "opp_goals": 0,
+            "result": "D",
+            "competition": "Club Friendly Games"
+          },
+          {
+            "date": "26/07/25",
+            "home": "AmaZulu",
+            "away": "Golden Arrows",
+            "home_score": 3,
+            "away_score": 3,
+            "is_home": false,
+            "our_goals": 3,
+            "opp_goals": 3,
+            "result": "D",
+            "competition": "South African Premier Division"
+          },
+          {
+            "date": "26/04/25",
+            "home": "Golden Arrows",
+            "away": "AmaZulu",
+            "home_score": 0,
+            "away_score": 0,
+            "is_home": false,
+            "our_goals": 0,
+            "opp_goals": 0,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "04/01/25",
+            "home": "AmaZulu",
+            "away": "Golden Arrows",
+            "home_score": 0,
+            "away_score": 0,
+            "is_home": false,
+            "our_goals": 0,
+            "opp_goals": 0,
+            "result": "D",
+            "competition": "South African Premier Division"
+          },
+          {
+            "date": "25/04/26",
+            "home": "AmaZulu",
+            "away": "Chippa Utd",
+            "home_score": 5,
+            "away_score": 1,
+            "is_home": false,
+            "our_goals": 1,
+            "opp_goals": 5,
+            "result": "L",
+            "competition": ""
+          },
+          {
+            "date": "18/04/26",
+            "home": "Orlando Pirates",
+            "away": "AmaZulu",
+            "home_score": 3,
+            "away_score": 0,
+            "is_home": false,
+            "our_goals": 0,
+            "opp_goals": 3,
+            "result": "L",
+            "competition": ""
+          }
+        ]
+      },
+      "h2h_history": [
+        {
+          "date": "02/12/25",
+          "status": "FT",
+          "home": "Golden Arrows",
+          "away": "AmaZulu",
+          "home_score": 0,
+          "away_score": 0,
+          "ht_home": 1,
+          "ht_away": 1,
+          "competition": "Club Friendly Games",
+          "result": "D",
+          "our_goals": 0,
+          "opp_goals": 0,
+          "is_home": false
+        },
+        {
+          "date": "26/07/25",
+          "status": "FT",
+          "home": "AmaZulu",
+          "away": "Golden Arrows",
+          "home_score": 3,
+          "away_score": 3,
+          "ht_home": 2,
+          "ht_away": 2,
+          "competition": "South African Premier Division",
+          "result": "D",
+          "our_goals": 3,
+          "opp_goals": 3,
+          "is_home": false
+        },
+        {
+          "date": "26/04/25",
+          "status": "FT",
+          "home": "Golden Arrows",
+          "away": "AmaZulu",
+          "home_score": 0,
+          "away_score": 0,
+          "ht_home": 1,
+          "ht_away": 1,
+          "competition": "",
+          "result": "D",
+          "our_goals": 0,
+          "opp_goals": 0,
+          "is_home": false
+        },
+        {
+          "date": "04/01/25",
+          "status": "FT",
+          "home": "AmaZulu",
+          "away": "Golden Arrows",
+          "home_score": 0,
+          "away_score": 0,
+          "ht_home": 0,
+          "ht_away": 0,
+          "competition": "South African Premier Division",
+          "result": "D",
+          "our_goals": 0,
+          "opp_goals": 0,
+          "is_home": false
+        },
+        {
+          "date": "25/04/26",
+          "status": "FT",
+          "home": "AmaZulu",
+          "away": "Chippa Utd",
+          "home_score": 5,
+          "away_score": 1,
+          "ht_home": null,
+          "ht_away": null,
+          "competition": "",
+          "result": "L",
+          "our_goals": 1,
+          "opp_goals": 5,
+          "is_home": false
+        },
+        {
+          "date": "18/04/26",
+          "status": "FT",
+          "home": "Orlando Pirates",
+          "away": "AmaZulu",
+          "home_score": 3,
+          "away_score": 0,
+          "ht_home": null,
+          "ht_away": null,
+          "competition": "",
+          "result": "L",
+          "our_goals": 0,
+          "opp_goals": 3,
+          "is_home": false
+        }
+      ],
+      "h2h_summary": {
+        "team": "AmaZulu FC",
+        "played": 6,
+        "wins": 0,
+        "draws": 4,
+        "losses": 2,
+        "goals_for": 4,
+        "goals_against": 11
+      }
+    },
+    {
+      "page_type": "match",
+      "source_file": "Aris Limassol vs APOEL Nicosia live score, H2H and lineups _ Sofascore.mhtml",
+      "match_context": {
+        "home_team": "Aris Limassol",
+        "away_team": "APOEL Nicosia",
+        "tournament": null,
+        "season": null,
+        "round": null,
+        "status": null,
+        "start_timestamp": null,
+        "venue": null,
+        "referee": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "standings": {
+        "home_position": null,
+        "away_position": null
+      },
+      "home_team": {
+        "name": "Aris Limassol"
+      },
+      "away_team": {
+        "name": "APOEL Nicosia"
+      },
+      "home_team_form": {
+        "team": "Aris Limassol",
+        "form_last5": "D,D,D,L,L",
+        "goals_scored_last5": 6,
+        "goals_conceded_last5": 11,
+        "match_history": [
+          {
+            "date": "05/04/26",
+            "home": "APOEL",
+            "away": "Aris",
+            "home_score": 2,
+            "away_score": 2,
+            "is_home": false,
+            "our_goals": 2,
+            "opp_goals": 2,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "07/12/25",
+            "home": "APOEL",
+            "away": "Aris",
+            "home_score": 2,
+            "away_score": 2,
+            "is_home": false,
+            "our_goals": 2,
+            "opp_goals": 2,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "22/04/25",
+            "home": "Aris",
+            "away": "Cyprus League by Stoiximan",
+            "home_score": 2,
+            "away_score": 2,
+            "is_home": false,
+            "our_goals": 2,
+            "opp_goals": 2,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "02/05/26",
+            "home": "Omonia",
+            "away": "Aris",
+            "home_score": 3,
+            "away_score": 0,
+            "is_home": false,
+            "our_goals": 0,
+            "opp_goals": 3,
+            "result": "L",
+            "competition": ""
+          },
+          {
+            "date": "25/04/26",
+            "home": "AEK Larnaca",
+            "away": "Aris",
+            "home_score": 2,
+            "away_score": 0,
+            "is_home": false,
+            "our_goals": 0,
+            "opp_goals": 2,
+            "result": "L",
+            "competition": ""
+          }
+        ]
+      },
+      "away_team_form": {
+        "team": "APOEL Nicosia",
+        "form_last5": "D,D,D,L,L",
+        "goals_scored_last5": 6,
+        "goals_conceded_last5": 11,
+        "match_history": [
+          {
+            "date": "05/04/26",
+            "home": "APOEL",
+            "away": "Aris",
+            "home_score": 2,
+            "away_score": 2,
+            "is_home": false,
+            "our_goals": 2,
+            "opp_goals": 2,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "07/12/25",
+            "home": "APOEL",
+            "away": "Aris",
+            "home_score": 2,
+            "away_score": 2,
+            "is_home": false,
+            "our_goals": 2,
+            "opp_goals": 2,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "22/04/25",
+            "home": "Aris",
+            "away": "Cyprus League by Stoiximan",
+            "home_score": 2,
+            "away_score": 2,
+            "is_home": false,
+            "our_goals": 2,
+            "opp_goals": 2,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "02/05/26",
+            "home": "Omonia",
+            "away": "Aris",
+            "home_score": 3,
+            "away_score": 0,
+            "is_home": false,
+            "our_goals": 0,
+            "opp_goals": 3,
+            "result": "L",
+            "competition": ""
+          },
+          {
+            "date": "25/04/26",
+            "home": "AEK Larnaca",
+            "away": "Aris",
+            "home_score": 2,
+            "away_score": 0,
+            "is_home": false,
+            "our_goals": 0,
+            "opp_goals": 2,
+            "result": "L",
+            "competition": ""
+          }
+        ]
+      },
+      "h2h_history": [
+        {
+          "date": "05/04/26",
+          "status": "FT",
+          "home": "APOEL",
+          "away": "Aris",
+          "home_score": 2,
+          "away_score": 2,
+          "ht_home": 1,
+          "ht_away": 1,
+          "competition": "",
+          "result": "D",
+          "our_goals": 2,
+          "opp_goals": 2,
+          "is_home": false
+        },
+        {
+          "date": "07/12/25",
+          "status": "FT",
+          "home": "APOEL",
+          "away": "Aris",
+          "home_score": 2,
+          "away_score": 2,
+          "ht_home": 0,
+          "ht_away": 0,
+          "competition": "",
+          "result": "D",
+          "our_goals": 2,
+          "opp_goals": 2,
+          "is_home": false
+        },
+        {
+          "date": "22/04/25",
+          "status": "FT",
+          "home": "Aris",
+          "away": "Cyprus League by Stoiximan",
+          "home_score": 2,
+          "away_score": 2,
+          "ht_home": 1,
+          "ht_away": 1,
+          "competition": "",
+          "result": "D",
+          "our_goals": 2,
+          "opp_goals": 2,
+          "is_home": false
+        },
+        {
+          "date": "02/05/26",
+          "status": "FT",
+          "home": "Omonia",
+          "away": "Aris",
+          "home_score": 3,
+          "away_score": 0,
+          "ht_home": null,
+          "ht_away": null,
+          "competition": "",
+          "result": "L",
+          "our_goals": 0,
+          "opp_goals": 3,
+          "is_home": false
+        },
+        {
+          "date": "25/04/26",
+          "status": "FT",
+          "home": "AEK Larnaca",
+          "away": "Aris",
+          "home_score": 2,
+          "away_score": 0,
+          "ht_home": null,
+          "ht_away": null,
+          "competition": "",
+          "result": "L",
+          "our_goals": 0,
+          "opp_goals": 2,
+          "is_home": false
+        }
+      ],
+      "h2h_summary": {
+        "team": "Aris Limassol",
+        "played": 5,
+        "wins": 0,
+        "draws": 3,
+        "losses": 2,
+        "goals_for": 6,
+        "goals_against": 11
+      }
+    },
+    {
+      "page_type": "match",
+      "source_file": "Audax Italiano vs Vasco da Gama live score, H2H and lineups _ Sofascore.mhtml",
+      "match_context": {
+        "home_team": "Audax Italiano",
+        "away_team": "Vasco da Gama",
+        "tournament": null,
+        "season": null,
+        "round": null,
+        "status": null,
+        "start_timestamp": null,
+        "venue": null,
+        "referee": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "standings": {
+        "home_position": null,
+        "away_position": null
+      },
+      "home_team": {
+        "name": "Audax Italiano"
+      },
+      "away_team": {
+        "name": "Vasco da Gama"
+      },
+      "home_team_form": {
+        "team": "Audax Italiano",
+        "form_last5": "D,D,D",
+        "goals_scored_last5": 3,
+        "goals_conceded_last5": 3,
+        "match_history": [
+          {
+            "date": "15/04/26",
+            "home": "Audax Italiano",
+            "away": "Copa de la Liga",
+            "home_score": 1,
+            "away_score": 1,
+            "is_home": true,
+            "our_goals": 1,
+            "opp_goals": 1,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "02/05/26",
+            "home": "Audax Italiano",
+            "away": "Uni��n La Calera",
+            "home_score": 1,
+            "away_score": 1,
+            "is_home": true,
+            "our_goals": 1,
+            "opp_goals": 1,
+            "result": "D",
+            "competition": "CONMEBOL Sudamericana"
+          },
+          {
+            "date": "29/04/26",
+            "home": "Barracas",
+            "away": "Audax Italiano",
+            "home_score": 1,
+            "away_score": 1,
+            "is_home": false,
+            "our_goals": 1,
+            "opp_goals": 1,
+            "result": "D",
+            "competition": "Liga de Primera"
+          }
+        ]
+      },
+      "away_team_form": {
+        "team": "Vasco da Gama",
+        "form_last5": "D,D,D",
+        "goals_scored_last5": 3,
+        "goals_conceded_last5": 3,
+        "match_history": [
+          {
+            "date": "15/04/26",
+            "home": "Audax Italiano",
+            "away": "Copa de la Liga",
+            "home_score": 1,
+            "away_score": 1,
+            "is_home": false,
+            "our_goals": 1,
+            "opp_goals": 1,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "02/05/26",
+            "home": "Audax Italiano",
+            "away": "Uni��n La Calera",
+            "home_score": 1,
+            "away_score": 1,
+            "is_home": false,
+            "our_goals": 1,
+            "opp_goals": 1,
+            "result": "D",
+            "competition": "CONMEBOL Sudamericana"
+          },
+          {
+            "date": "29/04/26",
+            "home": "Barracas",
+            "away": "Audax Italiano",
+            "home_score": 1,
+            "away_score": 1,
+            "is_home": false,
+            "our_goals": 1,
+            "opp_goals": 1,
+            "result": "D",
+            "competition": "Liga de Primera"
+          }
+        ]
+      },
+      "h2h_history": [
+        {
+          "date": "15/04/26",
+          "status": "FT",
+          "home": "Audax Italiano",
+          "away": "Copa de la Liga",
+          "home_score": 1,
+          "away_score": 1,
+          "ht_home": 2,
+          "ht_away": 2,
+          "competition": "",
+          "result": "D",
+          "our_goals": 1,
+          "opp_goals": 1,
+          "is_home": true
+        },
+        {
+          "date": "02/05/26",
+          "status": "FT",
+          "home": "Audax Italiano",
+          "away": "Uni��n La Calera",
+          "home_score": 1,
+          "away_score": 1,
+          "ht_home": null,
+          "ht_away": null,
+          "competition": "CONMEBOL Sudamericana",
+          "result": "D",
+          "our_goals": 1,
+          "opp_goals": 1,
+          "is_home": true
+        },
+        {
+          "date": "29/04/26",
+          "status": "FT",
+          "home": "Barracas",
+          "away": "Audax Italiano",
+          "home_score": 1,
+          "away_score": 1,
+          "ht_home": null,
+          "ht_away": null,
+          "competition": "Liga de Primera",
+          "result": "D",
+          "our_goals": 1,
+          "opp_goals": 1,
+          "is_home": false
+        }
+      ],
+      "h2h_summary": {
+        "team": "Audax Italiano",
+        "played": 3,
+        "wins": 0,
+        "draws": 3,
+        "losses": 0,
+        "goals_for": 3,
+        "goals_against": 3
+      }
+    },
+    {
+      "page_type": "match",
+      "source_file": "Barracas Central vs Olimpia live score, H2H and lineups _ Sofascore.mhtml",
+      "match_context": {
+        "home_team": "Barracas Central",
+        "away_team": "Olimpia",
+        "tournament": null,
+        "season": null,
+        "round": null,
+        "status": null,
+        "start_timestamp": null,
+        "venue": null,
+        "referee": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "standings": {
+        "home_position": null,
+        "away_position": null
+      },
+      "home_team": {
+        "name": "Barracas Central"
+      },
+      "away_team": {
+        "name": "Olimpia"
+      },
+      "home_team_form": {
+        "team": "Barracas Central",
+        "form_last5": "D,W,D",
+        "goals_scored_last5": 3,
+        "goals_conceded_last5": 2,
+        "match_history": [
+          {
+            "date": "16/04/26",
+            "home": "Olimpia",
+            "away": "Barracas",
+            "home_score": 0,
+            "away_score": 0,
+            "is_home": false,
+            "our_goals": 0,
+            "opp_goals": 0,
+            "result": "D",
+            "competition": "CONMEBOL Sudamericana"
+          },
+          {
+            "date": "02/05/26",
+            "home": "Barracas",
+            "away": "Banfield",
+            "home_score": 1,
+            "away_score": 2,
+            "is_home": false,
+            "our_goals": 2,
+            "opp_goals": 1,
+            "result": "W",
+            "competition": "CONMEBOL Sudamericana"
+          },
+          {
+            "date": "29/04/26",
+            "home": "Barracas",
+            "away": "Audax Italiano",
+            "home_score": 1,
+            "away_score": 1,
+            "is_home": false,
+            "our_goals": 1,
+            "opp_goals": 1,
+            "result": "D",
+            "competition": "Liga Profesional de F��tbol"
+          }
+        ]
+      },
+      "away_team_form": {
+        "team": "Olimpia",
+        "form_last5": "D,W,D",
+        "goals_scored_last5": 3,
+        "goals_conceded_last5": 2,
+        "match_history": [
+          {
+            "date": "16/04/26",
+            "home": "Olimpia",
+            "away": "Barracas",
+            "home_score": 0,
+            "away_score": 0,
+            "is_home": true,
+            "our_goals": 0,
+            "opp_goals": 0,
+            "result": "D",
+            "competition": "CONMEBOL Sudamericana"
+          },
+          {
+            "date": "02/05/26",
+            "home": "Barracas",
+            "away": "Banfield",
+            "home_score": 1,
+            "away_score": 2,
+            "is_home": false,
+            "our_goals": 2,
+            "opp_goals": 1,
+            "result": "W",
+            "competition": "CONMEBOL Sudamericana"
+          },
+          {
+            "date": "29/04/26",
+            "home": "Barracas",
+            "away": "Audax Italiano",
+            "home_score": 1,
+            "away_score": 1,
+            "is_home": false,
+            "our_goals": 1,
+            "opp_goals": 1,
+            "result": "D",
+            "competition": "Liga Profesional de F��tbol"
+          }
+        ]
+      },
+      "h2h_history": [
+        {
+          "date": "16/04/26",
+          "status": "FT",
+          "home": "Olimpia",
+          "away": "Barracas",
+          "home_score": 0,
+          "away_score": 0,
+          "ht_home": 0,
+          "ht_away": 0,
+          "competition": "CONMEBOL Sudamericana",
+          "result": "D",
+          "our_goals": 0,
+          "opp_goals": 0,
+          "is_home": false
+        },
+        {
+          "date": "02/05/26",
+          "status": "FT",
+          "home": "Barracas",
+          "away": "Banfield",
+          "home_score": 1,
+          "away_score": 2,
+          "ht_home": null,
+          "ht_away": null,
+          "competition": "CONMEBOL Sudamericana",
+          "result": "W",
+          "our_goals": 2,
+          "opp_goals": 1,
+          "is_home": false
+        },
+        {
+          "date": "29/04/26",
+          "status": "FT",
+          "home": "Barracas",
+          "away": "Audax Italiano",
+          "home_score": 1,
+          "away_score": 1,
+          "ht_home": null,
+          "ht_away": null,
+          "competition": "Liga Profesional de F��tbol",
+          "result": "D",
+          "our_goals": 1,
+          "opp_goals": 1,
+          "is_home": false
+        }
+      ],
+      "h2h_summary": {
+        "team": "Barracas Central",
+        "played": 3,
+        "wins": 1,
+        "draws": 2,
+        "losses": 0,
+        "goals_for": 3,
+        "goals_against": 2
+      }
+    },
+    {
+      "page_type": "match",
+      "source_file": "Botafogo vs Racing Club live score, H2H and lineups _ Sofascore.mhtml",
+      "match_context": {
+        "home_team": "Botafogo",
+        "away_team": "Racing Club",
+        "tournament": null,
+        "season": null,
+        "round": null,
+        "status": null,
+        "start_timestamp": null,
+        "venue": null,
+        "referee": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "standings": {
+        "home_position": null,
+        "away_position": null
+      },
+      "home_team": {
+        "name": "Botafogo"
+      },
+      "away_team": {
+        "name": "Racing Club"
+      },
+      "home_team_form": {
+        "team": "Botafogo",
+        "form_last5": "D,D,D,L,W",
+        "goals_scored_last5": 8,
+        "goals_conceded_last5": 6,
+        "match_history": [
+          {
+            "date": "16/04/26",
+            "home": "Racing",
+            "away": "Botafogo",
+            "home_score": 2,
+            "away_score": 2,
+            "is_home": false,
+            "our_goals": 2,
+            "opp_goals": 2,
+            "result": "D",
+            "competition": "CONMEBOL Recopa"
+          },
+          {
+            "date": "28/02/25",
+            "home": "Botafogo",
+            "away": "Racing",
+            "home_score": 0,
+            "away_score": 0,
+            "is_home": true,
+            "our_goals": 0,
+            "opp_goals": 0,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "21/02/25",
+            "home": "Racing",
+            "away": "Brasileir��o Betano",
+            "home_score": 2,
+            "away_score": 2,
+            "is_home": false,
+            "our_goals": 2,
+            "opp_goals": 2,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "02/05/26",
+            "home": "Botafogo",
+            "away": "Remo",
+            "home_score": 1,
+            "away_score": 2,
+            "is_home": true,
+            "our_goals": 1,
+            "opp_goals": 2,
+            "result": "L",
+            "competition": "CONMEBOL Sudamericana"
+          },
+          {
+            "date": "29/04/26",
+            "home": "Botafogo",
+            "away": "Brasileir��o Betano",
+            "home_score": 3,
+            "away_score": 0,
+            "is_home": true,
+            "our_goals": 3,
+            "opp_goals": 0,
+            "result": "W",
+            "competition": ""
+          }
+        ]
+      },
+      "away_team_form": {
+        "team": "Racing Club",
+        "form_last5": "D,D,D,W,L",
+        "goals_scored_last5": 6,
+        "goals_conceded_last5": 8,
+        "match_history": [
+          {
+            "date": "16/04/26",
+            "home": "Racing",
+            "away": "Botafogo",
+            "home_score": 2,
+            "away_score": 2,
+            "is_home": false,
+            "our_goals": 2,
+            "opp_goals": 2,
+            "result": "D",
+            "competition": "CONMEBOL Recopa"
+          },
+          {
+            "date": "28/02/25",
+            "home": "Botafogo",
+            "away": "Racing",
+            "home_score": 0,
+            "away_score": 0,
+            "is_home": false,
+            "our_goals": 0,
+            "opp_goals": 0,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "21/02/25",
+            "home": "Racing",
+            "away": "Brasileir��o Betano",
+            "home_score": 2,
+            "away_score": 2,
+            "is_home": false,
+            "our_goals": 2,
+            "opp_goals": 2,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "02/05/26",
+            "home": "Botafogo",
+            "away": "Remo",
+            "home_score": 1,
+            "away_score": 2,
+            "is_home": false,
+            "our_goals": 2,
+            "opp_goals": 1,
+            "result": "W",
+            "competition": "CONMEBOL Sudamericana"
+          },
+          {
+            "date": "29/04/26",
+            "home": "Botafogo",
+            "away": "Brasileir��o Betano",
+            "home_score": 3,
+            "away_score": 0,
+            "is_home": false,
+            "our_goals": 0,
+            "opp_goals": 3,
+            "result": "L",
+            "competition": ""
+          }
+        ]
+      },
+      "h2h_history": [
+        {
+          "date": "16/04/26",
+          "status": "FT",
+          "home": "Racing",
+          "away": "Botafogo",
+          "home_score": 2,
+          "away_score": 2,
+          "ht_home": 3,
+          "ht_away": 3,
+          "competition": "CONMEBOL Recopa",
+          "result": "D",
+          "our_goals": 2,
+          "opp_goals": 2,
+          "is_home": false
+        },
+        {
+          "date": "28/02/25",
+          "status": "FT",
+          "home": "Botafogo",
+          "away": "Racing",
+          "home_score": 0,
+          "away_score": 0,
+          "ht_home": 2,
+          "ht_away": 2,
+          "competition": "",
+          "result": "D",
+          "our_goals": 0,
+          "opp_goals": 0,
+          "is_home": true
+        },
+        {
+          "date": "21/02/25",
+          "status": "FT",
+          "home": "Racing",
+          "away": "Brasileir��o Betano",
+          "home_score": 2,
+          "away_score": 2,
+          "ht_home": 0,
+          "ht_away": 0,
+          "competition": "",
+          "result": "D",
+          "our_goals": 2,
+          "opp_goals": 2,
+          "is_home": false
+        },
+        {
+          "date": "02/05/26",
+          "status": "FT",
+          "home": "Botafogo",
+          "away": "Remo",
+          "home_score": 1,
+          "away_score": 2,
+          "ht_home": null,
+          "ht_away": null,
+          "competition": "CONMEBOL Sudamericana",
+          "result": "L",
+          "our_goals": 1,
+          "opp_goals": 2,
+          "is_home": true
+        },
+        {
+          "date": "29/04/26",
+          "status": "FT",
+          "home": "Botafogo",
+          "away": "Brasileir��o Betano",
+          "home_score": 3,
+          "away_score": 0,
+          "ht_home": null,
+          "ht_away": null,
+          "competition": "",
+          "result": "W",
+          "our_goals": 3,
+          "opp_goals": 0,
+          "is_home": true
+        }
+      ],
+      "h2h_summary": {
+        "team": "Botafogo",
+        "played": 5,
+        "wins": 1,
+        "draws": 3,
+        "losses": 1,
+        "goals_for": 8,
+        "goals_against": 6
+      }
+    },
+    {
+      "page_type": "match",
+      "source_file": "Cusco FC vs Estudiantes de La Plata live score, H2H and lineups _ Sofascore.mhtml",
+      "match_context": {
+        "home_team": "Cusco FC",
+        "away_team": "Estudiantes de La Plata",
+        "tournament": null,
+        "season": null,
+        "round": null,
+        "status": null,
+        "start_timestamp": null,
+        "venue": null,
+        "referee": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "standings": {
+        "home_position": null,
+        "away_position": null
+      },
+      "home_team": {
+        "name": "Cusco FC"
+      },
+      "away_team": {
+        "name": "Estudiantes de La Plata"
+      },
+      "home_team_form": {
+        "team": "Cusco FC",
+        "form_last5": "D,D,D,D,L",
+        "goals_scored_last5": 7,
+        "goals_conceded_last5": 8,
+        "match_history": [
+          {
+            "date": "15/04/26",
+            "home": "Estudiantes",
+            "away": "CONMEBOL Libertadores",
+            "home_score": 2,
+            "away_score": 2,
+            "is_home": false,
+            "our_goals": 2,
+            "opp_goals": 2,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "02/05/18",
+            "home": "Cusco",
+            "away": "Estudiantes",
+            "home_score": 0,
+            "away_score": 0,
+            "is_home": false,
+            "our_goals": 0,
+            "opp_goals": 0,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "15/03/18",
+            "home": "Estudiantes",
+            "away": "Cusco",
+            "home_score": 3,
+            "away_score": 3,
+            "is_home": false,
+            "our_goals": 3,
+            "opp_goals": 3,
+            "result": "D",
+            "competition": "Liga 1"
+          },
+          {
+            "date": "03/05/26",
+            "home": "Sporting Cristal",
+            "away": "Cusco",
+            "home_score": 2,
+            "away_score": 2,
+            "is_home": false,
+            "our_goals": 2,
+            "opp_goals": 2,
+            "result": "D",
+            "competition": "CONMEBOL Libertadores"
+          },
+          {
+            "date": "01/05/26",
+            "home": "Ind. Medell��n",
+            "away": "Cusco",
+            "home_score": 1,
+            "away_score": 0,
+            "is_home": false,
+            "our_goals": 0,
+            "opp_goals": 1,
+            "result": "L",
+            "competition": "Liga 1"
+          }
+        ]
+      },
+      "away_team_form": {
+        "team": "Estudiantes de La Plata",
+        "form_last5": "D,D,D,D,L",
+        "goals_scored_last5": 7,
+        "goals_conceded_last5": 8,
+        "match_history": [
+          {
+            "date": "15/04/26",
+            "home": "Estudiantes",
+            "away": "CONMEBOL Libertadores",
+            "home_score": 2,
+            "away_score": 2,
+            "is_home": false,
+            "our_goals": 2,
+            "opp_goals": 2,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "02/05/18",
+            "home": "Cusco",
+            "away": "Estudiantes",
+            "home_score": 0,
+            "away_score": 0,
+            "is_home": false,
+            "our_goals": 0,
+            "opp_goals": 0,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "15/03/18",
+            "home": "Estudiantes",
+            "away": "Cusco",
+            "home_score": 3,
+            "away_score": 3,
+            "is_home": false,
+            "our_goals": 3,
+            "opp_goals": 3,
+            "result": "D",
+            "competition": "Liga 1"
+          },
+          {
+            "date": "03/05/26",
+            "home": "Sporting Cristal",
+            "away": "Cusco",
+            "home_score": 2,
+            "away_score": 2,
+            "is_home": false,
+            "our_goals": 2,
+            "opp_goals": 2,
+            "result": "D",
+            "competition": "CONMEBOL Libertadores"
+          },
+          {
+            "date": "01/05/26",
+            "home": "Ind. Medell��n",
+            "away": "Cusco",
+            "home_score": 1,
+            "away_score": 0,
+            "is_home": false,
+            "our_goals": 0,
+            "opp_goals": 1,
+            "result": "L",
+            "competition": "Liga 1"
+          }
+        ]
+      },
+      "h2h_history": [
+        {
+          "date": "15/04/26",
+          "status": "FT",
+          "home": "Estudiantes",
+          "away": "CONMEBOL Libertadores",
+          "home_score": 2,
+          "away_score": 2,
+          "ht_home": 1,
+          "ht_away": 1,
+          "competition": "",
+          "result": "D",
+          "our_goals": 2,
+          "opp_goals": 2,
+          "is_home": false
+        },
+        {
+          "date": "02/05/18",
+          "status": "FT",
+          "home": "Cusco",
+          "away": "Estudiantes",
+          "home_score": 0,
+          "away_score": 0,
+          "ht_home": 0,
+          "ht_away": 0,
+          "competition": "",
+          "result": "D",
+          "our_goals": 0,
+          "opp_goals": 0,
+          "is_home": false
+        },
+        {
+          "date": "15/03/18",
+          "status": "FT",
+          "home": "Estudiantes",
+          "away": "Cusco",
+          "home_score": 3,
+          "away_score": 3,
+          "ht_home": 0,
+          "ht_away": 0,
+          "competition": "Liga 1",
+          "result": "D",
+          "our_goals": 3,
+          "opp_goals": 3,
+          "is_home": false
+        },
+        {
+          "date": "03/05/26",
+          "status": "FT",
+          "home": "Sporting Cristal",
+          "away": "Cusco",
+          "home_score": 2,
+          "away_score": 2,
+          "ht_home": null,
+          "ht_away": null,
+          "competition": "CONMEBOL Libertadores",
+          "result": "D",
+          "our_goals": 2,
+          "opp_goals": 2,
+          "is_home": false
+        },
+        {
+          "date": "01/05/26",
+          "status": "FT",
+          "home": "Ind. Medell��n",
+          "away": "Cusco",
+          "home_score": 1,
+          "away_score": 0,
+          "ht_home": null,
+          "ht_away": null,
+          "competition": "Liga 1",
+          "result": "L",
+          "our_goals": 0,
+          "opp_goals": 1,
+          "is_home": false
+        }
+      ],
+      "h2h_summary": {
+        "team": "Cusco FC",
+        "played": 5,
+        "wins": 0,
+        "draws": 4,
+        "losses": 1,
+        "goals_for": 7,
+        "goals_against": 8
+      }
+    },
+    {
+      "page_type": "match",
+      "source_file": "Deportivo La Guaira vs Bolívar live score, H2H and lineups _ Sofascore.mhtml",
+      "match_context": {
+        "home_team": "Deportivo La Guaira",
+        "away_team": "Bol��var",
+        "tournament": null,
+        "season": null,
+        "round": null,
+        "status": null,
+        "start_timestamp": null,
+        "venue": null,
+        "referee": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "standings": {
+        "home_position": null,
+        "away_position": null
+      },
+      "home_team": {
+        "name": "Deportivo La Guaira"
+      },
+      "away_team": {
+        "name": "Bol��var"
+      },
+      "home_team_form": {
+        "team": "Deportivo La Guaira",
+        "form_last5": "D,D,L",
+        "goals_scored_last5": 3,
+        "goals_conceded_last5": 6,
+        "match_history": [
+          {
+            "date": "15/04/26",
+            "home": "Bol��var",
+            "away": "Liga FUTVE",
+            "home_score": 1,
+            "away_score": 1,
+            "is_home": false,
+            "our_goals": 1,
+            "opp_goals": 1,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "03/05/26",
+            "home": "Puerto Cabello",
+            "away": "La Guaira",
+            "home_score": 1,
+            "away_score": 1,
+            "is_home": false,
+            "our_goals": 1,
+            "opp_goals": 1,
+            "result": "D",
+            "competition": "CONMEBOL Libertadores"
+          },
+          {
+            "date": "01/05/26",
+            "home": "Ind. Rivadavia",
+            "away": "La Guaira",
+            "home_score": 4,
+            "away_score": 1,
+            "is_home": false,
+            "our_goals": 1,
+            "opp_goals": 4,
+            "result": "L",
+            "competition": "Liga FUTVE"
+          }
+        ]
+      },
+      "away_team_form": {
+        "team": "Bol��var",
+        "form_last5": "D,D,L",
+        "goals_scored_last5": 3,
+        "goals_conceded_last5": 6,
+        "match_history": [
+          {
+            "date": "15/04/26",
+            "home": "Bol��var",
+            "away": "Liga FUTVE",
+            "home_score": 1,
+            "away_score": 1,
+            "is_home": true,
+            "our_goals": 1,
+            "opp_goals": 1,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "03/05/26",
+            "home": "Puerto Cabello",
+            "away": "La Guaira",
+            "home_score": 1,
+            "away_score": 1,
+            "is_home": false,
+            "our_goals": 1,
+            "opp_goals": 1,
+            "result": "D",
+            "competition": "CONMEBOL Libertadores"
+          },
+          {
+            "date": "01/05/26",
+            "home": "Ind. Rivadavia",
+            "away": "La Guaira",
+            "home_score": 4,
+            "away_score": 1,
+            "is_home": false,
+            "our_goals": 1,
+            "opp_goals": 4,
+            "result": "L",
+            "competition": "Liga FUTVE"
+          }
+        ]
+      },
+      "h2h_history": [
+        {
+          "date": "15/04/26",
+          "status": "FT",
+          "home": "Bol��var",
+          "away": "Liga FUTVE",
+          "home_score": 1,
+          "away_score": 1,
+          "ht_home": 1,
+          "ht_away": 1,
+          "competition": "",
+          "result": "D",
+          "our_goals": 1,
+          "opp_goals": 1,
+          "is_home": false
+        },
+        {
+          "date": "03/05/26",
+          "status": "FT",
+          "home": "Puerto Cabello",
+          "away": "La Guaira",
+          "home_score": 1,
+          "away_score": 1,
+          "ht_home": null,
+          "ht_away": null,
+          "competition": "CONMEBOL Libertadores",
+          "result": "D",
+          "our_goals": 1,
+          "opp_goals": 1,
+          "is_home": false
+        },
+        {
+          "date": "01/05/26",
+          "status": "FT",
+          "home": "Ind. Rivadavia",
+          "away": "La Guaira",
+          "home_score": 4,
+          "away_score": 1,
+          "ht_home": null,
+          "ht_away": null,
+          "competition": "Liga FUTVE",
+          "result": "L",
+          "our_goals": 1,
+          "opp_goals": 4,
+          "is_home": false
+        }
+      ],
+      "h2h_summary": {
+        "team": "Deportivo La Guaira",
+        "played": 3,
+        "wins": 0,
+        "draws": 2,
+        "losses": 1,
+        "goals_for": 3,
+        "goals_against": 6
+      }
+    },
+    {
+      "page_type": "match",
+      "source_file": "FC Hegelmann vs FK Panevėžys live score, H2H and lineups _ Sofascore.mhtml",
+      "match_context": {
+        "home_team": "FC Hegelmann",
+        "away_team": "FK Panev����ys",
+        "tournament": null,
+        "season": null,
+        "round": null,
+        "status": null,
+        "start_timestamp": null,
+        "venue": null,
+        "referee": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "standings": {
+        "home_position": null,
+        "away_position": null
+      },
+      "home_team": {
+        "name": "FC Hegelmann"
+      },
+      "away_team": {
+        "name": "FK Panev����ys"
+      },
+      "home_team_form": {
+        "team": "FC Hegelmann",
+        "form_last5": "D,D,D,D,L",
+        "goals_scored_last5": 5,
+        "goals_conceded_last5": 8,
+        "match_history": [
+          {
+            "date": "07/03/26",
+            "home": "Panev����ys",
+            "away": "Hegelmann",
+            "home_score": 1,
+            "away_score": 1,
+            "is_home": false,
+            "our_goals": 1,
+            "opp_goals": 1,
+            "result": "D",
+            "competition": "LFF Cup"
+          },
+          {
+            "date": "28/09/25",
+            "home": "Panev����ys",
+            "away": "Hegelmann",
+            "home_score": 1,
+            "away_score": 1,
+            "is_home": false,
+            "our_goals": 1,
+            "opp_goals": 1,
+            "result": "D",
+            "competition": "TOPLYGA"
+          },
+          {
+            "date": "21/09/25",
+            "home": "Panev����ys",
+            "away": "Hegelmann",
+            "home_score": 0,
+            "away_score": 0,
+            "is_home": false,
+            "our_goals": 0,
+            "opp_goals": 0,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "17/08/25",
+            "home": "Hegelmann",
+            "away": "Panev����ys",
+            "home_score": 3,
+            "away_score": 3,
+            "is_home": false,
+            "our_goals": 3,
+            "opp_goals": 3,
+            "result": "D",
+            "competition": "TOPLYGA"
+          },
+          {
+            "date": "01/05/26",
+            "home": "D��iugas",
+            "away": "Hegelmann",
+            "home_score": 3,
+            "away_score": 0,
+            "is_home": false,
+            "our_goals": 0,
+            "opp_goals": 3,
+            "result": "L",
+            "competition": ""
+          },
+          {
+            "date": "26/04/26",
+            "home": "Banga",
+            "away": "Hegelmann",
+            "home_score": 2,
+            "away_score": 1,
+            "is_home": false,
+            "our_goals": 1,
+            "opp_goals": 2,
+            "result": "L",
+            "competition": "LFF Cup"
+          }
+        ]
+      },
+      "away_team_form": {
+        "team": "FK Panev����ys",
+        "form_last5": "D,D,D,D,L",
+        "goals_scored_last5": 5,
+        "goals_conceded_last5": 8,
+        "match_history": [
+          {
+            "date": "07/03/26",
+            "home": "Panev����ys",
+            "away": "Hegelmann",
+            "home_score": 1,
+            "away_score": 1,
+            "is_home": false,
+            "our_goals": 1,
+            "opp_goals": 1,
+            "result": "D",
+            "competition": "LFF Cup"
+          },
+          {
+            "date": "28/09/25",
+            "home": "Panev����ys",
+            "away": "Hegelmann",
+            "home_score": 1,
+            "away_score": 1,
+            "is_home": false,
+            "our_goals": 1,
+            "opp_goals": 1,
+            "result": "D",
+            "competition": "TOPLYGA"
+          },
+          {
+            "date": "21/09/25",
+            "home": "Panev����ys",
+            "away": "Hegelmann",
+            "home_score": 0,
+            "away_score": 0,
+            "is_home": false,
+            "our_goals": 0,
+            "opp_goals": 0,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "17/08/25",
+            "home": "Hegelmann",
+            "away": "Panev����ys",
+            "home_score": 3,
+            "away_score": 3,
+            "is_home": false,
+            "our_goals": 3,
+            "opp_goals": 3,
+            "result": "D",
+            "competition": "TOPLYGA"
+          },
+          {
+            "date": "01/05/26",
+            "home": "D��iugas",
+            "away": "Hegelmann",
+            "home_score": 3,
+            "away_score": 0,
+            "is_home": false,
+            "our_goals": 0,
+            "opp_goals": 3,
+            "result": "L",
+            "competition": ""
+          },
+          {
+            "date": "26/04/26",
+            "home": "Banga",
+            "away": "Hegelmann",
+            "home_score": 2,
+            "away_score": 1,
+            "is_home": false,
+            "our_goals": 1,
+            "opp_goals": 2,
+            "result": "L",
+            "competition": "LFF Cup"
+          }
+        ]
+      },
+      "h2h_history": [
+        {
+          "date": "07/03/26",
+          "status": "FT",
+          "home": "Panev����ys",
+          "away": "Hegelmann",
+          "home_score": 1,
+          "away_score": 1,
+          "ht_home": 1,
+          "ht_away": 1,
+          "competition": "LFF Cup",
+          "result": "D",
+          "our_goals": 1,
+          "opp_goals": 1,
+          "is_home": false
+        },
+        {
+          "date": "28/09/25",
+          "status": "FT",
+          "home": "Panev����ys",
+          "away": "Hegelmann",
+          "home_score": 1,
+          "away_score": 1,
+          "ht_home": 0,
+          "ht_away": 0,
+          "competition": "TOPLYGA",
+          "result": "D",
+          "our_goals": 1,
+          "opp_goals": 1,
+          "is_home": false
+        },
+        {
+          "date": "21/09/25",
+          "status": "FT",
+          "home": "Panev����ys",
+          "away": "Hegelmann",
+          "home_score": 0,
+          "away_score": 0,
+          "ht_home": 1,
+          "ht_away": 1,
+          "competition": "",
+          "result": "D",
+          "our_goals": 0,
+          "opp_goals": 0,
+          "is_home": false
+        },
+        {
+          "date": "17/08/25",
+          "status": "FT",
+          "home": "Hegelmann",
+          "away": "Panev����ys",
+          "home_score": 3,
+          "away_score": 3,
+          "ht_home": 1,
+          "ht_away": 1,
+          "competition": "TOPLYGA",
+          "result": "D",
+          "our_goals": 3,
+          "opp_goals": 3,
+          "is_home": false
+        },
+        {
+          "date": "01/05/26",
+          "status": "FT",
+          "home": "D��iugas",
+          "away": "Hegelmann",
+          "home_score": 3,
+          "away_score": 0,
+          "ht_home": null,
+          "ht_away": null,
+          "competition": "",
+          "result": "L",
+          "our_goals": 0,
+          "opp_goals": 3,
+          "is_home": false
+        },
+        {
+          "date": "26/04/26",
+          "status": "FT",
+          "home": "Banga",
+          "away": "Hegelmann",
+          "home_score": 2,
+          "away_score": 1,
+          "ht_home": null,
+          "ht_away": null,
+          "competition": "LFF Cup",
+          "result": "L",
+          "our_goals": 1,
+          "opp_goals": 2,
+          "is_home": false
+        }
+      ],
+      "h2h_summary": {
+        "team": "FC Hegelmann",
+        "played": 6,
+        "wins": 0,
+        "draws": 4,
+        "losses": 2,
+        "goals_for": 6,
+        "goals_against": 10
+      }
+    },
+    {
+      "page_type": "match",
+      "source_file": "FK Spartak Varna vs FK Dobrudzha Dobrich live score, H2H and lineups _ Sofascore.mhtml",
+      "match_context": {
+        "home_team": "FK Spartak Varna",
+        "away_team": "FK Dobrudzha Dobrich",
+        "tournament": null,
+        "season": null,
+        "round": null,
+        "status": null,
+        "start_timestamp": null,
+        "venue": null,
+        "referee": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "standings": {
+        "home_position": null,
+        "away_position": null
+      },
+      "home_team": {
+        "name": "FK Spartak Varna"
+      },
+      "away_team": {
+        "name": "FK Dobrudzha Dobrich"
+      },
+      "home_team_form": {
+        "team": "FK Spartak Varna",
+        "form_last5": "D,D,D,D,L",
+        "goals_scored_last5": 7,
+        "goals_conceded_last5": 8,
+        "match_history": [
+          {
+            "date": "10/04/26",
+            "home": "Spartak Varna",
+            "away": "Dobrudzha",
+            "home_score": 1,
+            "away_score": 1,
+            "is_home": false,
+            "our_goals": 1,
+            "opp_goals": 1,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "01/11/25",
+            "home": "Dobrudzha",
+            "away": "Spartak Varna",
+            "home_score": 2,
+            "away_score": 2,
+            "is_home": false,
+            "our_goals": 2,
+            "opp_goals": 2,
+            "result": "D",
+            "competition": "Club Friendly Games"
+          },
+          {
+            "date": "06/09/25",
+            "home": "Dobrudzha",
+            "away": "Spartak Varna",
+            "home_score": 1,
+            "away_score": 1,
+            "is_home": false,
+            "our_goals": 1,
+            "opp_goals": 1,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "05/07/25",
+            "home": "Dobrudzha",
+            "away": "Spartak Varna",
+            "home_score": 2,
+            "away_score": 2,
+            "is_home": false,
+            "our_goals": 2,
+            "opp_goals": 2,
+            "result": "D",
+            "competition": "Parva Liga"
+          },
+          {
+            "date": "02/05/26",
+            "home": "Botev Vratsa",
+            "away": "Spartak Varna",
+            "home_score": 2,
+            "away_score": 1,
+            "is_home": false,
+            "our_goals": 1,
+            "opp_goals": 2,
+            "result": "L",
+            "competition": ""
+          }
+        ]
+      },
+      "away_team_form": {
+        "team": "FK Dobrudzha Dobrich",
+        "form_last5": "D,D,D,D,L",
+        "goals_scored_last5": 7,
+        "goals_conceded_last5": 8,
+        "match_history": [
+          {
+            "date": "10/04/26",
+            "home": "Spartak Varna",
+            "away": "Dobrudzha",
+            "home_score": 1,
+            "away_score": 1,
+            "is_home": false,
+            "our_goals": 1,
+            "opp_goals": 1,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "01/11/25",
+            "home": "Dobrudzha",
+            "away": "Spartak Varna",
+            "home_score": 2,
+            "away_score": 2,
+            "is_home": false,
+            "our_goals": 2,
+            "opp_goals": 2,
+            "result": "D",
+            "competition": "Club Friendly Games"
+          },
+          {
+            "date": "06/09/25",
+            "home": "Dobrudzha",
+            "away": "Spartak Varna",
+            "home_score": 1,
+            "away_score": 1,
+            "is_home": false,
+            "our_goals": 1,
+            "opp_goals": 1,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "05/07/25",
+            "home": "Dobrudzha",
+            "away": "Spartak Varna",
+            "home_score": 2,
+            "away_score": 2,
+            "is_home": false,
+            "our_goals": 2,
+            "opp_goals": 2,
+            "result": "D",
+            "competition": "Parva Liga"
+          },
+          {
+            "date": "02/05/26",
+            "home": "Botev Vratsa",
+            "away": "Spartak Varna",
+            "home_score": 2,
+            "away_score": 1,
+            "is_home": false,
+            "our_goals": 1,
+            "opp_goals": 2,
+            "result": "L",
+            "competition": ""
+          }
+        ]
+      },
+      "h2h_history": [
+        {
+          "date": "10/04/26",
+          "status": "FT",
+          "home": "Spartak Varna",
+          "away": "Dobrudzha",
+          "home_score": 1,
+          "away_score": 1,
+          "ht_home": 0,
+          "ht_away": 0,
+          "competition": "",
+          "result": "D",
+          "our_goals": 1,
+          "opp_goals": 1,
+          "is_home": false
+        },
+        {
+          "date": "01/11/25",
+          "status": "FT",
+          "home": "Dobrudzha",
+          "away": "Spartak Varna",
+          "home_score": 2,
+          "away_score": 2,
+          "ht_home": 0,
+          "ht_away": 0,
+          "competition": "Club Friendly Games",
+          "result": "D",
+          "our_goals": 2,
+          "opp_goals": 2,
+          "is_home": false
+        },
+        {
+          "date": "06/09/25",
+          "status": "FT",
+          "home": "Dobrudzha",
+          "away": "Spartak Varna",
+          "home_score": 1,
+          "away_score": 1,
+          "ht_home": 1,
+          "ht_away": 1,
+          "competition": "",
+          "result": "D",
+          "our_goals": 1,
+          "opp_goals": 1,
+          "is_home": false
+        },
+        {
+          "date": "05/07/25",
+          "status": "FT",
+          "home": "Dobrudzha",
+          "away": "Spartak Varna",
+          "home_score": 2,
+          "away_score": 2,
+          "ht_home": 1,
+          "ht_away": 1,
+          "competition": "Parva Liga",
+          "result": "D",
+          "our_goals": 2,
+          "opp_goals": 2,
+          "is_home": false
+        },
+        {
+          "date": "02/05/26",
+          "status": "FT",
+          "home": "Botev Vratsa",
+          "away": "Spartak Varna",
+          "home_score": 2,
+          "away_score": 1,
+          "ht_home": null,
+          "ht_away": null,
+          "competition": "",
+          "result": "L",
+          "our_goals": 1,
+          "opp_goals": 2,
+          "is_home": false
+        }
+      ],
+      "h2h_summary": {
+        "team": "FK Spartak Varna",
+        "played": 5,
+        "wins": 0,
+        "draws": 4,
+        "losses": 1,
+        "goals_for": 7,
+        "goals_against": 8
+      }
+    },
+    {
+      "page_type": "match",
+      "source_file": "FK Transinvest vs FK Sūduva Marijampolė live score, H2H and lineups _ Sofascore.mhtml",
+      "match_context": {
+        "home_team": "FK Transinvest",
+        "away_team": "FK S��duva Marijampol��",
+        "tournament": null,
+        "season": null,
+        "round": null,
+        "status": null,
+        "start_timestamp": null,
+        "venue": null,
+        "referee": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "standings": {
+        "home_position": null,
+        "away_position": null
+      },
+      "home_team": {
+        "name": "FK Transinvest"
+      },
+      "away_team": {
+        "name": "FK S��duva Marijampol��"
+      },
+      "home_team_form": {
+        "team": "FK Transinvest",
+        "form_last5": "",
+        "goals_scored_last5": 0,
+        "goals_conceded_last5": 0,
+        "match_history": []
+      },
+      "away_team_form": {
+        "team": "FK S��duva Marijampol��",
+        "form_last5": "",
+        "goals_scored_last5": 0,
+        "goals_conceded_last5": 0,
+        "match_history": []
+      },
+      "h2h_history": [],
+      "h2h_summary": {}
+    },
+    {
+      "page_type": "match",
+      "source_file": "FS Jelgava vs SK Super Nova live score, H2H and lineups _ Sofascore.mhtml",
+      "match_context": {
+        "home_team": "FS Jelgava",
+        "away_team": "SK Super Nova",
+        "tournament": null,
+        "season": null,
+        "round": null,
+        "status": null,
+        "start_timestamp": null,
+        "venue": null,
+        "referee": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "standings": {
+        "home_position": null,
+        "away_position": null
+      },
+      "home_team": {
+        "name": "FS Jelgava"
+      },
+      "away_team": {
+        "name": "SK Super Nova"
+      },
+      "home_team_form": {
+        "team": "FS Jelgava",
+        "form_last5": "D,D,L,W",
+        "goals_scored_last5": 3,
+        "goals_conceded_last5": 7,
+        "match_history": [
+          {
+            "date": "15/03/26",
+            "home": "Super Nova",
+            "away": "Jelgava",
+            "home_score": 1,
+            "away_score": 1,
+            "is_home": false,
+            "our_goals": 1,
+            "opp_goals": 1,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "04/10/25",
+            "home": "Super Nova",
+            "away": "Virsliga",
+            "home_score": 1,
+            "away_score": 1,
+            "is_home": false,
+            "our_goals": 1,
+            "opp_goals": 1,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "01/05/26",
+            "home": "Tukums 2000",
+            "away": "Jelgava",
+            "home_score": 5,
+            "away_score": 0,
+            "is_home": false,
+            "our_goals": 0,
+            "opp_goals": 5,
+            "result": "L",
+            "competition": ""
+          },
+          {
+            "date": "27/04/26",
+            "home": "Ogre United",
+            "away": "Jelgava",
+            "home_score": 0,
+            "away_score": 1,
+            "is_home": false,
+            "our_goals": 1,
+            "opp_goals": 0,
+            "result": "W",
+            "competition": ""
+          }
+        ]
+      },
+      "away_team_form": {
+        "team": "SK Super Nova",
+        "form_last5": "D,D,L,W",
+        "goals_scored_last5": 3,
+        "goals_conceded_last5": 7,
+        "match_history": [
+          {
+            "date": "15/03/26",
+            "home": "Super Nova",
+            "away": "Jelgava",
+            "home_score": 1,
+            "away_score": 1,
+            "is_home": false,
+            "our_goals": 1,
+            "opp_goals": 1,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "04/10/25",
+            "home": "Super Nova",
+            "away": "Virsliga",
+            "home_score": 1,
+            "away_score": 1,
+            "is_home": false,
+            "our_goals": 1,
+            "opp_goals": 1,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "01/05/26",
+            "home": "Tukums 2000",
+            "away": "Jelgava",
+            "home_score": 5,
+            "away_score": 0,
+            "is_home": false,
+            "our_goals": 0,
+            "opp_goals": 5,
+            "result": "L",
+            "competition": ""
+          },
+          {
+            "date": "27/04/26",
+            "home": "Ogre United",
+            "away": "Jelgava",
+            "home_score": 0,
+            "away_score": 1,
+            "is_home": false,
+            "our_goals": 1,
+            "opp_goals": 0,
+            "result": "W",
+            "competition": ""
+          }
+        ]
+      },
+      "h2h_history": [
+        {
+          "date": "15/03/26",
+          "status": "FT",
+          "home": "Super Nova",
+          "away": "Jelgava",
+          "home_score": 1,
+          "away_score": 1,
+          "ht_home": 1,
+          "ht_away": 1,
+          "competition": "",
+          "result": "D",
+          "our_goals": 1,
+          "opp_goals": 1,
+          "is_home": false
+        },
+        {
+          "date": "04/10/25",
+          "status": "FT",
+          "home": "Super Nova",
+          "away": "Virsliga",
+          "home_score": 1,
+          "away_score": 1,
+          "ht_home": 1,
+          "ht_away": 1,
+          "competition": "",
+          "result": "D",
+          "our_goals": 1,
+          "opp_goals": 1,
+          "is_home": false
+        },
+        {
+          "date": "01/05/26",
+          "status": "FT",
+          "home": "Tukums 2000",
+          "away": "Jelgava",
+          "home_score": 5,
+          "away_score": 0,
+          "ht_home": null,
+          "ht_away": null,
+          "competition": "",
+          "result": "L",
+          "our_goals": 0,
+          "opp_goals": 5,
+          "is_home": false
+        },
+        {
+          "date": "27/04/26",
+          "status": "FT",
+          "home": "Ogre United",
+          "away": "Jelgava",
+          "home_score": 0,
+          "away_score": 1,
+          "ht_home": null,
+          "ht_away": null,
+          "competition": "",
+          "result": "W",
+          "our_goals": 1,
+          "opp_goals": 0,
+          "is_home": false
+        }
+      ],
+      "h2h_summary": {
+        "team": "FS Jelgava",
+        "played": 4,
+        "wins": 1,
+        "draws": 2,
+        "losses": 1,
+        "goals_for": 3,
+        "goals_against": 7
+      }
+    },
+    {
+      "page_type": "match",
+      "source_file": "Hapoel Tel Aviv vs Beitar Jerusalem live score, H2H and lineups _ Sofascore.mhtml",
+      "match_context": {
+        "home_team": "Hapoel Tel Aviv",
+        "away_team": "Beitar Jerusalem",
+        "tournament": null,
+        "season": null,
+        "round": null,
+        "status": null,
+        "start_timestamp": null,
+        "venue": null,
+        "referee": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "standings": {
+        "home_position": null,
+        "away_position": null
+      },
+      "home_team": {
+        "name": "Hapoel Tel Aviv"
+      },
+      "away_team": {
+        "name": "Beitar Jerusalem"
+      },
+      "home_team_form": {
+        "team": "Hapoel Tel Aviv",
+        "form_last5": "D,D,D,L,L",
+        "goals_scored_last5": 5,
+        "goals_conceded_last5": 11,
+        "match_history": [
+          {
+            "date": "01/01/26",
+            "home": "Beitar Jerusalem",
+            "away": "Toto Cup Al",
+            "home_score": 1,
+            "away_score": 1,
+            "is_home": false,
+            "our_goals": 1,
+            "opp_goals": 1,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "28/10/25",
+            "home": "H. Tel Aviv",
+            "away": "Beitar Jerusalem",
+            "home_score": 1,
+            "away_score": 1,
+            "is_home": false,
+            "our_goals": 1,
+            "opp_goals": 1,
+            "result": "D",
+            "competition": "Israeli Premier League"
+          },
+          {
+            "date": "15/09/25",
+            "home": "H. Tel Aviv",
+            "away": "Israeli Premier League",
+            "home_score": 3,
+            "away_score": 3,
+            "is_home": false,
+            "our_goals": 3,
+            "opp_goals": 3,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "02/05/26",
+            "home": "H. Be'er Sheva",
+            "away": "H. Tel Aviv",
+            "home_score": 2,
+            "away_score": 0,
+            "is_home": false,
+            "our_goals": 0,
+            "opp_goals": 2,
+            "result": "L",
+            "competition": ""
+          },
+          {
+            "date": "29/04/26",
+            "home": "H. Tel Aviv",
+            "away": "M. Haifa",
+            "home_score": 4,
+            "away_score": 0,
+            "is_home": false,
+            "our_goals": 0,
+            "opp_goals": 4,
+            "result": "L",
+            "competition": ""
+          }
+        ]
+      },
+      "away_team_form": {
+        "team": "Beitar Jerusalem",
+        "form_last5": "D,D,D,L,L",
+        "goals_scored_last5": 5,
+        "goals_conceded_last5": 11,
+        "match_history": [
+          {
+            "date": "01/01/26",
+            "home": "Beitar Jerusalem",
+            "away": "Toto Cup Al",
+            "home_score": 1,
+            "away_score": 1,
+            "is_home": true,
+            "our_goals": 1,
+            "opp_goals": 1,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "28/10/25",
+            "home": "H. Tel Aviv",
+            "away": "Beitar Jerusalem",
+            "home_score": 1,
+            "away_score": 1,
+            "is_home": false,
+            "our_goals": 1,
+            "opp_goals": 1,
+            "result": "D",
+            "competition": "Israeli Premier League"
+          },
+          {
+            "date": "15/09/25",
+            "home": "H. Tel Aviv",
+            "away": "Israeli Premier League",
+            "home_score": 3,
+            "away_score": 3,
+            "is_home": false,
+            "our_goals": 3,
+            "opp_goals": 3,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "02/05/26",
+            "home": "H. Be'er Sheva",
+            "away": "H. Tel Aviv",
+            "home_score": 2,
+            "away_score": 0,
+            "is_home": false,
+            "our_goals": 0,
+            "opp_goals": 2,
+            "result": "L",
+            "competition": ""
+          },
+          {
+            "date": "29/04/26",
+            "home": "H. Tel Aviv",
+            "away": "M. Haifa",
+            "home_score": 4,
+            "away_score": 0,
+            "is_home": false,
+            "our_goals": 0,
+            "opp_goals": 4,
+            "result": "L",
+            "competition": ""
+          }
+        ]
+      },
+      "h2h_history": [
+        {
+          "date": "01/01/26",
+          "status": "FT",
+          "home": "Beitar Jerusalem",
+          "away": "Toto Cup Al",
+          "home_score": 1,
+          "away_score": 1,
+          "ht_home": 0,
+          "ht_away": 0,
+          "competition": "",
+          "result": "D",
+          "our_goals": 1,
+          "opp_goals": 1,
+          "is_home": false
+        },
+        {
+          "date": "28/10/25",
+          "status": "FT",
+          "home": "H. Tel Aviv",
+          "away": "Beitar Jerusalem",
+          "home_score": 1,
+          "away_score": 1,
+          "ht_home": 2,
+          "ht_away": 2,
+          "competition": "Israeli Premier League",
+          "result": "D",
+          "our_goals": 1,
+          "opp_goals": 1,
+          "is_home": false
+        },
+        {
+          "date": "15/09/25",
+          "status": "FT",
+          "home": "H. Tel Aviv",
+          "away": "Israeli Premier League",
+          "home_score": 3,
+          "away_score": 3,
+          "ht_home": 2,
+          "ht_away": 2,
+          "competition": "",
+          "result": "D",
+          "our_goals": 3,
+          "opp_goals": 3,
+          "is_home": false
+        },
+        {
+          "date": "02/05/26",
+          "status": "FT",
+          "home": "H. Be'er Sheva",
+          "away": "H. Tel Aviv",
+          "home_score": 2,
+          "away_score": 0,
+          "ht_home": null,
+          "ht_away": null,
+          "competition": "",
+          "result": "L",
+          "our_goals": 0,
+          "opp_goals": 2,
+          "is_home": false
+        },
+        {
+          "date": "29/04/26",
+          "status": "FT",
+          "home": "H. Tel Aviv",
+          "away": "M. Haifa",
+          "home_score": 4,
+          "away_score": 0,
+          "ht_home": null,
+          "ht_away": null,
+          "competition": "",
+          "result": "L",
+          "our_goals": 0,
+          "opp_goals": 4,
+          "is_home": false
+        }
+      ],
+      "h2h_summary": {
+        "team": "Hapoel Tel Aviv",
+        "played": 5,
+        "wins": 0,
+        "draws": 3,
+        "losses": 2,
+        "goals_for": 5,
+        "goals_against": 11
+      }
+    },
+    {
+      "page_type": "match",
+      "source_file": "Macará vs Tigre live score, H2H and lineups _ Sofascore.mhtml",
+      "match_context": {
+        "home_team": "Macar��",
+        "away_team": "Tigre",
+        "tournament": null,
+        "season": null,
+        "round": null,
+        "status": null,
+        "start_timestamp": null,
+        "venue": null,
+        "referee": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "standings": {
+        "home_position": null,
+        "away_position": null
+      },
+      "home_team": {
+        "name": "Macar��"
+      },
+      "away_team": {
+        "name": "Tigre"
+      },
+      "home_team_form": {
+        "team": "Macar��",
+        "form_last5": "D,L,W",
+        "goals_scored_last5": 3,
+        "goals_conceded_last5": 2,
+        "match_history": [
+          {
+            "date": "17/04/26",
+            "home": "Macar��",
+            "away": "LigaPro Serie A",
+            "home_score": 0,
+            "away_score": 0,
+            "is_home": true,
+            "our_goals": 0,
+            "opp_goals": 0,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "03/05/26",
+            "home": "Macar��",
+            "away": "Orense",
+            "home_score": 1,
+            "away_score": 2,
+            "is_home": true,
+            "our_goals": 1,
+            "opp_goals": 2,
+            "result": "L",
+            "competition": "CONMEBOL Sudamericana"
+          },
+          {
+            "date": "01/05/26",
+            "home": "Alianza Atl��tico",
+            "away": "Macar��",
+            "home_score": 0,
+            "away_score": 2,
+            "is_home": false,
+            "our_goals": 2,
+            "opp_goals": 0,
+            "result": "W",
+            "competition": "LigaPro Serie A"
+          }
+        ]
+      },
+      "away_team_form": {
+        "team": "Tigre",
+        "form_last5": "D,W,W",
+        "goals_scored_last5": 4,
+        "goals_conceded_last5": 1,
+        "match_history": [
+          {
+            "date": "17/04/26",
+            "home": "Macar��",
+            "away": "LigaPro Serie A",
+            "home_score": 0,
+            "away_score": 0,
+            "is_home": false,
+            "our_goals": 0,
+            "opp_goals": 0,
+            "result": "D",
+            "competition": ""
+          },
+          {
+            "date": "03/05/26",
+            "home": "Macar��",
+            "away": "Orense",
+            "home_score": 1,
+            "away_score": 2,
+            "is_home": false,
+            "our_goals": 2,
+            "opp_goals": 1,
+            "result": "W",
+            "competition": "CONMEBOL Sudamericana"
+          },
+          {
+            "date": "01/05/26",
+            "home": "Alianza Atl��tico",
+            "away": "Macar��",
+            "home_score": 0,
+            "away_score": 2,
+            "is_home": false,
+            "our_goals": 2,
+            "opp_goals": 0,
+            "result": "W",
+            "competition": "LigaPro Serie A"
+          }
+        ]
+      },
+      "h2h_history": [
+        {
+          "date": "17/04/26",
+          "status": "FT",
+          "home": "Macar��",
+          "away": "LigaPro Serie A",
+          "home_score": 0,
+          "away_score": 0,
+          "ht_home": 1,
+          "ht_away": 1,
+          "competition": "",
+          "result": "D",
+          "our_goals": 0,
+          "opp_goals": 0,
+          "is_home": true
+        },
+        {
+          "date": "03/05/26",
+          "status": "FT",
+          "home": "Macar��",
+          "away": "Orense",
+          "home_score": 1,
+          "away_score": 2,
+          "ht_home": null,
+          "ht_away": null,
+          "competition": "CONMEBOL Sudamericana",
+          "result": "L",
+          "our_goals": 1,
+          "opp_goals": 2,
+          "is_home": true
+        },
+        {
+          "date": "01/05/26",
+          "status": "FT",
+          "home": "Alianza Atl��tico",
+          "away": "Macar��",
+          "home_score": 0,
+          "away_score": 2,
+          "ht_home": null,
+          "ht_away": null,
+          "competition": "LigaPro Serie A",
+          "result": "W",
+          "our_goals": 2,
+          "opp_goals": 0,
+          "is_home": false
+        }
+      ],
+      "h2h_summary": {
+        "team": "Macar��",
+        "played": 3,
+        "wins": 1,
+        "draws": 1,
+        "losses": 1,
+        "goals_for": 3,
+        "goals_against": 2
+      }
+    },
+    {
+      "page_type": "match",
+      "source_file": "Marumo Gallants FC vs TS Galaxy live score, H2H and lineups _ Sofascore.mhtml",
+      "match_context": {
+        "home_team": "Marumo Gallants FC",
+        "away_team": "TS Galaxy",
+        "tournament": null,
+        "season": null,
+        "round": null,
+        "status": null,
+        "start_timestamp": null,
+        "venue": null,
+        "referee": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "standings": {
+        "home_position": null,
+        "away_position": null
+      },
+      "home_team": {
+        "name": "Marumo Gallants FC"
+      },
+      "away_team": {
+        "name": "TS Galaxy"
+      },
+      "home_team_form": {
+        "team": "Marumo Gallants FC",
+        "form_last5": "",
+        "goals_scored_last5": 0,
+        "goals_conceded_last5": 0,
+        "match_history": []
+      },
+      "away_team_form": {
+        "team": "TS Galaxy",
+        "form_last5": "",
+        "goals_scored_last5": 0,
+        "goals_conceded_last5": 0,
+        "match_history": []
+      },
+      "h2h_history": [],
+      "h2h_summary": {}
+    }
+  ]
+}
