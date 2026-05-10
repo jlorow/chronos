@@ -517,7 +517,10 @@ def tab_log_results(jackpot: str):
 
     if st.button("Fetch Latest Results", key=f"fetch_results_{jackpot}"):
         with st.spinner("Converting round file to results.json..."):
-            ok, output = run_script("round_to_results.py")
+            ok, output = run_script(
+                "round_to_results.py",
+                ["--jackpot", jackpot]
+            )
         if ok:
             st.success("results.json updated.")
         else:
