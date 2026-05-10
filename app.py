@@ -68,6 +68,24 @@ JACKPOTS = {
     },
 }
 
+def extract_date_from_filename(filepath: str) -> str:
+    """
+    Sort forecasts and round files by date in filename, not mtime.
+    Fixes Streamlit Cloud where all files share the same mtime after deploy.
+    """
+    name  = os.path.basename(filepath)
+    # Match date pattern YYYY-MM-DD optionally followed by _HHMMSS
+    parts = name.replace(".json", "").split("_")
+    date_parts = [p for p in parts if len(p) == 10 and p.count("-") == 2]
+    time_parts = [p for p in parts if len(p) == 6 and p.isdigit()]
+    if date_parts:
+        key = date_parts[0]
+        if time_parts:
+            key += "_" + time_parts[0]
+        return key
+    return str(os.path.getmtime(filepath))
+
+
 PICK_COLORS = {
     "Banker"        : "🟢",
     "Draw"          : "🟡",
@@ -111,7 +129,7 @@ def find_latest_local_forecast(jackpot: str) -> dict | None:
     """Read most recent forecast JSON from local output folder."""
     cfg     = JACKPOTS[jackpot]
     pattern = os.path.join(ROOT, cfg["output_dir"], cfg["forecast_pattern"])
-    files   = sorted(glob.glob(pattern), key=os.path.getmtime, reverse=True)
+    files   = sorted(glob.glob(pattern), key=extract_date_from_filename, reverse=True)
     if not files:
         return None
     try:
@@ -466,7 +484,7 @@ def find_unscored_local_forecasts(jackpot: str) -> list:
     """
     cfg     = JACKPOTS[jackpot]
     pattern = os.path.join(ROOT, cfg["output_dir"], cfg["forecast_pattern"])
-    files   = sorted(glob.glob(pattern), key=os.path.getmtime, reverse=True)
+    files   = sorted(glob.glob(pattern), key=extract_date_from_filename, reverse=True)
     unscored = []
     for fpath in files:
         try:
