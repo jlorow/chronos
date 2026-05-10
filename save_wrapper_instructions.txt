@@ -1,0 +1,55 @@
+=====================================================================
+HOW TO ADD THE SAVE WRAPPER TO YOUR EXISTING RESULTS SCRIPTS
+=====================================================================
+
+--- MEGA results script (wherever it saves its output) ---
+At the very end of the script, after you have the final data dict,
+add these two lines:
+
+    from round_to_results import save_mega_round
+    save_mega_round(data)
+
+Where `data` is the dict that matches sportpesa_latest_jackpot.json
+structure (has "jackpot_human_id", "games", "finished_at" etc.)
+
+
+--- MIDWEEK results script ---
+At the very end, add:
+
+    from round_to_results import save_midweek_round
+    save_midweek_round(data)
+
+Where `data` is the dict that matches sportpesa_midweek_results.json
+structure (has "jackpot_id", "results", "first_game_utc" etc.)
+
+
+=====================================================================
+USAGE AFTER SETUP
+=====================================================================
+
+# Auto-detect latest round (any jackpot)
+python round_to_results.py
+
+# Specific jackpot
+python round_to_results.py --jackpot mega
+python round_to_results.py --jackpot midweek
+python round_to_results.py --jackpot mozzart
+
+# Specific file
+python round_to_results.py --file rounds/round_mega_2026-05-03_179.json
+
+
+=====================================================================
+FOR PAST ROUNDS (backfilling)
+=====================================================================
+If you have saved your past Mega/Midweek results JSON files somewhere,
+you can manually copy them into rounds/ with the correct naming:
+
+    rounds/round_mega_YYYY-MM-DD_<jackpot_human_id>.json
+    rounds/round_midweek_YYYY-MM-DD_<jackpot_id>.json
+
+Then run:
+    python round_to_results.py --file rounds/round_mega_2026-05-03_179.json
+    python log_actuals.py --jackpot sportpesa --file results.json --target sportpesa_forecast_2026-05-04_115935.json
+
+Repeat for each past round.
