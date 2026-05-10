@@ -109,9 +109,30 @@ CONVERTERS = {
 # ================================================================
 # FILE DISCOVERY
 # ================================================================
+def extract_date_from_filename(filepath: str) -> str:
+    """
+    Extract date string from round filename for reliable sorting.
+    Works regardless of file modification time (fixes Streamlit Cloud issue
+    where all files get the same mtime after git clone).
+
+    round_2026-05-09_1000028349.json         -> 2026-05-09
+    round_mega_2026-05-03_179.json           -> 2026-05-03
+    round_midweek_2026-05-08_830.json        -> 2026-05-08
+    """
+    import re
+    name = os.path.basename(filepath)
+    match = re.search(r'(\d{4}-\d{2}-\d{2})', name)
+    if match:
+        return match.group(1)
+    # Fallback: use mtime if no date in filename
+    return str(os.path.getmtime(filepath))
+
+
 def get_latest_round_file(jackpot: str = None) -> str | None:
     """
-    Get most recently modified round file.
+    Get latest round file sorted by DATE in filename (not mtime).
+    Reliable on Streamlit Cloud where all files share the same mtime
+    after a git clone.
     If jackpot specified, filter by prefix pattern.
     """
     if jackpot == "mega":
@@ -119,7 +140,6 @@ def get_latest_round_file(jackpot: str = None) -> str | None:
     elif jackpot == "midweek":
         pattern = os.path.join(ROUNDS_FOLDER, "round_midweek_*.json")
     elif jackpot == "mozzart":
-        # Mozzart files do NOT have mega/midweek prefix
         all_files = glob.glob(os.path.join(ROUNDS_FOLDER, "round_*.json"))
         files = [
             f for f in all_files
@@ -128,16 +148,15 @@ def get_latest_round_file(jackpot: str = None) -> str | None:
         ]
         if not files:
             return None
-        files.sort(key=os.path.getmtime, reverse=True)
+        files.sort(key=extract_date_from_filename, reverse=True)
         return files[0]
     else:
-        # Auto-detect: pick the most recent of all round files
         pattern = os.path.join(ROUNDS_FOLDER, "round_*.json")
 
     files = glob.glob(pattern)
     if not files:
         return None
-    files.sort(key=os.path.getmtime, reverse=True)
+    files.sort(key=extract_date_from_filename, reverse=True)
     return files[0]
 
 
