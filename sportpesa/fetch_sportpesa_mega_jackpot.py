@@ -275,6 +275,47 @@ def scrape():
     rows = parse_events(jackpot)
     save_matches(rows, jackpot)
 
+    # ── Save to rounds/ if the round is settled (all events have scores) ──────
+    if all(r.get("score") for r in rows):
+        def _pick(score_str: str) -> str:
+            try:
+                h, a = (int(x) for x in str(score_str).replace("-", ":").split(":"))
+                return "1" if h > a else ("X" if h == a else "2")
+            except Exception:
+                return ""
+
+        finished_at = (
+            jackpot.get("settledAt")
+            or jackpot.get("finishedAt")
+            or datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+        )
+
+        data = {
+            "jackpot_human_id":    jackpot.get("humanId", jackpot.get("id", "unknown")),
+            "status":              jackpot.get("bettingStatus", "settled"),
+            "finished_at":         finished_at,
+            "num_games":           len(rows),
+            "winning_combination": [_pick(r["score"]) for r in rows],
+            "games": [
+                {
+                    "game_num": r["order"],
+                    "home":     r["home"],
+                    "away":     r["away"],
+                    "score":    str(r["score"]).replace("-", ":"),
+                    "pick":     _pick(r["score"]),
+                }
+                for r in rows
+            ],
+        }
+
+        import sys
+        sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        from round_to_results import save_mega_round
+        round_path = save_mega_round(data)
+        print(f"  💾  Round  → {round_path}")
+    else:
+        print("  ℹ  Round not yet settled — skipping rounds/ save.")
+
     print("\n✅  Done.\n")
 
 

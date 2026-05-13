@@ -512,27 +512,49 @@ def tab_log_results(jackpot: str):
     st.markdown("**Step 1 — Fetch & Convert Results**")
     st.caption(
         "Runs `round_to_results.py` to convert the latest round file "
-        "to `results.json`."
+        "to `results.json`. For Mega Jackpot, run 'Fetch Card' in the "
+        "Run Forecast tab first to pull the settled round."
     )
 
+    fetch_key = f"fetched_results_{jackpot}"
+
+    RESULTS_FETCH_SCRIPTS = {
+        "mozzart"  : "super_jackpot_results.py",
+        "midweek"  : None,
+        "sportpesa": None,
+    }
+    jackpot_arg = {"mozzart": "mozzart", "midweek": "midweek", "sportpesa": "mega"}
+
     if st.button("Fetch Latest Results", key=f"fetch_results_{jackpot}"):
-        with st.spinner("Converting round file to results.json..."):
-            ok, output = run_script(
-                "round_to_results.py",
-                ["--jackpot", jackpot]
+        fetch_script = RESULTS_FETCH_SCRIPTS[jackpot]
+        if fetch_script is not None:
+            with st.spinner("Fetching latest results from API..."):
+                ok1, out1 = run_script(fetch_script)
+            st.code(out1, language="text")
+            if not ok1:
+                st.error("Results fetch failed — continuing to conversion step.")
+        else:
+            st.info(
+                "No automatic results fetcher available for this jackpot yet. "
+                "Add results manually below."
             )
-        if ok:
+
+        with st.spinner("Converting round file to results.json..."):
+            ok2, out2 = run_script(
+                "round_to_results.py",
+                ["--jackpot", jackpot_arg[jackpot]]
+            )
+        st.code(out2, language="text")
+        if ok2:
             st.success("results.json updated.")
+            st.session_state[fetch_key] = read_results_json()
         else:
             st.error("Conversion failed.")
-        st.code(output, language="text")
 
     st.markdown("---")
 
     # Step 2: review and confirm results
     st.markdown("**Step 2 — Review & Confirm Results**")
-
-    results_data = read_results_json()
 
     # --- Forecast selector (handles overlapping rounds) ---
     unscored = find_unscored_local_forecasts(jackpot)
@@ -580,9 +602,10 @@ def tab_log_results(jackpot: str):
             away = m.get("away", m.get("away_team", "?"))
             match_names.append(f"{home} vs {away}")
 
-    # Pre-fill from results.json if available
-    prefilled_results = results_data.get("results", []) if results_data else []
-    prefilled_scores  = results_data.get("scores", []) if results_data else []
+    # Pre-fill from session state (populated by fetch button), fall back to empty
+    session_data      = st.session_state.get(fetch_key, {})
+    prefilled_results = session_data.get("results", [])
+    prefilled_scores  = session_data.get("scores", [])
 
     if not prefilled_results:
         st.info(
@@ -697,6 +720,7 @@ def tab_log_results(jackpot: str):
                             f"Results logged successfully! "
                             f"Best score: {label}"
                         )
+                        st.session_state.pop(fetch_key, None)
                         st.balloons()
                     else:
                         st.warning("Logged locally but Supabase save failed.")

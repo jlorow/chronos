@@ -1,0 +1,183 @@
+{
+  "ticketId": 1000028401,
+  "roundId": 2440,
+  "date": "2026-05-12 19:00",
+  "matches": [
+    {
+      "row": 1,
+      "home": "Kifisias",
+      "away": "Atromitos",
+      "league": "Greece - Super League - Play Out",
+      "result": "2",
+      "score": "0-3",
+      "odds_1": 2.25,
+      "odds_x": 3.2,
+      "odds_2": 3.1
+    },
+    {
+      "row": 2,
+      "home": "Panetolikos",
+      "away": "Larisa",
+      "league": "Greece - Super League - Play Out",
+      "result": "X",
+      "score": "1-1",
+      "odds_1": 2.3,
+      "odds_x": 3.2,
+      "odds_2": 3.0
+    },
+    {
+      "row": 3,
+      "home": "Modena",
+      "away": "Juve Stabia",
+      "league": "Italy - Serie B Play Off",
+      "result": "2",
+      "score": "0-1",
+      "odds_1": 2.15,
+      "odds_x": 3.3,
+      "odds_2": 3.5
+    },
+    {
+      "row": 4,
+      "home": "Landskrona",
+      "away": "Norrby",
+      "league": "Sweden - Superettan",
+      "result": "X",
+      "score": "1-1",
+      "odds_1": 2.0,
+      "odds_x": 3.35,
+      "odds_2": 3.5
+    },
+    {
+      "row": 5,
+      "home": "Beitar J.",
+      "away": "Hapoel B.S.",
+      "league": "Israel 1 - Play Off",
+      "result": "X",
+      "score": "1-1",
+      "odds_1": 2.65,
+      "odds_x": 3.35,
+      "odds_2": 2.45
+    },
+    {
+      "row": 6,
+      "home": "Al Nassr R.",
+      "away": "Al Hilal",
+      "league": "Saudi Arabia - Pro League",
+      "result": "X",
+      "score": "1-1",
+      "odds_1": 2.3,
+      "odds_x": 3.5,
+      "odds_2": 2.75
+    },
+    {
+      "row": 7,
+      "home": "Sparta Praha",
+      "away": "Plzen",
+      "league": "Czech R. - Czech Liga -  Play Off",
+      "result": "X",
+      "score": "0-0",
+      "odds_1": 2.45,
+      "odds_x": 3.3,
+      "odds_2": 2.7
+    },
+    {
+      "row": 8,
+      "home": "Aberdeen",
+      "away": "St.Mirren",
+      "league": "Scotland Premier Play Out",
+      "result": "2",
+      "score": "0-2",
+      "odds_1": 2.05,
+      "odds_x": 3.35,
+      "odds_2": 3.4
+    },
+    {
+      "row": 9,
+      "home": "Dunfermline",
+      "away": "Partick",
+      "league": "Scotland First Division Play Off",
+      "result": "X",
+      "score": "1-1",
+      "odds_1": 2.9,
+      "odds_x": 3.3,
+      "odds_2": 2.45
+    },
+    {
+      "row": 10,
+      "home": "Clyde",
+      "away": "Hamilton",
+      "league": "Scotland Second Division Play Out",
+      "result": "X",
+      "score": "1-1",
+      "odds_1": 2.75,
+      "odds_x": 3.3,
+      "odds_2": 2.4
+    },
+    {
+      "row": 11,
+      "home": "Southampton",
+      "away": "Middlesbrou.",
+      "league": "England Championship Play Off",
+      "result": "X",
+      "score": "1-1",
+      "odds_1": 2.4,
+      "odds_x": 3.4,
+      "odds_2": 2.95
+    },
+    {
+      "row": 12,
+      "home": "Catanzaro",
+      "away": "Avellino",
+      "league": "Italy - Serie B Play Off",
+      "result": "1",
+      "score": "3-0",
+      "odds_1": 2.1,
+      "odds_x": 3.4,
+      "odds_2": 3.6
+    },
+    {
+      "row": 13,
+      "home": "Osasuna",
+      "away": "Atl.Madrid",
+      "league": "Spain - Primera Division",
+      "result": "2",
+      "score": "1-2",
+      "odds_1": 2.5,
+      "odds_x": 3.35,
+      "odds_2": 2.85
+    },
+    {
+      "row": 14,
+      "home": "Belgrano",
+      "away": "Union Santa Fe",
+      "league": "Argentina 1 - Apertura - Play Off",
+      "result": "1",
+      "score": "2-0",
+      "odds_1": 2.35,
+      "odds_x": 3.0,
+      "odds_2": 3.1
+    },
+    {
+      "row": 15,
+      "home": "Londrina",
+      "away": "Sao Bernardo FC",
+      "league": "Brazil - Serie B",
+      "result": "2",
+      "score": "1-3",
+      "odds_1": 2.35,
+      "odds_x": 3.1,
+      "odds_2": 3.0
+    },
+    {
+      "row": 16,
+      "home": "San Martin T.",
+      "away": "Gimnasia J",
+      "league": "Argentina - Prim Nacional",
+      "result": "1",
+      "score": "2-0",
+      "odds_1": 2.15,
+      "odds_x": 3.05,
+      "odds_2": 3.45
+    }
+  ]
+}

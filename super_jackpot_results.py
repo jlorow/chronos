@@ -82,24 +82,39 @@ def run():
     print(f"Got {len(all_rounds)} rounds from API")
 
     # Filter: Super Jackpot only (16 rows), has results
-    seen_dates = {}
+    # Keep ALL settled rounds (one per unique ticket id) for debug visibility
+    settled_all = []
+    seen_tickets = set()
     for r in all_rounds:
         if not is_super_jackpot(r):
             continue
         if not has_results(r["matches"]):
             continue
-        date_key = datetime.fromtimestamp(r["matches"][0]["time"] / 1000).strftime("%Y-%m-%d")
-        if date_key not in seen_dates:
-            seen_dates[date_key] = r
+        tid = r["id"]
+        if tid not in seen_tickets:
+            seen_tickets.add(tid)
+            settled_all.append(r)
 
-    # Sort by date descending, take latest two unique dates
-    settled = [seen_dates[d] for d in sorted(seen_dates, reverse=True)]
+    # Sort by date descending
+    settled_all.sort(
+        key=lambda r: r["matches"][0]["time"],
+        reverse=True
+    )
 
-    if not settled:
+    # ── DEBUG: show ALL available settled rounds before slicing ──────────────
+    print(f"\n📋 All settled Super Jackpot rounds from API ({len(settled_all)} total):")
+    for i, r in enumerate(settled_all):
+        d = datetime.fromtimestamp(r["matches"][0]["time"] / 1000).strftime("%Y-%m-%d")
+        saved_marker = " [already saved]" if already_saved(r["id"], datetime.fromtimestamp(r["matches"][0]["time"] / 1000).strftime("%Y-%m-%d %H:%M")) else ""
+        print(f"  [{i}] date={d}  ticket={r['id']}  roundId={r['roundId']}{saved_marker}")
+    # ─────────────────────────────────────────────────────────────────────────
+
+    if not settled_all:
         print("\n⏳ No settled Super Jackpot rounds available yet.")
         return
 
-    for latest in settled[:2]:
+    saved_count = 0
+    for latest in settled_all[:2]:
         cleaned = clean_round(latest)
 
         first_match_time = latest["matches"][0]["time"] / 1000
@@ -110,11 +125,16 @@ def run():
             continue
 
         filepath = save_round(cleaned)
+        saved_count += 1
         print(f"\n✅ Saved round:")
         print(f"   Ticket ID : {latest['id']}")
         print(f"   Round     : {latest['roundId']}")
         print(f"   Date      : {cleaned['date']}")
         print(f"   File      : {os.path.basename(filepath)}")
         print(f"   Matches   : {len(cleaned['matches'])}")
+
+    if saved_count == 0:
+        print("\nℹ️  No new rounds to save. Latest round on disk matches API.")
+        print(f"   Latest API round: ticket={settled_all[0]['id']}, date={datetime.fromtimestamp(settled_all[0]['matches'][0]['time']/1000).strftime('%Y-%m-%d')}")
 
 run()
