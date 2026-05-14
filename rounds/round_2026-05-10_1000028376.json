@@ -1,0 +1,183 @@
+{
+  "ticketId": 1000028376,
+  "roundId": 2439,
+  "date": "2026-05-10 16:00",
+  "matches": [
+    {
+      "row": 1,
+      "home": "Crystal Palace",
+      "away": "Everton",
+      "league": "England - Premier",
+      "result": "X",
+      "score": "2-2",
+      "odds_1": 2.75,
+      "odds_x": 3.3,
+      "odds_2": 2.6
+    },
+    {
+      "row": 2,
+      "home": "Nott.Forest",
+      "away": "Newcastle",
+      "league": "England - Premier",
+      "result": "X",
+      "score": "1-1",
+      "odds_1": 2.75,
+      "odds_x": 3.35,
+      "odds_2": 2.55
+    },
+    {
+      "row": 3,
+      "home": "Hamburger",
+      "away": "Freiburg",
+      "league": "Germany - 1. Bundesliga",
+      "result": "1",
+      "score": "3-2",
+      "odds_1": 2.95,
+      "odds_x": 3.5,
+      "odds_2": 2.5
+    },
+    {
+      "row": 4,
+      "home": "Grimsby",
+      "away": "Salford City",
+      "league": "England League Two Play Off",
+      "result": "2",
+      "score": "1-2",
+      "odds_1": 2.2,
+      "odds_x": 3.3,
+      "odds_2": 3.1
+    },
+    {
+      "row": 5,
+      "home": "Leganes",
+      "away": "Santander",
+      "league": "Spain - Segunda Division",
+      "result": "2",
+      "score": "1-2",
+      "odds_1": 3.0,
+      "odds_x": 3.5,
+      "odds_2": 2.3
+    },
+    {
+      "row": 6,
+      "home": "Groningen",
+      "away": "NEC",
+      "league": "Netherlands - Eredivisie",
+      "result": "1",
+      "score": "2-1",
+      "odds_1": 3.05,
+      "odds_x": 3.6,
+      "odds_2": 2.25
+    },
+    {
+      "row": 7,
+      "home": "NAC Breda",
+      "away": "Heerenveen",
+      "league": "Netherlands - Eredivisie",
+      "result": "1",
+      "score": "2-0",
+      "odds_1": 2.5,
+      "odds_x": 3.5,
+      "odds_2": 2.75
+    },
+    {
+      "row": 8,
+      "home": "Oviedo",
+      "away": "Getafe",
+      "league": "Spain - Primera Division",
+      "result": "X",
+      "score": "0-0",
+      "odds_1": 2.95,
+      "odds_x": 3.05,
+      "odds_2": 2.6
+    },
+    {
+      "row": 9,
+      "home": "Mirandes",
+      "away": "Eibar",
+      "league": "Spain - Segunda Division",
+      "result": "2",
+      "score": "0-1",
+      "odds_1": 2.85,
+      "odds_x": 3.3,
+      "odds_2": 2.5
+    },
+    {
+      "row": 10,
+      "home": "Milan",
+      "away": "Atalanta",
+      "league": "Italy - Serie A",
+      "result": "2",
+      "score": "2-3",
+      "odds_1": 2.15,
+      "odds_x": 3.5,
+      "odds_2": 3.6
+    },
+    {
+      "row": 11,
+      "home": "Angers",
+      "away": "Strasbourg",
+      "league": "France - Ligue 1",
+      "result": "X",
+      "score": "1-1",
+      "odds_1": 2.9,
+      "odds_x": 3.35,
+      "odds_2": 2.45
+    },
+    {
+      "row": 12,
+      "home": "Auxerre",
+      "away": "Nice",
+      "league": "France - Ligue 1",
+      "result": "1",
+      "score": "2-1",
+      "odds_1": 2.45,
+      "odds_x": 3.45,
+      "odds_2": 3.05
+    },
+    {
+      "row": 13,
+      "home": "Le Havre",
+      "away": "Olympique Marseille",
+      "league": "France - Ligue 1",
+      "result": "2",
+      "score": "0-1",
+      "odds_1": 3.7,
+      "odds_x": 3.5,
+      "odds_2": 2.0
+    },
+    {
+      "row": 14,
+      "home": "Metz",
+      "away": "Lorient",
+      "league": "France - Ligue 1",
+      "result": "2",
+      "score": "0-4",
+      "odds_1": 3.15,
+      "odds_x": 3.85,
+      "odds_2": 2.2
+    },
+    {
+      "row": 15,
+      "home": "Monaco",
+      "away": "Lille",
+      "league": "France - Ligue 1",
+      "result": "2",
+      "score": "0-1",
+      "odds_1": 2.4,
+      "odds_x": 3.75,
+      "odds_2": 2.9
+    },
+    {
+      "row": 16,
+      "home": "Alverca",
+      "away": "Estoril",
+      "league": "Portugal - Primeira Liga",
+      "result": "X",
+      "score": "1-1",
+      "odds_1": 2.45,
+      "odds_x": 3.4,
+      "odds_2": 2.85
+    }
+  ]
+}

@@ -1,0 +1,183 @@
+{
+  "ticketId": 1000028383,
+  "roundId": 2439,
+  "date": "2026-05-11 18:00",
+  "matches": [
+    {
+      "row": 1,
+      "home": "Opava",
+      "away": "Artis Brno",
+      "league": "Czech R. - 2. Liga",
+      "result": "2",
+      "score": "0-2",
+      "odds_1": 2.4,
+      "odds_x": 3.3,
+      "odds_2": 2.75
+    },
+    {
+      "row": 2,
+      "home": "Odra Opole",
+      "away": "Pogon Grodzisk Mazowiecki",
+      "league": "Poland - I Liga",
+      "result": "1",
+      "score": "3-1",
+      "odds_1": 2.1,
+      "odds_x": 3.35,
+      "odds_2": 3.25
+    },
+    {
+      "row": 3,
+      "home": "Slask",
+      "away": "LKS Lodz",
+      "league": "Poland - I Liga",
+      "result": "X",
+      "score": "2-2",
+      "odds_1": 1.95,
+      "odds_x": 3.45,
+      "odds_2": 3.6
+    },
+    {
+      "row": 4,
+      "home": "Neom",
+      "away": "Al Shabab R.",
+      "league": "Saudi Arabia - Pro League",
+      "result": "1",
+      "score": "2-1",
+      "odds_1": 2.2,
+      "odds_x": 3.35,
+      "odds_2": 3.05
+    },
+    {
+      "row": 5,
+      "home": "Randers",
+      "away": "Odense",
+      "league": "Denmark - Superliga -  Play Out",
+      "result": "X",
+      "score": "2-2",
+      "odds_1": 2.2,
+      "odds_x": 3.5,
+      "odds_2": 3.2
+    },
+    {
+      "row": 6,
+      "home": "Egersund",
+      "away": "Odd Grenland",
+      "league": "Norway 2",
+      "result": "2",
+      "score": "0-1",
+      "odds_1": 2.25,
+      "odds_x": 3.4,
+      "odds_2": 2.9
+    },
+    {
+      "row": 7,
+      "home": "Cracovia K.",
+      "away": "Radomiak",
+      "league": "Poland - Ekstraklasa",
+      "result": "X",
+      "score": "0-0",
+      "odds_1": 2.0,
+      "odds_x": 3.45,
+      "odds_2": 3.8
+    },
+    {
+      "row": 8,
+      "home": "Bellinzona",
+      "away": "Wil",
+      "league": "Switzerland - Challenge League",
+      "result": "2",
+      "score": "2-4",
+      "odds_1": 2.9,
+      "odds_x": 3.3,
+      "odds_2": 2.3
+    },
+    {
+      "row": 9,
+      "home": "S.Nyonnais",
+      "away": "Stade Lausanne Ouchy",
+      "league": "Switzerland - Challenge League",
+      "result": "2",
+      "score": "1-3",
+      "odds_1": 3.6,
+      "odds_x": 3.45,
+      "odds_2": 1.95
+    },
+    {
+      "row": 10,
+      "home": "Vaduz",
+      "away": "Aarau",
+      "league": "Switzerland - Challenge League",
+      "result": "2",
+      "score": "1-2",
+      "odds_1": 2.65,
+      "odds_x": 3.35,
+      "odds_2": 2.45
+    },
+    {
+      "row": 11,
+      "home": "Xamax",
+      "away": "Etoile Carouge",
+      "league": "Switzerland - Challenge League",
+      "result": "1",
+      "score": "3-0",
+      "odds_1": 2.15,
+      "odds_x": 3.45,
+      "odds_2": 3.05
+    },
+    {
+      "row": 12,
+      "home": "Rayo Vallecano",
+      "away": "Girona",
+      "league": "Spain - Primera Division",
+      "result": "X",
+      "score": "1-1",
+      "odds_1": 2.4,
+      "odds_x": 3.4,
+      "odds_2": 2.95
+    },
+    {
+      "row": 13,
+      "home": "Estrela Amadora",
+      "away": "Famalicao",
+      "league": "Portugal - Primeira Liga",
+      "result": "X",
+      "score": "0-0",
+      "odds_1": 3.6,
+      "odds_x": 3.45,
+      "odds_2": 2.05
+    },
+    {
+      "row": 14,
+      "home": "Santa Clara",
+      "away": "Nacional",
+      "league": "Portugal - Primeira Liga",
+      "result": "1",
+      "score": "2-0",
+      "odds_1": 2.15,
+      "odds_x": 3.4,
+      "odds_2": 3.4
+    },
+    {
+      "row": 15,
+      "home": "Sportivo Ameliano",
+      "away": "Recoleta",
+      "league": "Paraguay - Apertura",
+      "result": "1",
+      "score": "3-2",
+      "odds_1": 2.15,
+      "odds_x": 3.3,
+      "odds_2": 3.2
+    },
+    {
+      "row": 16,
+      "home": "Palestino",
+      "away": "Limache",
+      "league": "Chile - Copa De La Liga",
+      "result": "1",
+      "score": "3-2",
+      "odds_1": 2.45,
+      "odds_x": 3.2,
+      "odds_2": 2.75
+    }
+  ]
+}

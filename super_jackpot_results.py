@@ -16,6 +16,7 @@ def has_results(matches):
     for match in matches:
         result = match.get("shortResultDesc", "")
         if result not in ("1", "X", "2"):
+            print(f"  DEBUG has_results FAILED: match row={match.get('rowNumber')} shortResultDesc='{result}'")
             return False
     return True
 
@@ -102,7 +103,7 @@ def run():
     )
 
     # ── DEBUG: show ALL available settled rounds before slicing ──────────────
-    print(f"\n📋 All settled Super Jackpot rounds from API ({len(settled_all)} total):")
+    print(f"\nAll settled Super Jackpot rounds from API ({len(settled_all)} total):")
     for i, r in enumerate(settled_all):
         d = datetime.fromtimestamp(r["matches"][0]["time"] / 1000).strftime("%Y-%m-%d")
         saved_marker = " [already saved]" if already_saved(r["id"], datetime.fromtimestamp(r["matches"][0]["time"] / 1000).strftime("%Y-%m-%d %H:%M")) else ""
@@ -114,7 +115,7 @@ def run():
         return
 
     saved_count = 0
-    for latest in settled_all[:2]:
+    for latest in settled_all:
         cleaned = clean_round(latest)
 
         first_match_time = latest["matches"][0]["time"] / 1000
