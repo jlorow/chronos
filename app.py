@@ -72,9 +72,9 @@ def extract_date_from_filename(filepath: str) -> str:
     """
     Sort forecasts and round files by date in filename, not mtime.
     Fixes Streamlit Cloud where all files share the same mtime after deploy.
+    Returns sortable key: "YYYY-MM-DD" or "YYYY-MM-DD_HHMMSS".
     """
     name  = os.path.basename(filepath)
-    # Match date pattern YYYY-MM-DD optionally followed by _HHMMSS
     parts = name.replace(".json", "").split("_")
     date_parts = [p for p in parts if len(p) == 10 and p.count("-") == 2]
     time_parts = [p for p in parts if len(p) == 6 and p.isdigit()]
@@ -84,6 +84,23 @@ def extract_date_from_filename(filepath: str) -> str:
             key += "_" + time_parts[0]
         return key
     return str(os.path.getmtime(filepath))
+
+
+def _format_forecast_label(filename: str) -> str:
+    """
+    Build a human-readable label for a forecast filename.
+    mozzart_daily_2026-05-09_094837.json → "2026-05-09 09:48 — mozzart_daily_2026-05-09_094837.json"
+    """
+    parts      = filename.replace(".json", "").split("_")
+    date_parts = [p for p in parts if len(p) == 10 and p.count("-") == 2]
+    time_parts = [p for p in parts if len(p) == 6 and p.isdigit()]
+    if date_parts:
+        label = date_parts[0]
+        if time_parts:
+            t = time_parts[0]
+            label += f" {t[:2]}:{t[2:4]}"
+        return f"{label} — {filename}"
+    return filename
 
 
 PICK_COLORS = {
@@ -491,11 +508,17 @@ def find_unscored_local_forecasts(jackpot: str) -> list:
             with open(fpath, encoding="utf-8") as f:
                 data = json.load(f)
             if "actuals" not in data:
+                fname = os.path.basename(fpath)
+                # Extract date from filename (reliable; generated_at may be absent)
+                parts      = fname.replace(".json", "").split("_")
+                date_parts = [p for p in parts if len(p) == 10 and p.count("-") == 2]
+                date_str   = date_parts[0] if date_parts else ""
                 unscored.append({
-                    "filename"    : os.path.basename(fpath),
+                    "filename"    : fname,
                     "filepath"    : fpath,
                     "card_file"   : data.get("card_file", "unknown"),
                     "generated_at": data.get("generated_at", "")[:16].replace("_", " "),
+                    "date_str"    : date_str,
                     "data"        : data,
                 })
         except Exception:
@@ -503,18 +526,42 @@ def find_unscored_local_forecasts(jackpot: str) -> list:
     return unscored
 
 
+def get_all_round_files(jackpot: str) -> list[dict]:
+    """
+    Return all round files for a jackpot sorted by filename date desc.
+    Each dict: {filename, filepath, date_str, display_label}
+    """
+    rounds_dir = os.path.join(ROOT, "rounds")
+    if jackpot == "mozzart":
+        all_files = glob.glob(os.path.join(rounds_dir, "round_*.json"))
+        files = [
+            f for f in all_files
+            if "mega" not in os.path.basename(f)
+            and "midweek" not in os.path.basename(f)
+        ]
+    elif jackpot == "midweek":
+        files = glob.glob(os.path.join(rounds_dir, "round_midweek_*.json"))
+    else:  # sportpesa
+        files = glob.glob(os.path.join(rounds_dir, "round_mega_*.json"))
+
+    files.sort(key=extract_date_from_filename, reverse=True)
+    result = []
+    for f in files:
+        date_str = extract_date_from_filename(f)
+        filename = os.path.basename(f)
+        result.append({
+            "filename"     : filename,
+            "filepath"     : f,
+            "date_str"     : date_str,
+            "display_label": f"{date_str} — {filename}",
+        })
+    return result
+
+
 def tab_log_results(jackpot: str):
     cfg = JACKPOTS[jackpot]
     n   = cfg["num_games"]
     st.subheader(f"📋 Log Results — {cfg['label']}")
-
-    # Step 1: fetch results
-    st.markdown("**Step 1 — Fetch & Convert Results**")
-    st.caption(
-        "Runs `round_to_results.py` to convert the latest round file "
-        "to `results.json`. For Mega Jackpot, run 'Fetch Card' in the "
-        "Run Forecast tab first to pull the settled round."
-    )
 
     fetch_key = f"fetched_results_{jackpot}"
 
@@ -523,7 +570,24 @@ def tab_log_results(jackpot: str):
         "midweek"  : None,
         "sportpesa": None,
     }
-    jackpot_arg = {"mozzart": "mozzart", "midweek": "midweek", "sportpesa": "mega"}
+
+    # Resolve selectors early so the fetch button can use the selected round
+    unscored    = find_unscored_local_forecasts(jackpot)
+    round_files = get_all_round_files(jackpot)
+
+    if not unscored:
+        st.info(
+            "No unscored forecasts found locally. "
+            "All forecasts have been logged, or no forecasts exist yet."
+        )
+        return
+
+    # ── Step 1 ────────────────────────────────────────────────────
+    st.markdown("**Step 1 — Fetch & Convert Results**")
+    st.caption(
+        "Runs `round_to_results.py` with the round file selected in Step 2 "
+        "to write `results.json`."
+    )
 
     if st.button("Fetch Latest Results", key=f"fetch_results_{jackpot}"):
         fetch_script = RESULTS_FETCH_SCRIPTS[jackpot]
@@ -539,56 +603,106 @@ def tab_log_results(jackpot: str):
                 "Add results manually below."
             )
 
-        with st.spinner("Converting round file to results.json..."):
-            ok2, out2 = run_script(
-                "round_to_results.py",
-                ["--jackpot", jackpot_arg[jackpot]]
-            )
-        st.code(out2, language="text")
-        if ok2:
-            st.success("results.json updated.")
-            st.session_state[fetch_key] = read_results_json()
+        # Use whichever round is currently selected in the Step 2 selector
+        _rd_label = st.session_state.get(f"round_selector_{jackpot}")
+        _rd_map   = {r["display_label"]: r for r in round_files}
+        _sel_round = _rd_map.get(_rd_label, round_files[0] if round_files else None)
+
+        if _sel_round:
+            with st.spinner("Converting round file to results.json..."):
+                ok2, out2 = run_script(
+                    "round_to_results.py",
+                    ["--file", _sel_round["filepath"]]
+                )
+            st.code(out2, language="text")
+            if ok2:
+                st.success("results.json updated.")
+                st.session_state[fetch_key] = read_results_json()
+            else:
+                st.error("Conversion failed.")
         else:
-            st.error("Conversion failed.")
+            st.warning("No round files found in rounds/ — cannot convert.")
 
     st.markdown("---")
 
-    # Step 2: review and confirm results
-    st.markdown("**Step 2 — Review & Confirm Results**")
+    # ── Step 2 ────────────────────────────────────────────────────
+    st.markdown("**Step 2 — Match Forecast to Results**")
 
-    # --- Forecast selector (handles overlapping rounds) ---
-    unscored = find_unscored_local_forecasts(jackpot)
+    fc_col, rd_col = st.columns(2)
 
-    if not unscored:
-        st.info(
-            "No unscored forecasts found locally. "
-            "All forecasts have been logged, or no forecasts exist yet."
-        )
-        return
-
-    if len(unscored) == 1:
-        # Only one unscored — use it directly, no selector needed
-        selected_forecast = unscored[0]
-        st.caption(
-            f"Logging results for: **{selected_forecast['card_file']}** "
-            f"(generated {selected_forecast['generated_at']})"
-        )
-    else:
-        # Multiple unscored — show selector
-        st.warning(
-            f"Found {len(unscored)} unscored forecasts. "
-            f"Select which round you are logging results for."
-        )
-        options = {
-            f"{u['generated_at']} — {u['card_file']}": u
-            for u in unscored
-        }
-        chosen_label = st.selectbox(
+    with fc_col:
+        fc_options      = {_format_forecast_label(u["filename"]): u for u in unscored}
+        chosen_fc_label = st.selectbox(
             "Select forecast to log",
-            list(options.keys()),
+            list(fc_options.keys()),
             key=f"forecast_selector_{jackpot}",
         )
-        selected_forecast = options[chosen_label]
+        selected_forecast = fc_options[chosen_fc_label]
+
+    with rd_col:
+        # Date from forecast filename (e.g. "2026-05-09")
+        fc_date_str = selected_forecast["date_str"]
+
+        # Default selection: exact date match → nearest after → nearest before
+        default_idx = 0
+        if round_files and fc_date_str:
+            try:
+                fc_dt = datetime.strptime(fc_date_str, "%Y-%m-%d")
+                # 1. Exact match
+                exact = next(
+                    (i for i, r in enumerate(round_files)
+                     if r["date_str"][:10] == fc_date_str),
+                    None
+                )
+                if exact is not None:
+                    default_idx = exact
+                else:
+                    # 2. Nearest on or after forecast date
+                    after = [
+                        (i, r) for i, r in enumerate(round_files)
+                        if datetime.strptime(r["date_str"][:10], "%Y-%m-%d") >= fc_dt
+                    ]
+                    if after:
+                        # pick the one with smallest gap (closest after)
+                        default_idx = min(after, key=lambda x: (
+                            datetime.strptime(x[1]["date_str"][:10], "%Y-%m-%d") - fc_dt
+                        ).days)[0]
+                    else:
+                        # 3. Fall back to nearest before
+                        before = [
+                            (i, r) for i, r in enumerate(round_files)
+                            if datetime.strptime(r["date_str"][:10], "%Y-%m-%d") < fc_dt
+                        ]
+                        if before:
+                            default_idx = min(before, key=lambda x: (
+                                fc_dt - datetime.strptime(x[1]["date_str"][:10], "%Y-%m-%d")
+                            ).days)[0]
+            except Exception:
+                default_idx = 0
+
+        rd_labels       = [r["display_label"] for r in round_files]
+        chosen_rd_label = st.selectbox(
+            "Select results round",
+            rd_labels,
+            index=default_idx,
+            key=f"round_selector_{jackpot}",
+        )
+        rd_map         = {r["display_label"]: r for r in round_files}
+        selected_round = rd_map[chosen_rd_label]
+
+    # Warn if no round file exists for the forecast date
+    round_dates = {r["date_str"][:10] for r in round_files}
+    if fc_date_str and fc_date_str not in round_dates:
+        st.warning(
+            f"No round file found for {fc_date_str}. "
+            f"Click 'Fetch Latest Results' above to fetch from API, "
+            f"or select a different round manually."
+        )
+
+    st.caption(
+        f"Logging: **{selected_forecast['card_file']}** "
+        f"← **{selected_round['filename']}**"
+    )
 
     forecast_data = selected_forecast["data"]
     target_filename = selected_forecast["filename"]
