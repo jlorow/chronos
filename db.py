@@ -103,6 +103,59 @@ def list_forecasts(jackpot: str, limit: int = 20) -> list:
         return []
 
 
+def get_unscored_forecasts(jackpot: str, limit: int = 30) -> list:
+    """
+    Return forecasts that have no actuals row yet, newest first.
+    Each entry includes full tickets + match_analysis for in-process scoring.
+    """
+    client = get_client()
+    try:
+        # Fetch recent forecasts with their actuals (left join)
+        result = (
+            client.table("forecasts")
+            .select("id, generated_at, card_file, num_games, tickets, match_analysis, forecast, card_signals, actuals(forecast_id)")
+            .eq("jackpot", jackpot)
+            .order("created_at", desc=True)
+            .limit(limit)
+            .execute()
+        )
+        unscored = []
+        for row in (result.data or []):
+            if row.get("actuals"):          # has at least one actuals row
+                continue
+            gen      = row.get("generated_at", "")
+            date_str = gen[:10] if gen else ""
+            # display label: "2026-05-14 07:31 — mozzart_daily_2026-05-14_072826.json"
+            card     = row.get("card_file", "")
+            parts    = card.replace(".json", "").split("_")
+            dp       = [p for p in parts if len(p) == 10 and p.count("-") == 2]
+            tp       = [p for p in parts if len(p) == 6 and p.isdigit()]
+            if dp:
+                lbl = dp[0]
+                if tp:
+                    t = tp[0]
+                    lbl += f" {t[:2]}:{t[2:4]}"
+                display = f"{lbl} — {card}"
+            else:
+                display = gen[:16].replace("T", " ") + f" — {card}"
+            unscored.append({
+                "id"          : row["id"],
+                "card_file"   : card,
+                "generated_at": gen,
+                "date_str"    : date_str,
+                "display"     : display,
+                "num_games"   : row.get("num_games", 16),
+                "tickets"     : row.get("tickets") or {},
+                "match_analysis": row.get("match_analysis") or [],
+                "forecast"    : row.get("forecast") or {},
+                "card_signals": row.get("card_signals") or {},
+            })
+        return unscored
+    except Exception as e:
+        st.error(f"Failed to load unscored forecasts: {e}")
+        return []
+
+
 # ================================================================
 # ACTUALS
 # ================================================================

@@ -496,33 +496,85 @@ def tab_run_forecast(jackpot: str):
 # ================================================================
 def find_unscored_local_forecasts(jackpot: str) -> list:
     """
-    Return all local forecast files that have no actuals block yet.
-    Returns list of (filename, filepath, card_file, generated_at) tuples.
+    Return all forecast files that have no actuals block yet.
+    Merges local files + Supabase records so forecasts run on other
+    machines (or whose local file was lost) still appear in the dropdown.
+    Local files take priority when both exist for the same card_file.
     """
     cfg     = JACKPOTS[jackpot]
     pattern = os.path.join(ROOT, cfg["output_dir"], cfg["forecast_pattern"])
     files   = sorted(glob.glob(pattern), key=extract_date_from_filename, reverse=True)
-    unscored = []
+
+    # ── local files ──────────────────────────────────────────────
+    unscored   = []
+    seen_cards = set()          # card_file values already covered by a local file
     for fpath in files:
         try:
             with open(fpath, encoding="utf-8") as f:
                 data = json.load(f)
             if "actuals" not in data:
                 fname = os.path.basename(fpath)
-                # Extract date from filename (reliable; generated_at may be absent)
                 parts      = fname.replace(".json", "").split("_")
                 date_parts = [p for p in parts if len(p) == 10 and p.count("-") == 2]
                 date_str   = date_parts[0] if date_parts else ""
+                card_file  = data.get("card_file", "unknown")
+                seen_cards.add(card_file)
                 unscored.append({
                     "filename"    : fname,
                     "filepath"    : fpath,
-                    "card_file"   : data.get("card_file", "unknown"),
+                    "card_file"   : card_file,
                     "generated_at": data.get("generated_at", "")[:16].replace("_", " "),
                     "date_str"    : date_str,
                     "data"        : data,
+                    "source"      : "local",
                 })
         except Exception:
             continue
+
+    # ── Supabase fallback: forecasts with no actuals not covered locally ──
+    try:
+        sb_forecasts = list_forecasts(jackpot, limit=30)
+        sb_actuals_ids = set()
+        # Collect forecast_ids that already have actuals in Supabase
+        from db import get_client
+        client = get_client()
+        actuals_result = (
+            client.table("actuals")
+            .select("forecast_id")
+            .eq("jackpot", jackpot)
+            .execute()
+        )
+        sb_actuals_ids = {r["forecast_id"] for r in (actuals_result.data or [])}
+
+        for sb in sb_forecasts:
+            card_file = sb.get("card_file", "")
+            if card_file in seen_cards:
+                continue                        # already covered by local file
+            if sb["id"] in sb_actuals_ids:
+                continue                        # already scored in Supabase
+            # Build a synthetic entry from Supabase metadata
+            gen = sb.get("generated_at", "")
+            # generated_at from Supabase is ISO: "2026-05-14T07:31:09"
+            date_str = gen[:10] if gen else ""
+            display_gen = gen[:16].replace("T", " ") if gen else ""
+            # Derive a synthetic filename from card_file for display
+            fname = f"[Supabase] {card_file}"
+            unscored.append({
+                "filename"    : fname,
+                "filepath"    : None,           # no local file
+                "card_file"   : card_file,
+                "generated_at": display_gen,
+                "date_str"    : date_str,
+                "data"        : {},             # no local data; matches won't pre-fill
+                "source"      : "supabase",
+                "supabase_id" : sb["id"],
+            })
+            seen_cards.add(card_file)
+    except Exception:
+        pass                                    # Supabase unavailable — local only
+
+    # Sort combined list by date_str descending
+    unscored.sort(key=lambda u: u["date_str"], reverse=True)
     return unscored
 
 
@@ -800,66 +852,85 @@ def tab_log_results(jackpot: str):
         with open(results_path, "w", encoding="utf-8") as f:
             json.dump(confirmed, f, indent=2)
 
-        # Run log_actuals.py — pass --target so it logs the correct forecast
-        # when two rounds exist on the same day
-        with st.spinner("Logging actuals..."):
-            ok, output = run_script(
-                "log_actuals.py",
-                ["--jackpot", jackpot,
-                 "--file",   "results.json",
-                 "--target", target_filename]
-            )
-
-        st.code(output, language="text")
-
-        if ok:
-            # Read the updated forecast file and push actuals to Supabase
-            # Re-read the specific forecast file after log_actuals updated it
-            local_data = None
-            try:
-                with open(selected_forecast["filepath"], encoding="utf-8") as f:
-                    local_data = json.load(f)
-            except Exception:
-                pass
-
-            if local_data and "actuals" in local_data:
-                # Find the matching Supabase forecast by generated_at + card_file
-                sb_forecast = get_latest_forecast(jackpot)
-                if sb_forecast and sb_forecast.get("card_file") == forecast_data.get("card_file"):
-                    pass  # already matched
-                else:
-                    from db import list_forecasts
-                    all_fc = list_forecasts(jackpot, limit=10)
-                    sb_forecast = next(
-                        (f for f in all_fc
-                         if f.get("card_file") == forecast_data.get("card_file")),
-                        None
-                    )
-                if sb_forecast:
-                    saved = save_actuals(
-                        jackpot,
-                        sb_forecast["id"],
-                        local_data["actuals"]
-                    )
-                    if saved:
-                        best  = local_data["actuals"].get("best_score", 0)
-                        label = score_label(best, n)
-                        st.success(
-                            f"Results logged successfully! "
-                            f"Best score: {label}"
-                        )
-                        st.session_state.pop(fetch_key, None)
-                        st.balloons()
-                    else:
-                        st.warning("Logged locally but Supabase save failed.")
-                else:
-                    st.warning(
-                        "Logged locally but no matching forecast in Supabase."
-                    )
+        if selected_forecast.get("source") == "supabase":
+            # No local file — build actuals block directly and push to Supabase
+            actuals_data = {
+                "logged_at"  : datetime.now().strftime("%Y-%m-%dT%H:%M:%S"),
+                "results"    : results_input,
+                "scores"     : scores_input,
+                "best_score" : 0,
+                "best_ticket": "",
+                "ticket_scores"     : {},
+                "distribution_error": {},
+                "signal_accuracy"   : {},
+                "per_match_accuracy": {},
+            }
+            with st.spinner("Saving actuals to Supabase..."):
+                saved = save_actuals(
+                    jackpot,
+                    selected_forecast["supabase_id"],
+                    actuals_data
+                )
+            if saved:
+                st.success(
+                    "Results logged to Supabase. "
+                    "Note: ticket scores and distribution error were not computed "
+                    "(no local forecast file). Re-run the forecast locally to get full scoring."
+                )
+                st.session_state.pop(fetch_key, None)
             else:
-                st.warning("Log script ran but actuals block not found in output.")
+                st.warning("Supabase save failed.")
         else:
-            st.error("Logging failed. See output above.")
+            # Normal path — run log_actuals.py against the local file
+            with st.spinner("Logging actuals..."):
+                ok, output = run_script(
+                    "log_actuals.py",
+                    ["--jackpot", jackpot,
+                     "--file",   "results.json",
+                     "--target", target_filename]
+                )
+            st.code(output, language="text")
+
+            if ok:
+                local_data = None
+                try:
+                    with open(selected_forecast["filepath"], encoding="utf-8") as f:
+                        local_data = json.load(f)
+                except Exception:
+                    pass
+
+                if local_data and "actuals" in local_data:
+                    sb_forecast = get_latest_forecast(jackpot)
+                    if not (sb_forecast and sb_forecast.get("card_file") == forecast_data.get("card_file")):
+                        all_fc = list_forecasts(jackpot, limit=30)
+                        sb_forecast = next(
+                            (f for f in all_fc
+                             if f.get("card_file") == forecast_data.get("card_file")),
+                            None
+                        )
+                    if sb_forecast:
+                        saved = save_actuals(
+                            jackpot,
+                            sb_forecast["id"],
+                            local_data["actuals"]
+                        )
+                        if saved:
+                            best  = local_data["actuals"].get("best_score", 0)
+                            label = score_label(best, n)
+                            st.success(
+                                f"Results logged successfully! "
+                                f"Best score: {label}"
+                            )
+                            st.session_state.pop(fetch_key, None)
+                            st.balloons()
+                        else:
+                            st.warning("Logged locally but Supabase save failed.")
+                    else:
+                        st.warning("Logged locally but no matching forecast in Supabase.")
+                else:
+                    st.warning("Log script ran but actuals block not found in output.")
+            else:
+                st.error("Logging failed. See output above.")
 
 
 # ================================================================
