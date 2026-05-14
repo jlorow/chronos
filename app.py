@@ -907,7 +907,10 @@ def tab_log_results(jackpot: str):
                 f"({best_ticket})"
             )
             st.session_state.pop(fetch_key, None)
+            st.session_state.pop(f"last_round_{jackpot}", None)
+            st.session_state.pop(f"forecast_selector_{jackpot}", None)
             st.balloons()
+            st.rerun()
         else:
             st.warning("Supabase save failed.")
 
