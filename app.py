@@ -618,6 +618,7 @@ def tab_log_results(jackpot: str):
             if ok2:
                 st.success("results.json updated.")
                 st.session_state[fetch_key] = read_results_json()
+                st.session_state[f"last_round_{jackpot}"] = _sel_round["filename"]
             else:
                 st.error("Conversion failed.")
         else:
@@ -689,6 +690,19 @@ def tab_log_results(jackpot: str):
         )
         rd_map         = {r["display_label"]: r for r in round_files}
         selected_round = rd_map[chosen_rd_label]
+
+    # Auto-convert whenever the selected round changes
+    last_key = f"last_round_{jackpot}"
+    if st.session_state.get(last_key) != selected_round["filename"]:
+        st.session_state[last_key] = selected_round["filename"]
+        ok, _ = run_script(
+            "round_to_results.py",
+            ["--file", selected_round["filepath"]]
+        )
+        if ok:
+            fresh = read_results_json()
+            if fresh:
+                st.session_state[fetch_key] = fresh
 
     # Warn if no round file exists for the forecast date
     round_dates = {r["date_str"][:10] for r in round_files}
