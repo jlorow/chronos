@@ -107,25 +107,35 @@ def get_unscored_forecasts(jackpot: str, limit: int = 30) -> list:
     """
     Return forecasts that have no actuals row yet, newest first.
     Each entry includes full tickets + match_analysis for in-process scoring.
+    Queries actuals separately to avoid join window misses.
     """
     client = get_client()
     try:
-        # Fetch recent forecasts with their actuals (left join)
+        # Step 1: collect ALL forecast_ids that already have actuals
+        actuals_result = (
+            client.table("actuals")
+            .select("forecast_id")
+            .eq("jackpot", jackpot)
+            .execute()
+        )
+        scored_ids = {r["forecast_id"] for r in (actuals_result.data or [])}
+
+        # Step 2: fetch recent forecasts (no join needed)
         result = (
             client.table("forecasts")
-            .select("id, generated_at, card_file, num_games, tickets, match_analysis, forecast, card_signals, actuals(forecast_id)")
+            .select("id, generated_at, card_file, num_games, tickets, match_analysis, forecast, card_signals")
             .eq("jackpot", jackpot)
             .order("created_at", desc=True)
             .limit(limit)
             .execute()
         )
+
         unscored = []
         for row in (result.data or []):
-            if row.get("actuals"):          # has at least one actuals row
+            if row["id"] in scored_ids:
                 continue
             gen      = row.get("generated_at", "")
             date_str = gen[:10] if gen else ""
-            # display label: "2026-05-14 07:31 — mozzart_daily_2026-05-14_072826.json"
             card     = row.get("card_file", "")
             parts    = card.replace(".json", "").split("_")
             dp       = [p for p in parts if len(p) == 10 and p.count("-") == 2]
@@ -135,20 +145,20 @@ def get_unscored_forecasts(jackpot: str, limit: int = 30) -> list:
                 if tp:
                     t = tp[0]
                     lbl += f" {t[:2]}:{t[2:4]}"
-                display = f"{lbl} — {card}"
+                display = f"{lbl} \u2014 {card}"
             else:
-                display = gen[:16].replace("T", " ") + f" — {card}"
+                display = gen[:16].replace("T", " ") + f" \u2014 {card}"
             unscored.append({
-                "id"          : row["id"],
-                "card_file"   : card,
-                "generated_at": gen,
-                "date_str"    : date_str,
-                "display"     : display,
-                "num_games"   : row.get("num_games", 16),
-                "tickets"     : row.get("tickets") or {},
+                "id"            : row["id"],
+                "card_file"     : card,
+                "generated_at"  : gen,
+                "date_str"      : date_str,
+                "display"       : display,
+                "num_games"     : row.get("num_games", 16),
+                "tickets"       : row.get("tickets") or {},
                 "match_analysis": row.get("match_analysis") or [],
-                "forecast"    : row.get("forecast") or {},
-                "card_signals": row.get("card_signals") or {},
+                "forecast"      : row.get("forecast") or {},
+                "card_signals"  : row.get("card_signals") or {},
             })
         return unscored
     except Exception as e:
