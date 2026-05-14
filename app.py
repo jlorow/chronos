@@ -18,6 +18,7 @@ from datetime import datetime
 from db import (
     save_forecast, get_latest_forecast, list_forecasts,
     save_actuals, get_actuals_for_forecast, get_performance,
+    get_unscored_forecasts,
 )
 
 # ================================================================
@@ -624,7 +625,7 @@ def tab_log_results(jackpot: str):
     }
 
     # Resolve selectors early so the fetch button can use the selected round
-    unscored    = find_unscored_local_forecasts(jackpot)
+    unscored    = get_unscored_forecasts(jackpot)
     round_files = get_all_round_files(jackpot)
 
     if not unscored:
@@ -684,7 +685,7 @@ def tab_log_results(jackpot: str):
     fc_col, rd_col = st.columns(2)
 
     with fc_col:
-        fc_options      = {_format_forecast_label(u["filename"]): u for u in unscored}
+        fc_options      = {u["display"]: u for u in unscored}
         chosen_fc_label = st.selectbox(
             "Select forecast to log",
             list(fc_options.keys()),
@@ -693,7 +694,7 @@ def tab_log_results(jackpot: str):
         selected_forecast = fc_options[chosen_fc_label]
 
     with rd_col:
-        # Date from forecast filename (e.g. "2026-05-09")
+        # Date from forecast date_str (e.g. "2026-05-14")
         fc_date_str = selected_forecast["date_str"]
 
         # Default selection: exact date match → nearest after → nearest before
@@ -767,20 +768,26 @@ def tab_log_results(jackpot: str):
 
     st.caption(
         f"Logging: **{selected_forecast['card_file']}** "
-        f"← **{selected_round['filename']}**"
+        f"\u2190 **{selected_round['filename']}**"
     )
 
-    forecast_data = selected_forecast["data"]
-    target_filename = selected_forecast["filename"]
-    match_names   = []
-    if forecast_data:
-        tickets = forecast_data.get("tickets", {})
-        base    = tickets.get("base", {})
-        matches = base.get("matches", [])
-        for m in matches:
-            home = m.get("home", m.get("home_team", "?"))
-            away = m.get("away", m.get("away_team", "?"))
+    # Build match names from Supabase tickets data
+    match_names = []
+    base_matches = selected_forecast.get("tickets", {}).get("base", {}).get("matches", [])
+    for m in base_matches:
+        home = m.get("home", m.get("home_team", "?"))
+        away = m.get("away", m.get("away_team", "?"))
+        match_names.append(f"{home} vs {away}")
+
+    # Fall back to match_analysis if base.matches is empty
+    if not match_names:
+        for m in selected_forecast.get("match_analysis", []):
+            home = m.get("home", "?")
+            away = m.get("away", "?")
             match_names.append(f"{home} vs {away}")
+
+    forecast_data   = selected_forecast
+    target_filename = selected_forecast.get("card_file", "")
 
     # Pre-fill from session state (populated by fetch button), fall back to empty
     session_data      = st.session_state.get(fetch_key, {})
@@ -843,94 +850,66 @@ def tab_log_results(jackpot: str):
         )
 
     if submitted:
-        # Write results.json with confirmed values
-        confirmed = {
-            "results": results_input,
-            "scores" : scores_input,
-        }
-        results_path = os.path.join(ROOT, "results.json")
-        with open(results_path, "w", encoding="utf-8") as f:
-            json.dump(confirmed, f, indent=2)
+        tickets   = selected_forecast.get("tickets", {})
+        forecast  = selected_forecast.get("forecast", {})
 
-        if selected_forecast.get("source") == "supabase":
-            # No local file — build actuals block directly and push to Supabase
-            actuals_data = {
-                "logged_at"  : datetime.now().strftime("%Y-%m-%dT%H:%M:%S"),
-                "results"    : results_input,
-                "scores"     : scores_input,
-                "best_score" : 0,
-                "best_ticket": "",
-                "ticket_scores"     : {},
-                "distribution_error": {},
-                "signal_accuracy"   : {},
-                "per_match_accuracy": {},
+        # Score each ticket in-process
+        ticket_scores = {}
+        for scenario, td in tickets.items():
+            predicted = td.get("ticket", [])
+            if predicted:
+                ticket_scores[scenario] = sum(
+                    1 for p, a in zip(predicted, results_input) if p == a
+                )
+
+        best_ticket = max(ticket_scores, key=ticket_scores.get) if ticket_scores else ""
+        best_score  = ticket_scores.get(best_ticket, 0) if best_ticket else 0
+
+        # Distribution error vs Chronos P50
+        dist_err = {}
+        if forecast:
+            actual_draws = results_input.count("X")
+            actual_homes = results_input.count("1")
+            actual_aways = results_input.count("2")
+            p50_d = round(forecast.get("total_draws", {}).get("P50", 0))
+            p50_h = round(forecast.get("total_homes", {}).get("P50", 0))
+            p50_a = round(forecast.get("total_aways", {}).get("P50", 0))
+            dist_err = {
+                "predicted_draws": p50_d,
+                "predicted_homes": p50_h,
+                "predicted_aways": p50_a,
+                "actual_draws"   : actual_draws,
+                "actual_homes"   : actual_homes,
+                "actual_aways"   : actual_aways,
+                "draw_error"     : actual_draws - p50_d,
+                "home_error"     : actual_homes - p50_h,
+                "away_error"     : actual_aways - p50_a,
             }
-            with st.spinner("Saving actuals to Supabase..."):
-                saved = save_actuals(
-                    jackpot,
-                    selected_forecast["supabase_id"],
-                    actuals_data
-                )
-            if saved:
-                st.success(
-                    "Results logged to Supabase. "
-                    "Note: ticket scores and distribution error were not computed "
-                    "(no local forecast file). Re-run the forecast locally to get full scoring."
-                )
-                st.session_state.pop(fetch_key, None)
-            else:
-                st.warning("Supabase save failed.")
+
+        actuals_data = {
+            "logged_at"         : datetime.now().strftime("%Y-%m-%dT%H:%M:%S"),
+            "results"           : results_input,
+            "scores"            : scores_input,
+            "ticket_scores"     : ticket_scores,
+            "best_ticket"       : best_ticket,
+            "best_score"        : best_score,
+            "distribution_error": dist_err,
+            "signal_accuracy"   : {},
+            "per_match_accuracy": {},
+        }
+
+        with st.spinner("Saving actuals to Supabase..."):
+            saved = save_actuals(jackpot, selected_forecast["id"], actuals_data)
+
+        if saved:
+            st.success(
+                f"Results logged! Best score: {score_label(best_score, n)} "
+                f"({best_ticket})"
+            )
+            st.session_state.pop(fetch_key, None)
+            st.balloons()
         else:
-            # Normal path — run log_actuals.py against the local file
-            with st.spinner("Logging actuals..."):
-                ok, output = run_script(
-                    "log_actuals.py",
-                    ["--jackpot", jackpot,
-                     "--file",   "results.json",
-                     "--target", target_filename]
-                )
-            st.code(output, language="text")
-
-            if ok:
-                local_data = None
-                try:
-                    with open(selected_forecast["filepath"], encoding="utf-8") as f:
-                        local_data = json.load(f)
-                except Exception:
-                    pass
-
-                if local_data and "actuals" in local_data:
-                    sb_forecast = get_latest_forecast(jackpot)
-                    if not (sb_forecast and sb_forecast.get("card_file") == forecast_data.get("card_file")):
-                        all_fc = list_forecasts(jackpot, limit=30)
-                        sb_forecast = next(
-                            (f for f in all_fc
-                             if f.get("card_file") == forecast_data.get("card_file")),
-                            None
-                        )
-                    if sb_forecast:
-                        saved = save_actuals(
-                            jackpot,
-                            sb_forecast["id"],
-                            local_data["actuals"]
-                        )
-                        if saved:
-                            best  = local_data["actuals"].get("best_score", 0)
-                            label = score_label(best, n)
-                            st.success(
-                                f"Results logged successfully! "
-                                f"Best score: {label}"
-                            )
-                            st.session_state.pop(fetch_key, None)
-                            st.balloons()
-                        else:
-                            st.warning("Logged locally but Supabase save failed.")
-                    else:
-                        st.warning("Logged locally but no matching forecast in Supabase.")
-                else:
-                    st.warning("Log script ran but actuals block not found in output.")
-            else:
-                st.error("Logging failed. See output above.")
+            st.warning("Supabase save failed.")
 
 
 # ================================================================
