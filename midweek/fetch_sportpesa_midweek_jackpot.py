@@ -1,8 +1,13 @@
 """
-SportPesa Mid Week Jackpot Scraper  (v5 - correct endpoint)
+SportPesa Mid Week Jackpot Scraper  (v6 - fixed)
 
-Uses https://www.ke.sportpesa.com/api/jackpots/events?type=regular
-which returns the Mid Week card directly (13 events, different schema).
+Fixes vs v5:
+  1. Sort by kickoff time (ascending), not smsId
+  2. Odds were swapped: shortName "1" = away, "2" = home in this API schema
+     (confirmed by cross-referencing required output vs actual output)
+  3. Date/time converted from UTC → EAT (UTC+3) and formatted as DD/MM/YY HH:MM
+  4. Console table now includes the kickoff date/time column
+  5. Sequential match numbers (1-13) used in display instead of raw smsId
 """
 
 import json
@@ -11,7 +16,7 @@ import gzip
 import sys
 import urllib.request
 import urllib.error
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 
 # ── Configuration ──────────────────────────────────────────────────────────────
 
@@ -34,6 +39,9 @@ HEADERS = {
     "Origin":          "https://www.ke.sportpesa.com",
     "Connection":      "keep-alive",
 }
+
+# EAT = UTC+3 (East Africa Time, used in Kenya / SportPesa local times)
+EAT = timezone(timedelta(hours=3))
 
 # ── HTTP helper ────────────────────────────────────────────────────────────────
 
@@ -74,8 +82,20 @@ def fetch_json(url: str):
 def parse_events(events: list) -> list:
     """
     Parse the events list from /api/jackpots/events?type=regular
-    Schema: id, smsId, competitors[{id,name}], date, country.name,
-            markets[{selections:[{shortName,odds}]}], state.result
+
+    FIX — Odds mapping:
+      In this endpoint's schema, shortName "1" = away team odds,
+      shortName "2" = home team odds (opposite of the usual convention).
+      This was confirmed by cross-referencing actual API output against
+      the required/expected output for known matches.
+
+    FIX — Sort:
+      Rows are sorted by kickoff datetime ascending, then by smsId as
+      a tiebreaker — matching the required display order.
+
+    FIX — Timezone:
+      Kickoff stored as UTC ISO string; converted to EAT (UTC+3) for
+      display, formatted DD/MM/YY HH:MM.
     """
     rows = []
     for e in events:
@@ -83,33 +103,41 @@ def parse_events(events: list) -> list:
         home  = comps[0].get("name", "?") if len(comps) > 0 else "?"
         away  = comps[1].get("name", "?") if len(comps) > 1 else "?"
 
+        # BUG FIX: shortName "1" → away odds, "2" → home odds in this API
         h_odd = d_odd = a_odd = "-"
         for market in e.get("markets", []):
             for sel in market.get("selections", []):
                 sn = sel.get("shortName", "")
-                if sn == "1":   h_odd = sel.get("odds", "-")
+                if sn == "2":   h_odd = sel.get("odds", "-")   # ← was "1"
                 elif sn == "X": d_odd = sel.get("odds", "-")
-                elif sn == "2": a_odd = sel.get("odds", "-")
+                elif sn == "1": a_odd = sel.get("odds", "-")   # ← was "2"
 
         raw_date = e.get("date", "")
+        ko_dt_utc = None
+        kickoff_display = raw_date  # fallback
+        kickoff_sort    = raw_date  # fallback for sorting
         try:
-            ko_dt   = datetime.fromisoformat(raw_date.replace("Z", "+00:00"))
-            kickoff = ko_dt.strftime("%Y-%m-%d %H:%M UTC")
+            ko_dt_utc = datetime.fromisoformat(raw_date.replace("Z", "+00:00"))
+            ko_dt_eat = ko_dt_utc.astimezone(EAT)
+            # FIX: format as DD/MM/YY HH:MM (EAT local time)
+            kickoff_display = ko_dt_eat.strftime("%d/%m/%y %H:%M")
+            kickoff_sort    = ko_dt_utc  # datetime object for reliable sorting
         except Exception:
-            kickoff = raw_date
+            pass
 
         score = e.get("state", {}).get("result", "")
         if score in ("-:-", "", None):
             score = None
 
         rows.append({
-            "order":        e.get("smsId", ""),
+            "sms_id":       e.get("smsId", ""),
             "event_id":     e.get("id", ""),
             "home":         home,
             "away":         away,
             "tournament":   e.get("competition", {}).get("name", ""),
             "country":      e.get("country", {}).get("name", ""),
-            "kickoff":      kickoff,
+            "kickoff":      kickoff_display,   # human-readable EAT
+            "kickoff_sort": kickoff_sort,       # used only for sorting
             "home_odd":     h_odd,
             "draw_odd":     d_odd,
             "away_odd":     a_odd,
@@ -117,7 +145,16 @@ def parse_events(events: list) -> list:
             "score":        score,
         })
 
-    rows.sort(key=lambda r: r["order"] if isinstance(r["order"], int) else 0)
+    # FIX: sort by kickoff time ascending, smsId as tiebreaker
+    rows.sort(key=lambda r: (
+        r["kickoff_sort"] if isinstance(r["kickoff_sort"], datetime) else datetime.max,
+        r["sms_id"] if isinstance(r["sms_id"], int) else 0,
+    ))
+
+    # Assign sequential display numbers after sorting
+    for i, r in enumerate(rows, start=1):
+        r["order"] = i
+
     return rows
 
 
@@ -130,10 +167,13 @@ def save_matches(rows: list, raw_events: list) -> None:
     raw_path    = os.path.join(OUTPUT_DIR, f"jackpot_raw_{now}.json")
     parsed_path = os.path.join(OUTPUT_DIR, f"jackpot_parsed_{now}.json")
 
+    # Strip kickoff_sort (datetime object) before serialising to JSON
+    serialisable = [{k: v for k, v in r.items() if k != "kickoff_sort"} for r in rows]
+
     with open(raw_path, "w", encoding="utf-8") as f:
         json.dump(raw_events, f, indent=2, ensure_ascii=False)
     with open(parsed_path, "w", encoding="utf-8") as f:
-        json.dump(rows, f, indent=2, ensure_ascii=False)
+        json.dump(serialisable, f, indent=2, ensure_ascii=False)
 
     print(f"\n  💾  Raw    → {raw_path}")
     print(f"  💾  Parsed → {parsed_path}")
@@ -142,8 +182,10 @@ def save_matches(rows: list, raw_events: list) -> None:
     col_a = max((len(r["away"]) for r in rows), default=10)
     col_h, col_a = max(col_h, 6), max(col_a, 6)
 
+    # FIX: header now includes Kickoff column (DD/MM/YY HH:MM = 14 chars)
     header = (
-        f"\n  {'#':<6} {'Home':<{col_h}} {'Away':<{col_a}} "
+        f"\n  {'#':<4} {'smsId':<6} {'Kickoff':<14} "
+        f"{'Home':<{col_h}} {'Away':<{col_a}} "
         f"{'1':>6} {'X':>6} {'2':>6}  Country"
     )
     print(header)
@@ -151,7 +193,9 @@ def save_matches(rows: list, raw_events: list) -> None:
     for r in rows:
         score = f"  [{r['score']}]" if r["score"] else ""
         print(
-            f"  {str(r['order']):<6} "
+            f"  {str(r['order'])+'.':<4} "
+            f"{str(r['sms_id']):<6} "
+            f"{r['kickoff']:<14} "
             f"{r['home']:<{col_h}} "
             f"{r['away']:<{col_a}} "
             f"{str(r['home_odd']):>6} "
@@ -165,7 +209,7 @@ def save_matches(rows: list, raw_events: list) -> None:
 
 def scrape():
     print(f"\n{'='*65}")
-    print("  SportPesa Mid Week Jackpot Scraper  v5")
+    print("  SportPesa Mid Week Jackpot Scraper  v6")
     print(f"  {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print(f"{'='*65}\n")
 
@@ -188,7 +232,8 @@ def scrape():
     try:
         sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
         from db import save_card
-        ok = save_card("midweek", rows, events)
+        serialisable = [{k: v for k, v in r.items() if k != "kickoff_sort"} for r in rows]
+        ok = save_card("midweek", serialisable, events)
         print(f"  {'✓' if ok else '✗'}  Supabase card upload {'succeeded' if ok else 'failed'}")
     except Exception as e:
         print(f"  ✗  Supabase card upload error: {e}")
