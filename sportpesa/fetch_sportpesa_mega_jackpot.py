@@ -20,10 +20,10 @@ from datetime import datetime, timezone
 
 # ── Configuration ──────────────────────────────────────────────────────────────
 
-# Primary endpoint — returns the active jackpot (single object or list)
+# Primary endpoint — returns the active Mega Jackpot
 API_ACTIVE   = "https://jackpot-offer-api.ke.sportpesa.com/api/jackpots/active"
-# Fallback: list of all jackpots
-API_ALL      = "https://jackpot-offer-api.ke.sportpesa.com/api/jackpots"
+# Fallback: the events endpoint used by the main site
+API_ALL      = "https://www.ke.sportpesa.com/api/jackpots/events?type=regular"
 
 OUTPUT_DIR   = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "cards")
 

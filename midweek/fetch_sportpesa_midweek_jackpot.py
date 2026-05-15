@@ -1,24 +1,22 @@
 """
-SportPesa Mid Week Jackpot Scraper  (v4 - pure HTTP, no browser needed)
+SportPesa Mid Week Jackpot Scraper  (v5 - correct endpoint)
 
-Uses the same jackpot-offer-api endpoint as the Mega Jackpot scraper.
-Identifies the Mid Week Jackpot by its 13-event count (vs 17 for Mega).
+Uses https://www.ke.sportpesa.com/api/jackpots/events?type=regular
+which returns the Mid Week card directly (13 events, different schema).
 """
 
 import json
 import os
+import gzip
 import urllib.request
 import urllib.error
 from datetime import datetime, timezone
 
 # ── Configuration ──────────────────────────────────────────────────────────────
 
-API_ACTIVE = "https://jackpot-offer-api.ke.sportpesa.com/api/jackpots/active"
-API_ALL    = "https://jackpot-offer-api.ke.sportpesa.com/api/jackpots"
+API_MIDWEEK = "https://www.ke.sportpesa.com/api/jackpots/events?type=regular"
 
 OUTPUT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "cards")
-
-MIDWEEK_EVENT_COUNT = 13
 
 UA = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
@@ -36,10 +34,9 @@ HEADERS = {
     "Connection":      "keep-alive",
 }
 
-# ── HTTP helpers ───────────────────────────────────────────────────────────────
+# ── HTTP helper ────────────────────────────────────────────────────────────────
 
 def fetch_json(url: str):
-    import gzip
     print(f"  🔗  GET {url}")
     req = urllib.request.Request(url, headers=HEADERS)
     try:
@@ -56,12 +53,12 @@ def fetch_json(url: str):
             print(f"  ✓  Response received ({len(raw):,} bytes, type={type(data).__name__})")
             return data
     except urllib.error.HTTPError as e:
-        body = ""
+        body = b""
         try:
-            body = e.read().decode("utf-8", errors="replace")[:300]
+            body = e.read()
         except Exception:
             pass
-        print(f"  ✗  HTTP {e.code} — {e.reason}  |  {body}")
+        print(f"  ✗  HTTP {e.code} — {e.reason}  |  {body[:200]}")
     except urllib.error.URLError as e:
         print(f"  ✗  URL error: {e.reason}")
     except json.JSONDecodeError as e:
@@ -71,79 +68,52 @@ def fetch_json(url: str):
     return None
 
 
-# ── Jackpot selection ──────────────────────────────────────────────────────────
-
-def is_midweek_jackpot(jp: dict) -> bool:
-    jid = str(jp.get("id", "") or jp.get("humanId", "")).lower()
-    if "mid" in jid or "midweek" in jid or "mid_week" in jid:
-        return True
-
-    settings = jp.get("settings", {})
-    types = [t.lower() for t in settings.get("jackpotTypes", [])]
-    if "13/13" in types:
-        return True
-
-    if settings.get("numberOfEvents") == MIDWEEK_EVENT_COUNT:
-        return True
-
-    if len(jp.get("events", [])) == MIDWEEK_EVENT_COUNT:
-        return True
-
-    return False
-
-
-def find_midweek_jackpot(data):
-    if isinstance(data, list):
-        print(f"  ℹ  Response is a list of {len(data)} jackpot(s)")
-        midweek = [jp for jp in data if is_midweek_jackpot(jp)]
-        if midweek:
-            print(f"  ✓  Found {len(midweek)} Mid Week Jackpot candidate(s) — using first")
-            return midweek[0]
-        # Fallback: pick the one closest to 13 events that isn't 17
-        non_mega = [jp for jp in data if len(jp.get("events", [])) != 17]
-        if non_mega:
-            best = max(non_mega, key=lambda jp: len(jp.get("events", [])))
-            print(f"  ⚠  No Mid Week Jackpot identified — using non-mega jackpot with {len(best.get('events', []))} events")
-            return best
-        return None
-
-    if isinstance(data, dict):
-        print("  ℹ  Response is a single jackpot object")
-        return data
-
-    print(f"  ✗  Unexpected response type: {type(data)}")
-    return None
-
-
 # ── Parsing ────────────────────────────────────────────────────────────────────
 
-def parse_events(jp: dict) -> list:
+def parse_events(events: list) -> list:
+    """
+    Parse the events list from /api/jackpots/events?type=regular
+    Schema: id, smsId, competitors[{id,name}], date, country.name,
+            markets[{selections:[{shortName,odds}]}], state.result
+    """
     rows = []
-    for event in jp.get("events", []):
-        comps = event.get("competitors", [])
-        home_team = next((c["competitorName"] for c in comps if c.get("isHome")), "?")
-        away_team = next((c["competitorName"] for c in comps if not c.get("isHome")), "?")
+    for e in events:
+        comps = e.get("competitors", [])
+        home  = comps[0].get("name", "?") if len(comps) > 0 else "?"
+        away  = comps[1].get("name", "?") if len(comps) > 1 else "?"
 
-        raw_ko = event.get("utcKickOffTime", "")
+        h_odd = d_odd = a_odd = "-"
+        for market in e.get("markets", []):
+            for sel in market.get("selections", []):
+                sn = sel.get("shortName", "")
+                if sn == "1":   h_odd = sel.get("odds", "-")
+                elif sn == "X": d_odd = sel.get("odds", "-")
+                elif sn == "2": a_odd = sel.get("odds", "-")
+
+        raw_date = e.get("date", "")
         try:
-            ko_dt  = datetime.fromisoformat(raw_ko.replace("Z", "+00:00"))
+            ko_dt   = datetime.fromisoformat(raw_date.replace("Z", "+00:00"))
             kickoff = ko_dt.strftime("%Y-%m-%d %H:%M UTC")
         except Exception:
-            kickoff = raw_ko
+            kickoff = raw_date
+
+        score = e.get("state", {}).get("result", "")
+        if score in ("-:-", "", None):
+            score = None
 
         rows.append({
-            "order":        event.get("order", ""),
-            "event_id":     event.get("id", ""),
-            "home":         home_team,
-            "away":         away_team,
-            "tournament":   event.get("tournamentName", ""),
-            "country":      event.get("countryName", ""),
+            "order":        e.get("smsId", ""),
+            "event_id":     e.get("id", ""),
+            "home":         home,
+            "away":         away,
+            "tournament":   e.get("competition", {}).get("name", ""),
+            "country":      e.get("country", {}).get("name", ""),
             "kickoff":      kickoff,
-            "home_odd":     event.get("home", "-"),
-            "draw_odd":     event.get("draw", "-"),
-            "away_odd":     event.get("away", "-"),
-            "betting_open": event.get("bettingStatus", "") == "Open",
-            "score":        event.get("score"),
+            "home_odd":     h_odd,
+            "draw_odd":     d_odd,
+            "away_odd":     a_odd,
+            "betting_open": True,
+            "score":        score,
         })
 
     rows.sort(key=lambda r: r["order"] if isinstance(r["order"], int) else 0)
@@ -152,7 +122,7 @@ def parse_events(jp: dict) -> list:
 
 # ── Output ─────────────────────────────────────────────────────────────────────
 
-def save_matches(rows: list, raw_jp: dict) -> None:
+def save_matches(rows: list, raw_events: list) -> None:
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H-%M-%SZ")
 
@@ -160,7 +130,7 @@ def save_matches(rows: list, raw_jp: dict) -> None:
     parsed_path = os.path.join(OUTPUT_DIR, f"jackpot_parsed_{now}.json")
 
     with open(raw_path, "w", encoding="utf-8") as f:
-        json.dump(raw_jp, f, indent=2, ensure_ascii=False)
+        json.dump(raw_events, f, indent=2, ensure_ascii=False)
     with open(parsed_path, "w", encoding="utf-8") as f:
         json.dump(rows, f, indent=2, ensure_ascii=False)
 
@@ -169,33 +139,24 @@ def save_matches(rows: list, raw_jp: dict) -> None:
 
     col_h = max((len(r["home"]) for r in rows), default=10)
     col_a = max((len(r["away"]) for r in rows), default=10)
-    col_h = max(col_h, 6)
-    col_a = max(col_a, 6)
+    col_h, col_a = max(col_h, 6), max(col_a, 6)
 
     header = (
-        f"\n  {'#':<4} "
-        f"{'Home':<{col_h}} "
-        f"{'Away':<{col_a}} "
-        f"{'1':>6} {'X':>6} {'2':>6}  "
-        f"{'Tournament':<20} "
-        f"Kick-off (UTC)"
+        f"\n  {'#':<6} {'Home':<{col_h}} {'Away':<{col_a}} "
+        f"{'1':>6} {'X':>6} {'2':>6}  Country"
     )
     print(header)
     print("  " + "─" * (len(header) - 2))
-
     for r in rows:
-        status = "" if r["betting_open"] else " 🔒"
-        score  = f"  [{r['score']}]" if r["score"] else ""
+        score = f"  [{r['score']}]" if r["score"] else ""
         print(
-            f"  {str(r['order']):<4} "
+            f"  {str(r['order']):<6} "
             f"{r['home']:<{col_h}} "
             f"{r['away']:<{col_a}} "
             f"{str(r['home_odd']):>6} "
             f"{str(r['draw_odd']):>6} "
             f"{str(r['away_odd']):>6}  "
-            f"{r['tournament']:<20} "
-            f"{r['kickoff']}"
-            f"{score}{status}"
+            f"{r['country']}{score}"
         )
 
 
@@ -203,37 +164,24 @@ def save_matches(rows: list, raw_jp: dict) -> None:
 
 def scrape():
     print(f"\n{'='*65}")
-    print("  SportPesa Mid Week Jackpot Scraper  v4")
+    print("  SportPesa Mid Week Jackpot Scraper  v5")
     print(f"  {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print(f"{'='*65}\n")
 
-    jackpot = None
+    events = fetch_json(API_MIDWEEK)
 
-    print("── Step 1: /api/jackpots/active ──────────────────────────────────")
-    data = fetch_json(API_ACTIVE)
-    if data is not None:
-        jackpot = find_midweek_jackpot(data)
-
-    if jackpot is None:
-        print("\n── Step 2: /api/jackpots (fallback list) ─────────────────────────")
-        data = fetch_json(API_ALL)
-        if data is not None:
-            jackpot = find_midweek_jackpot(data)
-
-    if jackpot is None:
+    if not events:
         print("\n❌  Could not retrieve Mid Week Jackpot data.")
         return
 
-    events = jackpot.get("events", [])
-    if not events:
-        print("\n⚠  Jackpot found but contains 0 events.")
+    if not isinstance(events, list):
+        print(f"\n❌  Unexpected response type: {type(events)}. Expected list.")
         return
 
-    print(f"\n  ✓  Mid Week Jackpot #{jackpot.get('humanId', '?')} — {len(events)} event(s)")
-    print(f"     Betting status : {jackpot.get('bettingStatus', '?')}")
+    print(f"\n  ✓  {len(events)} event(s) received")
 
-    rows = parse_events(jackpot)
-    save_matches(rows, jackpot)
+    rows = parse_events(events)
+    save_matches(rows, events)
     print("\n✅  Done.\n")
 
 
