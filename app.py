@@ -737,12 +737,19 @@ def tab_log_results(jackpot: str):
         rd_labels       = [r["display_label"] for r in round_files]
         chosen_rd_label = st.selectbox(
             "Select results round",
-            rd_labels,
+            rd_labels if rd_labels else ["— no round files found —"],
             index=default_idx,
             key=f"round_selector_{jackpot}",
         )
         rd_map         = {r["display_label"]: r for r in round_files}
-        selected_round = rd_map[chosen_rd_label]
+        selected_round = rd_map.get(chosen_rd_label)
+
+    if not round_files or selected_round is None:
+        st.warning(
+            "No round files found in `rounds/`. "
+            "Fetch results first or add a round file manually."
+        )
+        return
 
     # Auto-convert whenever the selected round changes
     last_key = f"last_round_{jackpot}"

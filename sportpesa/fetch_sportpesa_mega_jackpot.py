@@ -38,29 +38,40 @@ UA = (
 )
 
 HEADERS = {
-    "User-Agent":      UA,
-    "Accept":          "application/json, text/plain, */*",
-    "Accept-Language": "en-US,en;q=0.9",
-    "Referer":         "https://www.ke.sportpesa.com/en/jackpot",
-    "Origin":          "https://www.ke.sportpesa.com",
+    "User-Agent":        UA,
+    "Accept":            "application/json, text/plain, */*",
+    "Accept-Language":   "en-US,en;q=0.9",
+    "Accept-Encoding":   "gzip, deflate, br",
+    "Referer":           "https://www.ke.sportpesa.com/en/jackpot",
+    "Origin":            "https://www.ke.sportpesa.com",
+    "Connection":        "keep-alive",
 }
 
 # ── HTTP helpers ───────────────────────────────────────────────────────────────
 
 def fetch_json(url: str) -> dict | list | None:
     """Fetch JSON from a URL. Returns parsed data or None on failure."""
+    import gzip
     print(f"  🔗  GET {url}")
     req = urllib.request.Request(url, headers=HEADERS)
     try:
         with urllib.request.urlopen(req, timeout=20) as resp:
-            raw  = resp.read().decode("utf-8")
+            raw_bytes = resp.read()
+            # Decompress if gzip-encoded
+            encoding = resp.headers.get("Content-Encoding", "")
+            if encoding == "gzip" or (raw_bytes[:2] == b"\x1f\x8b"):
+                raw_bytes = gzip.decompress(raw_bytes)
+            raw = raw_bytes.decode("utf-8", errors="replace")
+            if not raw.strip():
+                print(f"  ✗  Empty response body")
+                return None
             data = json.loads(raw)
             print(f"  ✓  Response received ({len(raw):,} bytes, type={type(data).__name__})")
             return data
     except urllib.error.HTTPError as e:
         body = ""
         try:
-            body = e.read().decode("utf-8")[:300]
+            body = e.read().decode("utf-8", errors="replace")[:300]
         except Exception:
             pass
         print(f"  ✗  HTTP {e.code} — {e.reason}  |  {body}")
