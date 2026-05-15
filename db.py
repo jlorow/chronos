@@ -85,6 +85,54 @@ def get_forecast_by_id(forecast_id: str) -> dict | None:
         return None
 
 
+# ================================================================
+# CARDS
+# ================================================================
+def save_card(jackpot: str, parsed_rows: list, raw_data) -> bool:
+    """
+    Upsert the latest card for a jackpot into Supabase.
+    parsed_rows: list of parsed match dicts
+    raw_data: raw API response (dict or list)
+    """
+    client = get_client()
+    try:
+        row = {
+            "jackpot"    : jackpot,
+            "fetched_at" : datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S"),
+            "parsed"     : parsed_rows,
+            "raw"        : raw_data if isinstance(raw_data, (dict, list)) else {},
+        }
+        # Delete existing card for this jackpot then insert fresh
+        client.table("cards").delete().eq("jackpot", jackpot).execute()
+        client.table("cards").insert(row).execute()
+        return True
+    except Exception as e:
+        print(f"Supabase card save failed: {e}")
+        return False
+
+
+def get_latest_card(jackpot: str) -> list | None:
+    """
+    Return the latest parsed card rows for a jackpot, or None.
+    """
+    client = get_client()
+    try:
+        result = (
+            client.table("cards")
+            .select("parsed, fetched_at")
+            .eq("jackpot", jackpot)
+            .order("fetched_at", desc=True)
+            .limit(1)
+            .execute()
+        )
+        if result.data:
+            return result.data[0]["parsed"], result.data[0]["fetched_at"]
+        return None, None
+    except Exception as e:
+        print(f"Supabase card fetch failed: {e}")
+        return None, None
+
+
 def list_forecasts(jackpot: str, limit: int = 20) -> list:
     """List recent forecasts for a jackpot."""
     client = get_client()

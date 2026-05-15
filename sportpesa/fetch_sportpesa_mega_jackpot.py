@@ -14,6 +14,8 @@ with numberOfEvents == 17, or by matching a "mega" keyword in the jackpot id/typ
 
 import json
 import os
+import gzip
+import sys
 import urllib.request
 import urllib.error
 from datetime import datetime, timezone
@@ -285,6 +287,15 @@ def scrape():
 
     rows = parse_events(jackpot)
     save_matches(rows, jackpot)
+
+    # ── Upload card to Supabase so Streamlit Cloud can read it ────────────────
+    try:
+        sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        from db import save_card
+        ok = save_card("sportpesa", rows, jackpot)
+        print(f"  {'✓' if ok else '✗'}  Supabase card upload {'succeeded' if ok else 'failed'}")
+    except Exception as e:
+        print(f"  ✗  Supabase card upload error: {e}")
 
     # ── Save to rounds/ if the round is settled (all events have scores) ──────
     if all(r.get("score") for r in rows):

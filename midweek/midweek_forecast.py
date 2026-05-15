@@ -35,6 +35,7 @@ Tickets produced:
 import json
 import glob
 import os
+import sys
 import argparse
 import numpy as np
 import torch
@@ -517,19 +518,33 @@ def load_batches():
 
 
 # ================================================================
-# 4. CARD LOADER  (jackpot_parsed_*.json format)
+# 4. CARD LOADER  (local file with Supabase fallback)
 # ================================================================
 def load_card():
-    path = find_latest(CARDS_DIR, "jackpot_parsed_*.json")
-    with open(path, encoding="utf-8") as f:
-        raw = json.load(f)
+    local_files = glob.glob(os.path.join(CARDS_DIR, "jackpot_parsed_*.json"))
+    if local_files:
+        path = max(local_files, key=os.path.getmtime)
+        with open(path, encoding="utf-8") as f:
+            raw = json.load(f)
+        source = os.path.basename(path)
+    else:
+        print("  No local card found — trying Supabase...")
+        sys.path.insert(0, ROOT_DIR)
+        from db import get_latest_card
+        raw, fetched_at = get_latest_card("midweek")
+        if not raw:
+            raise FileNotFoundError(
+                "No jackpot_parsed_*.json locally and no card in Supabase.\n"
+                "Run fetch_sportpesa_midweek_jackpot.py locally first."
+            )
+        source = f"supabase:{fetched_at}"
+        print(f"  Loaded card from Supabase (fetched {fetched_at})")
 
     card = []
     for i, m in enumerate(raw):
-        # Detect league using 3-priority chain
         league = detect_league(m)
         card.append({
-            "order"    : i + 1,                       # sequential 1-13
+            "order"    : i + 1,
             "event_id" : m.get("event_id", ""),
             "home"     : m.get("home", m.get("home_team", "")),
             "away"     : m.get("away", m.get("away_team", "")),
@@ -541,19 +556,13 @@ def load_card():
             "odds_2"   : float(m.get("away_odd", m.get("odds_2", 2.5))),
         })
 
-    print(f"  Card    : {os.path.basename(path)}  [auto-detected]")
+    print(f"  Card    : {source}  [auto-detected]")
     print(f"  Matches : {len(card)}")
-
-    # Show league detection results
     print(f"  League detection:")
     for m in card:
-        src = "(direct)" if m.get("league") else \
-              "(team)"   if detect_league({"home": m["home"]}) != \
-                            COUNTRY_LEAGUE.get(m["country"].lower(),"") else \
-              "(country)"
         print(f"    [{m['order']:>2}] {m['home']:<30} -> {m['league']}")
 
-    return card, os.path.basename(path)
+    return card, source
 
 
 # ================================================================

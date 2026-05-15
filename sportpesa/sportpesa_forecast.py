@@ -34,6 +34,7 @@ Tickets produced:
 import json
 import glob
 import os
+import sys
 import argparse
 import numpy as np
 import torch
@@ -297,44 +298,59 @@ def load_batch():
     return valid
 
 
+
+
+
 # ================================================================
-# 4. CARD LOADER  (mega_jackpot_parsed_*.json format)
+# 4. CARD LOADER  (local file with Supabase fallback)
 # ================================================================
 def load_card():
-    path = find_latest(CARDS_DIR, "mega_jackpot_parsed_*.json")
-    with open(path, encoding="utf-8") as f:
-        raw = json.load(f)
+    local_files = glob.glob(os.path.join(CARDS_DIR, "mega_jackpot_parsed_*.json"))
+    if local_files:
+        path = max(local_files, key=os.path.getmtime)
+        with open(path, encoding="utf-8") as f:
+            raw = json.load(f)
+        source = os.path.basename(path)
+    else:
+        print("  No local card found — trying Supabase...")
+        sys.path.insert(0, ROOT_DIR)
+        from db import get_latest_card
+        raw, fetched_at = get_latest_card("sportpesa")
+        if not raw:
+            raise FileNotFoundError(
+                "No mega_jackpot_parsed_*.json locally and no card in Supabase.\n"
+                "Run fetch_sportpesa_mega_jackpot.py locally first."
+            )
+        source = f"supabase:{fetched_at}"
+        print(f"  Loaded card from Supabase (fetched {fetched_at})")
 
     # Normalise to internal format
     card = []
     for m in raw:
         card.append({
-            "order"      : m["order"],
-            "home"       : m["home"],
-            "away"       : m["away"],
-            "league"     : m.get("tournament", ""),
-            "country"    : m.get("country", ""),
-            "odds_1"     : float(m["home_odd"]),
-            "odds_x"     : float(m["draw_odd"]),
-            "odds_2"     : float(m["away_odd"]),
-            "dc_mode"    : classify_dc_mode(
-                               m.get("tournament", ""),
-                               m.get("country", "")
-                           ),
+            "order"       : m["order"],
+            "home"        : m["home"],
+            "away"        : m["away"],
+            "league"      : m.get("tournament", ""),
+            "country"     : m.get("country", ""),
+            "odds_1"      : float(m["home_odd"]),
+            "odds_x"      : float(m["draw_odd"]),
+            "odds_2"      : float(m["away_odd"]),
+            "dc_mode"     : classify_dc_mode(
+                                m.get("tournament", ""),
+                                m.get("country", "")
+                            ),
             "betting_open": m.get("betting_open", True),
         })
 
-    print(f"  Card    : {os.path.basename(path)}  [auto-detected]")
+    print(f"  Card    : {source}  [auto-detected]")
     print(f"  Matches : {len(card)}")
 
-    # DC mode summary
     from collections import Counter
     dc_counts = Counter(m["dc_mode"] for m in card)
-    print(f"  DC mode : " + "  ".join(
-        f"{k}={v}" for k,v in dc_counts.items()
-    ))
+    print(f"  DC mode : " + "  ".join(f"{k}={v}" for k, v in dc_counts.items()))
 
-    return card, os.path.basename(path)
+    return card, source
 
 
 # ================================================================

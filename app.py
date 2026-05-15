@@ -426,11 +426,16 @@ def tab_run_forecast(jackpot: str):
         if st.button("Fetch Card", key=f"fetch_card_{jackpot}"):
             with st.spinner("Fetching card..."):
                 ok, output = run_script(cfg["fetch_script"])
-            if ok:
+            st.code(output, language="text")
+            if ok and "Could not retrieve" not in output:
                 st.success("Card fetched successfully.")
             else:
-                st.error("Fetch failed.")
-            st.code(output, language="text")
+                st.warning(
+                    "Could not fetch card from SportPesa API — "
+                    "the API is geo-blocked on Streamlit Cloud. "
+                    "Run the fetch script locally (it will upload the card to Supabase automatically), "
+                    "then run the forecast here."
+                )
 
     st.markdown("---")
 

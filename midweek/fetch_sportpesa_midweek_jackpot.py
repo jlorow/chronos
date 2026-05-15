@@ -8,6 +8,7 @@ which returns the Mid Week card directly (13 events, different schema).
 import json
 import os
 import gzip
+import sys
 import urllib.request
 import urllib.error
 from datetime import datetime, timezone
@@ -182,6 +183,16 @@ def scrape():
 
     rows = parse_events(events)
     save_matches(rows, events)
+
+    # ── Upload card to Supabase so Streamlit Cloud can read it ────────────────
+    try:
+        sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        from db import save_card
+        ok = save_card("midweek", rows, events)
+        print(f"  {'✓' if ok else '✗'}  Supabase card upload {'succeeded' if ok else 'failed'}")
+    except Exception as e:
+        print(f"  ✗  Supabase card upload error: {e}")
+
     print("\n✅  Done.\n")
 
 
