@@ -1,14 +1,10 @@
 """
-SportPesa Mid Week Jackpot Scraper  (v3 - with click interaction + direct API fallback)
+SportPesa Mid Week Jackpot Scraper  (v4 - pure HTTP, no browser needed)
 
-The /api/jackpots/events endpoint is only triggered AFTER the user clicks into
-a specific jackpot on the page.  This version:
-  1. Tries a direct HTTP request to the API first (fastest, no browser needed)
-  2. Falls back to Playwright: loads the jackpot page, clicks every jackpot
-     card/tab it can find, and waits for the events API call to fire
+Uses the same jackpot-offer-api endpoint as the Mega Jackpot scraper.
+Identifies the Mid Week Jackpot by its 13-event count (vs 17 for Mega).
 """
 
-from playwright.sync_api import sync_playwright
 import json
 import os
 import urllib.request
@@ -17,14 +13,12 @@ from datetime import datetime, timezone
 
 # ── Configuration ──────────────────────────────────────────────────────────────
 
-JACKPOT_PAGE    = "https://www.ke.sportpesa.com/en/jackpot"
-EVENTS_API      = "https://www.ke.sportpesa.com/api/jackpots/events?type=regular"
-EVENTS_PATTERN  = "/api/jackpots/events"
-META_PATTERN    = "/api/jackpots/multi"
+API_ACTIVE = "https://jackpot-offer-api.ke.sportpesa.com/api/jackpots/active"
+API_ALL    = "https://jackpot-offer-api.ke.sportpesa.com/api/jackpots"
 
-OUTPUT_DIR  = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "midweek", "data", "cards")
-HEADLESS    = False        # keep False so you can see what the browser is doing
-WAIT_MS     = 45_000       # increased to 45s
+OUTPUT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "cards")
+
+MIDWEEK_EVENT_COUNT = 13
 
 UA = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
@@ -32,184 +26,123 @@ UA = (
     "Chrome/122.0.0.0 Safari/537.36"
 )
 
-# ── Attempt 1: direct HTTP request ────────────────────────────────────────────
+HEADERS = {
+    "User-Agent":      UA,
+    "Accept":          "application/json, text/plain, */*",
+    "Accept-Language": "en-US,en;q=0.9",
+    "Referer":         "https://www.ke.sportpesa.com/en/jackpot",
+    "Origin":          "https://www.ke.sportpesa.com",
+}
 
-def try_direct_api():
-    """
-    Hit the events endpoint directly with a plain HTTP request.
-    Works if the endpoint does not require session cookies.
-    """
-    print("🔗  Trying direct API request...")
-    req = urllib.request.Request(
-        EVENTS_API,
-        headers={
-            "User-Agent":      UA,
-            "Accept":          "application/json",
-            "Accept-Language": "en-US,en;q=0.9",
-            "Referer":         JACKPOT_PAGE,
-        }
-    )
+# ── HTTP helpers ───────────────────────────────────────────────────────────────
+
+def fetch_json(url: str):
+    print(f"  🔗  GET {url}")
+    req = urllib.request.Request(url, headers=HEADERS)
     try:
-        with urllib.request.urlopen(req, timeout=15) as resp:
-            raw = resp.read().decode("utf-8")
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            raw  = resp.read().decode("utf-8")
             data = json.loads(raw)
-            if isinstance(data, list) and len(data) > 0:
-                print(f"  ✓ Direct API success — {len(data)} events")
-                return data
-            print(f"  ℹ  Direct API returned unexpected shape: {type(data)}")
+            print(f"  ✓  Response received ({len(raw):,} bytes, type={type(data).__name__})")
             return data
     except urllib.error.HTTPError as e:
-        print(f"  ✗ Direct API HTTP {e.code} — need browser session")
+        body = ""
+        try:
+            body = e.read().decode("utf-8")[:300]
+        except Exception:
+            pass
+        print(f"  ✗  HTTP {e.code} — {e.reason}  |  {body}")
+    except urllib.error.URLError as e:
+        print(f"  ✗  URL error: {e.reason}")
+    except json.JSONDecodeError as e:
+        print(f"  ✗  JSON decode error: {e}")
     except Exception as e:
-        print(f"  ✗ Direct API failed: {e}")
+        print(f"  ✗  Unexpected error: {e}")
     return None
 
 
-# ── Interceptor ────────────────────────────────────────────────────────────────
+# ── Jackpot selection ──────────────────────────────────────────────────────────
 
-class Interceptor:
-    def __init__(self):
-        self.events   = None
-        self.meta     = None
-        self.all_urls = []   # log every API URL seen — helps debugging
+def is_midweek_jackpot(jp: dict) -> bool:
+    jid = str(jp.get("id", "") or jp.get("humanId", "")).lower()
+    if "mid" in jid or "midweek" in jid or "mid_week" in jid:
+        return True
 
-    def on_response(self, response):
-        if response.status != 200:
-            return
-        ct  = response.headers.get("content-type", "")
-        url = response.url
+    settings = jp.get("settings", {})
+    types = [t.lower() for t in settings.get("jackpotTypes", [])]
+    if "13/13" in types:
+        return True
 
-        if any(k in url for k in ["/api/", "sportpesa"]):
-            self.all_urls.append(url)
+    if settings.get("numberOfEvents") == MIDWEEK_EVENT_COUNT:
+        return True
 
-        if "json" not in ct:
-            return
-        try:
-            data = response.json()
-        except Exception:
-            return
+    if len(jp.get("events", [])) == MIDWEEK_EVENT_COUNT:
+        return True
 
-        if EVENTS_PATTERN in url:
-            self.events = data
-            print(f"  ✓ EVENTS captured  ({len(str(data))} bytes)  →  {url[:100]}")
-
-        elif META_PATTERN in url:
-            self.meta = data
-            print(f"  ✓ META  captured   ({len(str(data))} bytes)  →  {url[:100]}")
-
-        elif any(k in url for k in ["/api/", "sportpesa"]):
-            print(f"  [API] {url[:120]}")
+    return False
 
 
-# ── Attempt 2: Playwright with clicks ─────────────────────────────────────────
+def find_midweek_jackpot(data):
+    if isinstance(data, list):
+        print(f"  ℹ  Response is a list of {len(data)} jackpot(s)")
+        midweek = [jp for jp in data if is_midweek_jackpot(jp)]
+        if midweek:
+            print(f"  ✓  Found {len(midweek)} Mid Week Jackpot candidate(s) — using first")
+            return midweek[0]
+        # Fallback: pick the one closest to 13 events that isn't 17
+        non_mega = [jp for jp in data if len(jp.get("events", [])) != 17]
+        if non_mega:
+            best = max(non_mega, key=lambda jp: len(jp.get("events", [])))
+            print(f"  ⚠  No Mid Week Jackpot identified — using non-mega jackpot with {len(best.get('events', []))} events")
+            return best
+        return None
 
-# Selectors to try — covers most SportPesa jackpot page layouts
-CLICK_SELECTORS = [
-    "a[href*='jackpot']",
-    "button:has-text('Mid Week')",
-    "button:has-text('Midweek')",
-    "button:has-text('Jackpot')",
-    "[class*='jackpot']",
-    "[class*='tab']",
-    "li[class*='jackpot']",
-    "div[class*='jackpot-item']",
-    "div[class*='jackpot-card']",
-    ".jackpot-list > *",
-    "[data-type*='jackpot']",
-]
+    if isinstance(data, dict):
+        print("  ℹ  Response is a single jackpot object")
+        return data
 
-def try_playwright(interceptor):
-    with sync_playwright() as p:
-        browser = p.chromium.launch(headless=HEADLESS)
-        ctx = browser.new_context(
-            user_agent=UA,
-            extra_http_headers={"Accept-Language": "en-US,en;q=0.9"},
-            viewport={"width": 1280, "height": 900},
-        )
-        page = ctx.new_page()
-        page.on("response", interceptor.on_response)
-
-        print(f"\n🌐  Loading: {JACKPOT_PAGE}")
-        print(f"⏳  Waiting up to {WAIT_MS // 1000}s...\n")
-
-        try:
-            page.goto(JACKPOT_PAGE, wait_until="domcontentloaded", timeout=60_000)
-        except Exception as e:
-            print(f"⚠️  Page load warning: {e}")
-
-        # Give the page 3s to settle before clicking
-        page.wait_for_timeout(3_000)
-
-        if interceptor.events is None:
-            print("  🖱️  Events not yet loaded — trying clicks...\n")
-            for sel in CLICK_SELECTORS:
-                try:
-                    els = page.query_selector_all(sel)
-                    if els:
-                        print(f"  Found {len(els)} element(s) matching '{sel}' — clicking first")
-                        els[0].scroll_into_view_if_needed()
-                        els[0].click(timeout=3_000)
-                        page.wait_for_timeout(2_000)
-                        if interceptor.events is not None:
-                            print("  ✓ Events fired after click!")
-                            break
-                except Exception:
-                    pass
-
-        # Keep waiting for the remainder of WAIT_MS
-        waited = 5_000
-        while waited < WAIT_MS:
-            page.wait_for_timeout(1_000)
-            waited += 1_000
-            if interceptor.events is not None:
-                print(f"\n  ✓ Events captured after ~{waited // 1000}s")
-                break
-            if waited % 5_000 == 0:
-                print(f"  ... {waited // 1000}s elapsed, still waiting...")
-
-        # Last-ditch: dump all API URLs seen so you can find the right one
-        if interceptor.events is None:
-            print("\n  📋  All API URLs seen during this session:")
-            for u in interceptor.all_urls:
-                print(f"       {u}")
-
-        browser.close()
+    print(f"  ✗  Unexpected response type: {type(data)}")
+    return None
 
 
 # ── Parsing ────────────────────────────────────────────────────────────────────
 
-def parse_events(events):
+def parse_events(jp: dict) -> list:
     rows = []
-    for e in events:
-        comps = e.get("competitors", [])
-        home  = comps[0].get("name") if len(comps) > 0 else "?"
-        away  = comps[1].get("name") if len(comps) > 1 else "?"
+    for event in jp.get("events", []):
+        comps = event.get("competitors", [])
+        home_team = next((c["competitorName"] for c in comps if c.get("isHome")), "?")
+        away_team = next((c["competitorName"] for c in comps if not c.get("isHome")), "?")
 
-        h_odd = d_odd = a_odd = "-"
-        for market in e.get("markets", []):
-            for sel in market.get("selections", []):
-                sn = sel.get("shortName", "")
-                if sn == "1":   h_odd = sel.get("odds", "-")
-                elif sn == "X": d_odd = sel.get("odds", "-")
-                elif sn == "2": a_odd = sel.get("odds", "-")
+        raw_ko = event.get("utcKickOffTime", "")
+        try:
+            ko_dt  = datetime.fromisoformat(raw_ko.replace("Z", "+00:00"))
+            kickoff = ko_dt.strftime("%Y-%m-%d %H:%M UTC")
+        except Exception:
+            kickoff = raw_ko
 
         rows.append({
-            "order":    e.get("smsId", ""),
-            "event_id": e.get("id"),
-            "home":     home,
-            "away":     away,
-            "country":  e.get("country", {}).get("name", ""),
-            "kickoff":  e.get("date", ""),
-            "home_odd": h_odd,
-            "draw_odd": d_odd,
-            "away_odd": a_odd,
+            "order":        event.get("order", ""),
+            "event_id":     event.get("id", ""),
+            "home":         home_team,
+            "away":         away_team,
+            "tournament":   event.get("tournamentName", ""),
+            "country":      event.get("countryName", ""),
+            "kickoff":      kickoff,
+            "home_odd":     event.get("home", "-"),
+            "draw_odd":     event.get("draw", "-"),
+            "away_odd":     event.get("away", "-"),
+            "betting_open": event.get("bettingStatus", "") == "Open",
+            "score":        event.get("score"),
         })
+
+    rows.sort(key=lambda r: r["order"] if isinstance(r["order"], int) else 0)
     return rows
 
 
 # ── Output ─────────────────────────────────────────────────────────────────────
 
-def save_matches(rows, raw_events):
+def save_matches(rows: list, raw_jp: dict) -> None:
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H-%M-%SZ")
 
@@ -217,55 +150,80 @@ def save_matches(rows, raw_events):
     parsed_path = os.path.join(OUTPUT_DIR, f"jackpot_parsed_{now}.json")
 
     with open(raw_path, "w", encoding="utf-8") as f:
-        json.dump(raw_events, f, indent=2, ensure_ascii=False)
+        json.dump(raw_jp, f, indent=2, ensure_ascii=False)
     with open(parsed_path, "w", encoding="utf-8") as f:
         json.dump(rows, f, indent=2, ensure_ascii=False)
 
-    print(f"\n💾  Raw    → {raw_path}")
-    print(f"💾  Parsed → {parsed_path}")
+    print(f"\n  💾  Raw    → {raw_path}")
+    print(f"  💾  Parsed → {parsed_path}")
 
-    print(f"\n    {'SMS':<6} {'Home':<28} {'Away':<28} {'1':>6} {'X':>6} {'2':>6}  Country")
-    print("    " + "-" * 98)
+    col_h = max((len(r["home"]) for r in rows), default=10)
+    col_a = max((len(r["away"]) for r in rows), default=10)
+    col_h = max(col_h, 6)
+    col_a = max(col_a, 6)
+
+    header = (
+        f"\n  {'#':<4} "
+        f"{'Home':<{col_h}} "
+        f"{'Away':<{col_a}} "
+        f"{'1':>6} {'X':>6} {'2':>6}  "
+        f"{'Tournament':<20} "
+        f"Kick-off (UTC)"
+    )
+    print(header)
+    print("  " + "─" * (len(header) - 2))
+
     for r in rows:
+        status = "" if r["betting_open"] else " 🔒"
+        score  = f"  [{r['score']}]" if r["score"] else ""
         print(
-            f"    {str(r['order']):<6} "
-            f"{r['home']:<28} "
-            f"{r['away']:<28} "
+            f"  {str(r['order']):<4} "
+            f"{r['home']:<{col_h}} "
+            f"{r['away']:<{col_a}} "
             f"{str(r['home_odd']):>6} "
             f"{str(r['draw_odd']):>6} "
             f"{str(r['away_odd']):>6}  "
-            f"{r['country']}"
+            f"{r['tournament']:<20} "
+            f"{r['kickoff']}"
+            f"{score}{status}"
         )
 
 
 # ── Main ───────────────────────────────────────────────────────────────────────
 
 def scrape():
-    print(f"\n{'='*60}")
-    print("  SportPesa Jackpot Scraper v3")
+    print(f"\n{'='*65}")
+    print("  SportPesa Mid Week Jackpot Scraper  v4")
     print(f"  {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    print(f"{'='*60}\n")
+    print(f"{'='*65}\n")
 
-    # --- Attempt 1: direct HTTP (no browser needed) ---------------------------
-    events = try_direct_api()
+    jackpot = None
 
-    # --- Attempt 2: Playwright with page clicks -------------------------------
-    if not events:
-        interceptor = Interceptor()
-        try_playwright(interceptor)
-        events = interceptor.events
+    print("── Step 1: /api/jackpots/active ──────────────────────────────────")
+    data = fetch_json(API_ACTIVE)
+    if data is not None:
+        jackpot = find_midweek_jackpot(data)
 
-    if not events:
-        print("\n❌  Could not capture jackpot events.")
-        print("    Run with HEADLESS=False and check the 'All API URLs' list above.")
-        print("    Find the URL that returns the match list, then update EVENTS_PATTERN.")
+    if jackpot is None:
+        print("\n── Step 2: /api/jackpots (fallback list) ─────────────────────────")
+        data = fetch_json(API_ALL)
+        if data is not None:
+            jackpot = find_midweek_jackpot(data)
+
+    if jackpot is None:
+        print("\n❌  Could not retrieve Mid Week Jackpot data.")
         return
 
-    events_list = events if isinstance(events, list) else []
-    print(f"\n  ✓ {len(events_list)} match event(s) ready to parse")
+    events = jackpot.get("events", [])
+    if not events:
+        print("\n⚠  Jackpot found but contains 0 events.")
+        return
 
-    rows = parse_events(events_list)
-    save_matches(rows, events_list)
+    print(f"\n  ✓  Mid Week Jackpot #{jackpot.get('humanId', '?')} — {len(events)} event(s)")
+    print(f"     Betting status : {jackpot.get('bettingStatus', '?')}")
+
+    rows = parse_events(jackpot)
+    save_matches(rows, jackpot)
     print("\n✅  Done.\n")
 
 
