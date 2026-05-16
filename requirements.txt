@@ -4,3 +4,4 @@ chronos-forecasting
 torch
 numpy
 pandas
+toml

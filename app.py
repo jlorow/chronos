@@ -18,7 +18,7 @@ from datetime import datetime
 from db import (
     save_forecast, get_latest_forecast, list_forecasts,
     save_actuals, get_actuals_for_forecast, get_performance,
-    get_unscored_forecasts,
+    get_unscored_forecasts, get_forecast_by_id,
 )
 
 # ================================================================
@@ -630,7 +630,37 @@ def tab_log_results(jackpot: str):
     }
 
     # Resolve selectors early so the fetch button can use the selected round
-    unscored    = get_unscored_forecasts(jackpot)
+    # Use local forecasts first (which have full match data), fall back to Supabase
+    unscored_raw = find_unscored_local_forecasts(jackpot)
+    
+    # Convert to format expected by rest of code
+    unscored = []
+    for u in unscored_raw:
+        if u["source"] == "local":
+            # Local file - has full data
+            forecast_data = u["data"]
+        else:
+            # Supabase - retrieve full record with match data
+            try:
+                forecast_data = get_forecast_by_id(u.get("supabase_id", "")) or {}
+            except Exception:
+                forecast_data = {}
+        
+        # Build unscored entry with full forecast data
+        unscored.append({
+            "id": u.get("supabase_id") if u["source"] == "supabase" else forecast_data.get("id", ""),
+            "filename": u["filename"],
+            "display": f"{u['generated_at']} — {u['card_file']}",
+            "card_file": u["card_file"],
+            "generated_at": u["generated_at"],
+            "date_str": u["date_str"],
+            "num_games": forecast_data.get("num_games", cfg["num_games"]),
+            "tickets": forecast_data.get("tickets", {}),
+            "match_analysis": forecast_data.get("match_analysis", []),
+            "forecast": forecast_data.get("forecast", {}),
+            "card_signals": forecast_data.get("card_signals", {}),
+        })
+    
     round_files = get_all_round_files(jackpot)
 
     if not unscored:
@@ -739,67 +769,101 @@ def tab_log_results(jackpot: str):
             except Exception:
                 default_idx = 0
 
-        rd_labels       = [r["display_label"] for r in round_files]
-        chosen_rd_label = st.selectbox(
-            "Select results round",
-            rd_labels if rd_labels else ["— no round files found —"],
-            index=default_idx,
-            key=f"round_selector_{jackpot}",
-        )
-        rd_map         = {r["display_label"]: r for r in round_files}
-        selected_round = rd_map.get(chosen_rd_label)
+        rd_labels = [r["display_label"] for r in round_files]
+        if round_files:
+            chosen_rd_label = st.selectbox(
+                "Select results round",
+                rd_labels,
+                index=default_idx,
+                key=f"round_selector_{jackpot}",
+            )
+            rd_map = {r["display_label"]: r for r in round_files}
+            selected_round = rd_map.get(chosen_rd_label)
+        else:
+            st.caption(
+                "No round file available. Enter results manually below."
+            )
+            selected_round = None
 
-    if not round_files or selected_round is None:
+    if selected_round is None and round_files:
         st.warning(
-            "No round files found in `rounds/`. "
-            "Fetch results first or add a round file manually."
-        )
-        return
-
-    # Auto-convert whenever the selected round changes
-    last_key = f"last_round_{jackpot}"
-    if st.session_state.get(last_key) != selected_round["filename"]:
-        st.session_state[last_key] = selected_round["filename"]
-        ok, _ = run_script(
-            "round_to_results.py",
-            ["--file", selected_round["filepath"]]
-        )
-        if ok:
-            fresh = read_results_json()
-            if fresh:
-                st.session_state[fetch_key] = fresh
-
-    # Warn if no round file exists for the forecast date
-    round_dates = {r["date_str"][:10] for r in round_files}
-    if fc_date_str and fc_date_str not in round_dates:
-        st.warning(
-            f"No round file found for {fc_date_str}. "
-            f"Click 'Fetch Latest Results' above to fetch from API, "
-            f"or select a different round manually."
+            "No round file selected. Enter results manually below."
         )
 
-    st.caption(
-        f"Logging: **{selected_forecast['card_file']}** "
-        f"\u2190 **{selected_round['filename']}**"
-    )
+    if selected_round is not None:
+        # Auto-convert whenever the selected round changes
+        last_key = f"last_round_{jackpot}"
+        if st.session_state.get(last_key) != selected_round["filename"]:
+            st.session_state[last_key] = selected_round["filename"]
+            ok, _ = run_script(
+                "round_to_results.py",
+                ["--file", selected_round["filepath"]]
+            )
+            if ok:
+                fresh = read_results_json()
+                if fresh:
+                    st.session_state[fetch_key] = fresh
+
+        # Warn if no round file exists for the forecast date
+        round_dates = {r["date_str"][:10] for r in round_files}
+        if fc_date_str and fc_date_str not in round_dates:
+            st.warning(
+                f"No round file found for {fc_date_str}. "
+                f"Click 'Fetch Latest Results' above to fetch from API, "
+                f"or select a different round manually."
+            )
+
+        st.caption(
+            f"Logging: **{selected_forecast['card_file']}** "
+            f"\u2190 **{selected_round['filename']}**"
+        )
+    else:
+        target_filename = selected_forecast.get("filename", selected_forecast.get("card_file", ""))
+        st.caption(
+            f"Logging: **{selected_forecast['card_file']}**"
+        )
+
+    # Update number of games from selected forecast (if different from config)
+    n = selected_forecast.get("num_games", cfg["num_games"])
 
     # Build match names from Supabase tickets data
     match_names = []
-    base_matches = selected_forecast.get("tickets", {}).get("base", {}).get("matches", [])
-    for m in base_matches:
-        home = m.get("home", m.get("home_team", "?"))
-        away = m.get("away", m.get("away_team", "?"))
-        match_names.append(f"{home} vs {away}")
+    
+    # Debug: Check what data is available
+    tickets_obj = selected_forecast.get("tickets", {})
+    match_analysis = selected_forecast.get("match_analysis", [])
+    
+    # Try to extract from tickets.base.matches
+    if tickets_obj and isinstance(tickets_obj, dict):
+        base_obj = tickets_obj.get("base", {})
+        if base_obj and isinstance(base_obj, dict):
+            base_matches = base_obj.get("matches", [])
+            for m in base_matches:
+                home = m.get("home", m.get("home_team", "?"))
+                away = m.get("away", m.get("away_team", "?"))
+                match_names.append(f"{home} vs {away}")
 
     # Fall back to match_analysis if base.matches is empty
+    if not match_names and match_analysis:
+        if isinstance(match_analysis, list):
+            for m in match_analysis:
+                home = m.get("home", "?")
+                away = m.get("away", "?")
+                match_names.append(f"{home} vs {away}")
+    
+    # Debug warning if no matches found
     if not match_names:
-        for m in selected_forecast.get("match_analysis", []):
-            home = m.get("home", "?")
-            away = m.get("away", "?")
-            match_names.append(f"{home} vs {away}")
+        has_tickets = bool(tickets_obj)
+        has_analysis = bool(match_analysis)
+        st.warning(
+            f"⚠️ No matches found in forecast data. "
+            f"Available: tickets={has_tickets}, match_analysis={has_analysis}. "
+            f"Showing placeholder match numbers. "
+            f"Try re-running the forecast from the **Run Forecast** tab."
+        )
 
     forecast_data   = selected_forecast
-    target_filename = selected_forecast.get("card_file", "")
+    target_filename = selected_forecast.get("filename", selected_forecast.get("card_file", ""))
 
     # Pre-fill from session state (populated by fetch button), fall back to empty
     session_data      = st.session_state.get(fetch_key, {})
@@ -909,6 +973,29 @@ def tab_log_results(jackpot: str):
             "signal_accuracy"   : {},
             "per_match_accuracy": {},
         }
+
+        if selected_round is None:
+            results_path = os.path.join(ROOT, "results.json")
+            with open(results_path, "w", encoding="utf-8") as f:
+                json.dump({"results": results_input, "scores": scores_input}, f, ensure_ascii=False, indent=2)
+
+            manual_target = target_filename
+            if manual_target and not manual_target.startswith("[Supabase]"):
+                with st.spinner("Applying manual results to forecast file..."):
+                    ok3, out3 = run_script(
+                        "log_actuals.py",
+                        ["--jackpot", jackpot, "--file", "results.json", "--target", manual_target]
+                    )
+                st.code(out3, language="text")
+                if not ok3:
+                    st.error(
+                        "log_actuals.py failed. Results are still being saved to Supabase."
+                    )
+            else:
+                st.warning(
+                    "No valid local forecast filename available for log_actuals.py. "
+                    "Results will still be saved to Supabase."
+                )
 
         with st.spinner("Saving actuals to Supabase..."):
             saved = save_actuals(jackpot, selected_forecast["id"], actuals_data)

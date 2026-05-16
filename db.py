@@ -7,6 +7,7 @@ Import this in app.py only.
 
 import os
 import json
+import toml
 import streamlit as st
 from supabase import create_client, Client
 from datetime import datetime
@@ -15,11 +16,52 @@ from datetime import datetime
 # ================================================================
 # CLIENT
 # ================================================================
-@st.cache_resource
+_client_cache = None
+
+def _load_credentials():
+    """Load credentials from st.secrets, environment, or secrets.toml file."""
+    # Try environment variables first
+    url = os.getenv("SUPABASE_URL")
+    key = os.getenv("SUPABASE_KEY")
+    if url and key:
+        return url, key
+    
+    # Try loading from secrets.toml file directly (works outside Streamlit)
+    secrets_paths = [
+        os.path.expanduser("~/.streamlit/secrets.toml"),
+        os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), ".streamlit", "secrets.toml"),
+        os.path.join(os.path.dirname(os.path.abspath(__file__)), ".streamlit", "secrets.toml"),
+    ]
+    
+    for path in secrets_paths:
+        if os.path.exists(path):
+            try:
+                config = toml.load(path)
+                url = config.get("SUPABASE_URL")
+                key = config.get("SUPABASE_KEY")
+                if url and key:
+                    return url, key
+            except Exception:
+                continue
+    
+    # Try st.secrets as last resort (only if in Streamlit context)
+    try:
+        url = st.secrets.get("SUPABASE_URL")
+        key = st.secrets.get("SUPABASE_KEY")
+        if url and key:
+            return url, key
+    except (AttributeError, RuntimeError):
+        pass
+    
+    raise ValueError("Supabase credentials not found in environment variables or secrets.toml")
+
 def get_client() -> Client:
-    url = st.secrets["SUPABASE_URL"]
-    key = st.secrets["SUPABASE_KEY"]
-    return create_client(url, key)
+    """Get or create Supabase client. Works in both Streamlit and non-Streamlit contexts."""
+    global _client_cache
+    if _client_cache is None:
+        url, key = _load_credentials()
+        _client_cache = create_client(url, key)
+    return _client_cache
 
 
 # ================================================================

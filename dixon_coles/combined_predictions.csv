@@ -1,24 +1,24 @@
 league,date,home,away,pick,label,pick_type,confidence,prob_home,prob_draw,prob_away,exp_home_goals,exp_away_goals,odds_home,odds_draw,odds_away,generated_at,filter_date,n_completed,n_predicted,converged,dc_weight,half_life_days
-Belgium Pro League,2026-05-17 11:30,RSC Anderlecht,KV Mechelen,1,Home Win,Double Chance,27.7,52.2,23.4,24.4,1.862,1.319,1.75,4.07,4.33,2026-05-15 18:39:07,2026-05-17,294,2,True,0.5,90
-Belgium Pro League,2026-05-17 16:30,Club Brugge,Union Saint-Gilloise,1,Home Win,Speculative,2.2,37.5,27.2,35.3,1.035,1.268,2.08,3.71,3.21,2026-05-15 18:39:07,2026-05-17,294,2,True,0.5,90
-Denmark 1St Division,2026-05-15 16:00,Kolding IF,Lyngby,2,Away Win,Banker,38.5,20.0,20.7,59.3,0.833,2.293,3.25,3.65,1.87,2026-05-15 18:40:05,2026-05-15,175,2,True,0.5,90
-Denmark 1St Division,2026-05-15 17:00,B 93,AaB,2,Away Win,Double Chance,12.5,32.4,22.7,44.9,1.636,2.251,2.43,3.4,2.35,2026-05-15 18:40:05,2026-05-15,175,2,True,0.5,90
-England Efl League Two,2026-05-15 18:15,Salford City,Grimsby Town,1,Home Win,Speculative,6.8,40.1,26.6,33.3,1.171,1.145,2.07,3.37,2.91,2026-05-15 18:50:52,2026-05-15,554,2,True,0.5,90
-England Efl League Two,2026-05-15 19:00,Notts County,Chesterfield,1,Home Win,Double Chance,10.4,41.8,26.9,31.3,1.423,1.155,2.37,3.25,3.0,2026-05-15 18:50:52,2026-05-15,554,2,True,0.5,90
-England Premie,2026-05-15 19:00,Aston Villa,Liverpool,2,Away Win,Double Chance,10.6,31.6,26.1,42.3,1.459,1.686,3.0,3.75,2.2,2026-05-15 20:13:52,2026-05-15,360,1,True,0.5,90
-France National,2026-05-15 17:30,Sochaux,Le Puy F.43 Auvergne,1,Home Win,Double Chance,23.1,51.6,28.4,20.0,1.508,0.942,1.65,3.7,4.72,2026-05-15 18:46:11,2026-05-15,264,8,True,0.5,90
-France National,2026-05-15 17:30,Dijon,Orléans,1,Home Win,Double Chance,19.5,49.3,29.7,21.0,1.417,0.847,1.79,3.5,4.05,2026-05-15 18:46:11,2026-05-15,264,8,True,0.5,90
-France National,2026-05-15 17:30,Quevilly Rouen,Paris 13 Atletico,1,Home Win,Double Chance,16.9,48.2,31.3,20.6,1.318,0.741,1.87,3.3,3.95,2026-05-15 18:46:11,2026-05-15,264,8,True,0.5,90
-France National,2026-05-15 17:30,Concarneau,Villefranche,1,Home Win,Double Chance,12.2,43.5,31.4,25.1,1.09,1.017,1.72,3.5,4.53,2026-05-15 18:46:11,2026-05-15,264,8,True,0.5,90
-France National,2026-05-15 17:30,Aubagne,Caen,2,Away Win,Double Chance,19.0,23.0,29.0,48.0,0.872,1.644,3.15,3.3,2.12,2026-05-15 18:46:11,2026-05-15,264,8,True,0.5,90
-France National,2026-05-15 17:30,Valenciennes,Châteauroux,1,Home Win,Double Chance,15.1,44.4,29.3,26.3,1.442,1.109,1.95,3.5,3.44,2026-05-15 18:46:11,2026-05-15,264,8,True,0.5,90
-France National,2026-05-15 17:30,Fleury 91,Rouen,1,Home Win,Double Chance,14.4,43.9,29.5,26.6,1.697,0.951,2.55,3.1,2.6,2026-05-15 18:46:11,2026-05-15,264,8,True,0.5,90
-France National,2026-05-15 17:30,Versailles,Stade Briochin,1,Home Win,Banker,30.0,55.9,25.9,18.2,1.854,0.941,1.65,3.8,4.53,2026-05-15 18:46:11,2026-05-15,264,8,True,0.5,90
-Italy Serie B,2026-05-15 18:00,Bari 1908,Südtirol,1,Home Win,Double Chance,13.4,42.9,29.5,27.6,1.497,0.95,2.45,3.1,2.8,2026-05-15 18:48:33,2026-05-15,382,1,True,0.5,90
-Poland 2 Liga,2026-05-15 15:00,ŁKS Łódź II,Unia Skierniewice,2,Away Win,Banker,36.9,17.6,22.7,59.7,0.992,2.265,4.32,3.7,1.67,2026-05-15 18:48:53,2026-05-15,280,2,True,0.5,90
-Poland 2 Liga,2026-05-15 18:00,Resovia Rzeszów,Stal Stalowa Wola,2,Away Win,Speculative,2.3,34.3,29.1,36.6,1.089,1.323,2.32,3.3,2.79,2026-05-15 18:48:53,2026-05-15,280,2,True,0.5,90
-Republic Of Ireland First Division,2026-05-15 18:45,UCD,Bray Wanderers,1,Home Win,Banker,33.3,56.1,22.8,21.1,2.435,0.907,2.14,3.2,2.91,2026-05-15 18:49:06,2026-05-15,74,4,True,0.5,90
-Republic Of Ireland First Division,2026-05-15 18:45,Cobh Ramblers,Athlone Town,1,Home Win,Double Chance,19.8,47.4,27.6,25.0,1.4,0.964,1.85,3.35,3.6,2026-05-15 18:49:06,2026-05-15,74,4,True,0.5,90
-Republic Of Ireland First Division,2026-05-15 18:45,Treaty United,Finn Harps,1,Home Win,Double Chance,12.0,41.8,29.8,28.4,1.16,0.879,2.13,3.2,3.0,2026-05-15 18:49:06,2026-05-15,74,4,True,0.5,90
-Republic Of Ireland First Division,2026-05-15 18:45,Kerry,Wexford,2,Away Win,Speculative,2.2,33.9,29.9,36.2,1.121,1.025,2.84,3.06,2.18,2026-05-15 18:49:06,2026-05-15,74,4,True,0.5,90
-Romania Liga I,2026-05-15 17:30,Argeș,Rapid Bucureşti,1,Home Win,Draw,5.4,36.9,31.6,31.5,0.939,0.691,2.75,3.19,2.51,2026-05-15 18:49:31,2026-05-15,304,1,True,0.5,90
+Belgium Pro League,17/05/2026 11:30,RSC Anderlecht,KV Mechelen,1,Home Win,Double Chance,27.7,52.2,23.4,24.4,1.862,1.319,1.75,4.07,4.33,15/05/2026 18:39,17/05/2026,294,2,TRUE,0.5,90
+Belgium Pro League,17/05/2026 16:30,Club Brugge,Union Saint-Gilloise,1,Home Win,Speculative,2.2,37.5,27.2,35.3,1.035,1.268,2.08,3.71,3.21,15/05/2026 18:39,17/05/2026,294,2,TRUE,0.5,90
+Denmark 1St Division,15/05/2026 16:00,Kolding IF,Lyngby,2,Away Win,Banker,38.5,20,20.7,59.3,0.833,2.293,3.25,3.65,1.87,15/05/2026 18:40,15/05/2026,175,2,TRUE,0.5,90
+Denmark 1St Division,15/05/2026 17:00,B 93,AaB,2,Away Win,Double Chance,12.5,32.4,22.7,44.9,1.636,2.251,2.43,3.4,2.35,15/05/2026 18:40,15/05/2026,175,2,TRUE,0.5,90
+England Efl League Two,15/05/2026 18:15,Salford City,Grimsby Town,1,Home Win,Speculative,6.8,40.1,26.6,33.3,1.171,1.145,2.07,3.37,2.91,15/05/2026 18:50,15/05/2026,554,2,TRUE,0.5,90
+England Efl League Two,15/05/2026 19:00,Notts County,Chesterfield,1,Home Win,Double Chance,10.4,41.8,26.9,31.3,1.423,1.155,2.37,3.25,3,15/05/2026 18:50,15/05/2026,554,2,TRUE,0.5,90
+England Premie,15/05/2026 19:00,Aston Villa,Liverpool,2,Away Win,Double Chance,10.6,31.6,26.1,42.3,1.459,1.686,3,3.75,2.2,15/05/2026 20:13,15/05/2026,360,1,TRUE,0.5,90
+France National,15/05/2026 17:30,Sochaux,Le Puy F.43 Auvergne,1,Home Win,Double Chance,23.1,51.6,28.4,20,1.508,0.942,1.65,3.7,4.72,15/05/2026 18:46,15/05/2026,264,8,TRUE,0.5,90
+France National,15/05/2026 17:30,Dijon,Orléans,1,Home Win,Double Chance,19.5,49.3,29.7,21,1.417,0.847,1.79,3.5,4.05,15/05/2026 18:46,15/05/2026,264,8,TRUE,0.5,90
+France National,15/05/2026 17:30,Quevilly Rouen,Paris 13 Atletico,1,Home Win,Double Chance,16.9,48.2,31.3,20.6,1.318,0.741,1.87,3.3,3.95,15/05/2026 18:46,15/05/2026,264,8,TRUE,0.5,90
+France National,15/05/2026 17:30,Concarneau,Villefranche,1,Home Win,Double Chance,12.2,43.5,31.4,25.1,1.09,1.017,1.72,3.5,4.53,15/05/2026 18:46,15/05/2026,264,8,TRUE,0.5,90
+France National,15/05/2026 17:30,Aubagne,Caen,2,Away Win,Double Chance,19,23,29,48,0.872,1.644,3.15,3.3,2.12,15/05/2026 18:46,15/05/2026,264,8,TRUE,0.5,90
+France National,15/05/2026 17:30,Valenciennes,Châteauroux,1,Home Win,Double Chance,15.1,44.4,29.3,26.3,1.442,1.109,1.95,3.5,3.44,15/05/2026 18:46,15/05/2026,264,8,TRUE,0.5,90
+France National,15/05/2026 17:30,Fleury 91,Rouen,1,Home Win,Double Chance,14.4,43.9,29.5,26.6,1.697,0.951,2.55,3.1,2.6,15/05/2026 18:46,15/05/2026,264,8,TRUE,0.5,90
+France National,15/05/2026 17:30,Versailles,Stade Briochin,1,Home Win,Banker,30,55.9,25.9,18.2,1.854,0.941,1.65,3.8,4.53,15/05/2026 18:46,15/05/2026,264,8,TRUE,0.5,90
+Italy Serie B,15/05/2026 18:00,Bari 1908,Südtirol,1,Home Win,Double Chance,13.4,42.9,29.5,27.6,1.497,0.95,2.45,3.1,2.8,15/05/2026 18:48,15/05/2026,382,1,TRUE,0.5,90
+Poland 2 Liga,15/05/2026 15:00,ŁKS Łódź II,Unia Skierniewice,2,Away Win,Banker,36.9,17.6,22.7,59.7,0.992,2.265,4.32,3.7,1.67,15/05/2026 18:48,15/05/2026,280,2,TRUE,0.5,90
+Poland 2 Liga,15/05/2026 18:00,Resovia Rzeszów,Stal Stalowa Wola,2,Away Win,Speculative,2.3,34.3,29.1,36.6,1.089,1.323,2.32,3.3,2.79,15/05/2026 18:48,15/05/2026,280,2,TRUE,0.5,90
+Republic Of Ireland First Division,15/05/2026 18:45,UCD,Bray Wanderers,1,Home Win,Banker,33.3,56.1,22.8,21.1,2.435,0.907,2.14,3.2,2.91,15/05/2026 18:49,15/05/2026,74,4,TRUE,0.5,90
+Republic Of Ireland First Division,15/05/2026 18:45,Cobh Ramblers,Athlone Town,1,Home Win,Double Chance,19.8,47.4,27.6,25,1.4,0.964,1.85,3.35,3.6,15/05/2026 18:49,15/05/2026,74,4,TRUE,0.5,90
+Republic Of Ireland First Division,15/05/2026 18:45,Treaty United,Finn Harps,1,Home Win,Double Chance,12,41.8,29.8,28.4,1.16,0.879,2.13,3.2,3,15/05/2026 18:49,15/05/2026,74,4,TRUE,0.5,90
+Republic Of Ireland First Division,15/05/2026 18:45,Kerry,Wexford,2,Away Win,Speculative,2.2,33.9,29.9,36.2,1.121,1.025,2.84,3.06,2.18,15/05/2026 18:49,15/05/2026,74,4,TRUE,0.5,90
+Romania Liga I,15/05/2026 17:30,Argeș,Rapid Bucureşti,1,Home Win,Draw,5.4,36.9,31.6,31.5,0.939,0.691,2.75,3.19,2.51,15/05/2026 18:49,15/05/2026,304,1,TRUE,0.5,90

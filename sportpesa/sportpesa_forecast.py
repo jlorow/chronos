@@ -302,27 +302,31 @@ def load_batch():
 
 
 # ================================================================
-# 4. CARD LOADER  (local file with Supabase fallback)
+# ================================================================
+# 4. CARD LOADER  (Supabase first, local fallback)
 # ================================================================
 def load_card():
-    local_files = glob.glob(os.path.join(CARDS_DIR, "mega_jackpot_parsed_*.json"))
-    if local_files:
-        path = max(local_files, key=os.path.getmtime)
-        with open(path, encoding="utf-8") as f:
-            raw = json.load(f)
-        source = os.path.basename(path)
-    else:
-        print("  No local card found — trying Supabase...")
-        sys.path.insert(0, ROOT_DIR)
-        from db import get_latest_card
-        raw, fetched_at = get_latest_card("sportpesa")
-        if not raw:
-            raise FileNotFoundError(
-                "No mega_jackpot_parsed_*.json locally and no card in Supabase.\n"
-                "Run fetch_sportpesa_mega_jackpot.py locally first."
-            )
+    # Try Supabase first (for deployed app)
+    print("  Trying Supabase for latest card...")
+    sys.path.insert(0, ROOT_DIR)
+    from db import get_latest_card
+    raw, fetched_at = get_latest_card("sportpesa")
+    if raw:
         source = f"supabase:{fetched_at}"
         print(f"  Loaded card from Supabase (fetched {fetched_at})")
+    else:
+        print("  No card in Supabase — trying local files...")
+        local_files = glob.glob(os.path.join(CARDS_DIR, "mega_jackpot_parsed_*.json"))
+        if local_files:
+            path = max(local_files, key=os.path.getmtime)
+            with open(path, encoding="utf-8") as f:
+                raw = json.load(f)
+            source = os.path.basename(path)
+        else:
+            raise FileNotFoundError(
+                "No card in Supabase and no local mega_jackpot_parsed_*.json files.\n"
+                "Run fetch_sportpesa_mega_jackpot.py locally first."
+            )
 
     # Normalise to internal format
     card = []
