@@ -997,21 +997,42 @@ def tab_log_results(jackpot: str):
                     "Results will still be saved to Supabase."
                 )
 
-        with st.spinner("Saving actuals to Supabase..."):
-            saved = save_actuals(jackpot, selected_forecast["id"], actuals_data)
-
-        if saved:
-            st.success(
-                f"Results logged! Best score: {score_label(best_score, n)} "
-                f"({best_ticket})"
-            )
-            st.session_state.pop(fetch_key, None)
-            st.session_state.pop(f"last_round_{jackpot}", None)
-            st.session_state.pop(f"forecast_selector_{jackpot}", None)
-            st.balloons()
-            st.rerun()
+        # Get the correct Supabase forecast ID
+        if selected_forecast.get("source") == "supabase":
+            forecast_id = selected_forecast.get("supabase_id", "")
         else:
-            st.warning("Supabase save failed.")
+            # Local file — find matching Supabase record by card_file
+            all_fc = list_forecasts(jackpot, limit=20)
+            matching = next(
+                (f for f in all_fc 
+                 if f.get("card_file") == selected_forecast.get("card_file")),
+                None
+            )
+            forecast_id = matching["id"] if matching else ""
+
+        st.caption(f"DEBUG: forecast_id={forecast_id}, source={selected_forecast.get('source')}")
+
+        if not forecast_id:
+            st.error(
+                "Could not find matching Supabase forecast to link actuals to. "
+                "Run the forecast script first from the Run Forecast tab."
+            )
+        else:
+            with st.spinner("Saving actuals to Supabase..."):
+                saved = save_actuals(jackpot, forecast_id, actuals_data)
+
+            if saved:
+                st.success(
+                    f"Results logged! Best score: {score_label(best_score, n)} "
+                    f"({best_ticket})"
+                )
+                st.session_state.pop(fetch_key, None)
+                st.session_state.pop(f"last_round_{jackpot}", None)
+                st.session_state.pop(f"forecast_selector_{jackpot}", None)
+                st.balloons()
+                st.rerun()
+            else:
+                st.warning("Logged locally but Supabase save failed.")
 
 
 # ================================================================
