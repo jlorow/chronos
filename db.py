@@ -71,13 +71,29 @@ def save_forecast(jackpot: str, forecast_data: dict) -> str | None:
     """
     Save a forecast JSON to Supabase forecasts table.
     Returns the inserted row id or None on failure.
+    Checks for existing forecast with same card_file and jackpot before inserting.
     """
     client = get_client()
     try:
+        card_file = forecast_data.get("card_file", "")
+        
+        # Check if forecast already exists with same card_file and jackpot
+        existing = (
+            client.table("forecasts")
+            .select("id")
+            .eq("jackpot", jackpot)
+            .eq("card_file", card_file)
+            .execute()
+        )
+        if existing.data:
+            # Already exists — return existing id instead of inserting
+            st.info(f"Forecast for {card_file} already in Supabase. Skipping duplicate save.")
+            return existing.data[0]["id"]
+        
         row = {
             "jackpot"      : jackpot,
             "generated_at" : forecast_data.get("generated_at", ""),
-            "card_file"    : forecast_data.get("card_file", ""),
+            "card_file"    : card_file,
             "card_signals" : forecast_data.get("card_signals", {}),
             "forecast"     : forecast_data.get("forecast", {}),
             "tickets"      : forecast_data.get("tickets", {}),
@@ -305,6 +321,7 @@ def get_performance(jackpot: str, limit: int = 30) -> list:
     """
     Join forecasts + actuals for performance table.
     Returns list of dicts ready for st.dataframe.
+    Deduplicates by date: keeps logged rows, and only latest unlogged per date.
     """
     client = get_client()
     try:
@@ -337,7 +354,21 @@ def get_performance(jackpot: str, limit: int = 30) -> list:
                 "Logged"        : "✓" if actual else "✗",
                 "forecast_id"   : f["id"],
             })
-        return rows
+        
+        # Deduplicate by date: keep logged rows, and only latest unlogged per date
+        seen_dates = {}
+        for row in rows:
+            date = row["Date"]
+            if date not in seen_dates:
+                seen_dates[date] = row
+            else:
+                existing = seen_dates[date]
+                # Prefer logged over unlogged
+                if row["Logged"] == "✓" and existing["Logged"] != "✓":
+                    seen_dates[date] = row
+                # If both unlogged, keep existing (already sorted desc by created_at)
+        
+        return list(seen_dates.values())
     except Exception as e:
         st.error(f"Failed to load performance: {e}")
         return []
