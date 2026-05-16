@@ -1,0 +1,91 @@
+{
+  "generated_at": "2026-05-15 20:13:52",
+  "csv_source": "england-premie.csv",
+  "filter": "date=2026-05-15",
+  "dc_weight": 0.5,
+  "half_life_days": 90,
+  "n_completed": 360,
+  "n_predicted": 1,
+  "converged": true,
+  "team_params": {
+    "attack": {
+      "AFC Bournemouth": 0.7542,
+      "Arsenal": 0.8978,
+      "Aston Villa": 0.5945,
+      "Brentford": 0.6421,
+      "Brighton & Hove Albion": 0.6584,
+      "Burnley": 0.319,
+      "Chelsea": 0.5675,
+      "Crystal Palace": 0.2857,
+      "Everton": 0.6645,
+      "Fulham": 0.3486,
+      "Leeds United": 0.6253,
+      "Liverpool": 0.8277,
+      "Manchester City": 1.0269,
+      "Manchester United": 0.8199,
+      "Newcastle United": 0.6556,
+      "Nottingham Forest": 0.6959,
+      "Sunderland": 0.2841,
+      "Tottenham Hotspur": 0.4489,
+      "West Ham United": 0.4553,
+      "Wolverhampton Wanderers": -0.0753
+    },
+    "defence": {
+      "AFC Bournemouth": -0.465,
+      "Arsenal": -1.0226,
+      "Aston Villa": -0.3053,
+      "Brentford": -0.4274,
+      "Brighton & Hove Albion": -0.6217,
+      "Burnley": 0.0144,
+      "Chelsea": -0.3057,
+      "Crystal Palace": -0.3264,
+      "Everton": -0.3911,
+      "Fulham": -0.4878,
+      "Leeds United": -0.4432,
+      "Liverpool": -0.4247,
+      "Manchester City": -0.857,
+      "Manchester United": -0.5097,
+      "Newcastle United": -0.3304,
+      "Nottingham Forest": -0.5654,
+      "Sunderland": -0.3627,
+      "Tottenham Hotspur": -0.2312,
+      "West Ham United": -0.2944,
+      "Wolverhampton Wanderers": -0.1461
+    },
+    "home_advantage": 0.208,
+    "rho": -0.1611
+  },
+  "predictions": [
+    {
+      "home": "Aston Villa",
+      "away": "Liverpool",
+      "date": "2026-05-15 19:00",
+      "pick": "2",
+      "label": "Away Win",
+      "pick_type": "Double Chance",
+      "confidence": 10.6,
+      "probs": {
+        "1": 31.6,
+        "X": 26.1,
+        "2": 42.3
+      },
+      "dc_probs": {
+        "1": 31.7,
+        "X": 26.9,
+        "2": 41.4
+      },
+      "odds_probs": {
+        "1": 31.6,
+        "X": 25.3,
+        "2": 43.1
+      },
+      "exp_home_goals": 1.459,
+      "exp_away_goals": 1.686,
+      "odds": {
+        "1": 3.0,
+        "X": 3.75,
+        "2": 2.2
+      }
+    }
+  ]
+}

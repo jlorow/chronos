@@ -1,0 +1,164 @@
+{
+  "generated_at": "2026-05-15 18:49:06",
+  "csv_source": "republic-of-ireland-first-division-matches-2026-to-2026-stats.csv",
+  "filter": "date=2026-05-15",
+  "dc_weight": 0.5,
+  "half_life_days": 90,
+  "n_completed": 74,
+  "n_predicted": 4,
+  "converged": true,
+  "team_params": {
+    "attack": {
+      "Athlone Town": 0.2994,
+      "Bray Wanderers": 0.7521,
+      "Cobh Ramblers": 0.4652,
+      "Cork City": 0.7554,
+      "Finn Harps": 0.2512,
+      "Kerry": 0.1821,
+      "Longford Town": -0.0092,
+      "Treaty United": 0.212,
+      "UCD": 0.7926,
+      "Wexford": 0.55
+    },
+    "defence": {
+      "Athlone Town": -0.5508,
+      "Bray Wanderers": -0.3246,
+      "Cobh Ramblers": -0.3364,
+      "Cork City": -0.8847,
+      "Finn Harps": -0.4861,
+      "Kerry": -0.5256,
+      "Longford Town": -0.9208,
+      "Treaty United": -0.3798,
+      "UCD": -0.8501,
+      "Wexford": -0.4901
+    },
+    "home_advantage": 0.4221,
+    "rho": -0.0553
+  },
+  "predictions": [
+    {
+      "home": "UCD",
+      "away": "Bray Wanderers",
+      "date": "2026-05-15 18:45",
+      "pick": "1",
+      "label": "Home Win",
+      "pick_type": "Banker",
+      "confidence": 33.3,
+      "probs": {
+        "1": 56.1,
+        "X": 22.8,
+        "2": 21.1
+      },
+      "dc_probs": {
+        "1": 70.6,
+        "X": 17.8,
+        "2": 11.7
+      },
+      "odds_probs": {
+        "1": 41.6,
+        "X": 27.8,
+        "2": 30.6
+      },
+      "exp_home_goals": 2.435,
+      "exp_away_goals": 0.907,
+      "odds": {
+        "1": 2.14,
+        "X": 3.2,
+        "2": 2.91
+      }
+    },
+    {
+      "home": "Cobh Ramblers",
+      "away": "Athlone Town",
+      "date": "2026-05-15 18:45",
+      "pick": "1",
+      "label": "Home Win",
+      "pick_type": "Double Chance",
+      "confidence": 19.8,
+      "probs": {
+        "1": 47.4,
+        "X": 27.6,
+        "2": 25.0
+      },
+      "dc_probs": {
+        "1": 46.3,
+        "X": 28.5,
+        "2": 25.2
+      },
+      "odds_probs": {
+        "1": 48.4,
+        "X": 26.7,
+        "2": 24.9
+      },
+      "exp_home_goals": 1.4,
+      "exp_away_goals": 0.964,
+      "odds": {
+        "1": 1.85,
+        "X": 3.35,
+        "2": 3.6
+      }
+    },
+    {
+      "home": "Treaty United",
+      "away": "Finn Harps",
+      "date": "2026-05-15 18:45",
+      "pick": "1",
+      "label": "Home Win",
+      "pick_type": "Double Chance",
+      "confidence": 12.0,
+      "probs": {
+        "1": 41.8,
+        "X": 29.8,
+        "2": 28.4
+      },
+      "dc_probs": {
+        "1": 41.5,
+        "X": 31.6,
+        "2": 27.0
+      },
+      "odds_probs": {
+        "1": 42.1,
+        "X": 28.0,
+        "2": 29.9
+      },
+      "exp_home_goals": 1.16,
+      "exp_away_goals": 0.879,
+      "odds": {
+        "1": 2.13,
+        "X": 3.2,
+        "2": 3.0
+      }
+    },
+    {
+      "home": "Kerry",
+      "away": "Wexford",
+      "date": "2026-05-15 18:45",
+      "pick": "2",
+      "label": "Away Win",
+      "pick_type": "Speculative",
+      "confidence": 2.2,
+      "probs": {
+        "1": 33.9,
+        "X": 29.9,
+        "2": 36.2
+      },
+      "dc_probs": {
+        "1": 36.9,
+        "X": 31.0,
+        "2": 32.1
+      },
+      "odds_probs": {
+        "1": 31.0,
+        "X": 28.7,
+        "2": 40.3
+      },
+      "exp_home_goals": 1.121,
+      "exp_away_goals": 1.025,
+      "odds": {
+        "1": 2.84,
+        "X": 3.06,
+        "2": 2.18
+      }
+    }
+  ]
+}

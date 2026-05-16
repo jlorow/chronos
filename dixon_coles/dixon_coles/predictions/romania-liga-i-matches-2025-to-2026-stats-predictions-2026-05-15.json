@@ -1,0 +1,83 @@
+{
+  "generated_at": "2026-05-15 18:49:31",
+  "csv_source": "romania-liga-i-matches-2025-to-2026-stats.csv",
+  "filter": "date=2026-05-15",
+  "dc_weight": 0.5,
+  "half_life_days": 90,
+  "n_completed": 304,
+  "n_predicted": 1,
+  "converged": true,
+  "team_params": {
+    "attack": {
+      "Arge\u0219": 0.1828,
+      "Boto\u015fani": 0.4119,
+      "CFR Cluj": 0.7495,
+      "CS U Craiova": 0.6925,
+      "Csikszereda": 0.2509,
+      "Dinamo Bucure\u015fti": 0.7898,
+      "FCSB": 0.7352,
+      "Hermannstadt": 0.4318,
+      "Metaloglobus": 0.2407,
+      "O\u0163elul Gala\u0163i": 0.4667,
+      "Petrolul 52": 0.1727,
+      "Rapid Bucure\u015fti": 0.5828,
+      "SSC Farul": 0.4245,
+      "UTA Arad": 0.543,
+      "Unirea Slobozia": 0.2635,
+      "Universitatea Cluj": 0.9474
+    },
+    "defence": {
+      "Arge\u0219": -0.9525,
+      "Boto\u015fani": -0.2873,
+      "CFR Cluj": -0.85,
+      "CS U Craiova": -0.999,
+      "Csikszereda": -0.3576,
+      "Dinamo Bucure\u015fti": -0.5849,
+      "FCSB": -0.4686,
+      "Hermannstadt": -0.2149,
+      "Metaloglobus": 0.0481,
+      "O\u0163elul Gala\u0163i": -0.2877,
+      "Petrolul 52": -0.549,
+      "Rapid Bucure\u015fti": -0.5614,
+      "SSC Farul": -0.3926,
+      "UTA Arad": -0.4071,
+      "Unirea Slobozia": -0.2354,
+      "Universitatea Cluj": -1.0142
+    },
+    "home_advantage": 0.3163,
+    "rho": 0.0214
+  },
+  "predictions": [
+    {
+      "home": "Arge\u0219",
+      "away": "Rapid Bucure\u015fti",
+      "date": "2026-05-15 17:30",
+      "pick": "1",
+      "label": "Home Win",
+      "pick_type": "Draw",
+      "confidence": 5.4,
+      "probs": {
+        "1": 36.9,
+        "X": 31.6,
+        "2": 31.5
+      },
+      "dc_probs": {
+        "1": 40.1,
+        "X": 34.0,
+        "2": 26.0
+      },
+      "odds_probs": {
+        "1": 33.8,
+        "X": 29.1,
+        "2": 37.0
+      },
+      "exp_home_goals": 0.939,
+      "exp_away_goals": 0.691,
+      "odds": {
+        "1": 2.75,
+        "X": 3.19,
+        "2": 2.51
+      }
+    }
+  ]
+}

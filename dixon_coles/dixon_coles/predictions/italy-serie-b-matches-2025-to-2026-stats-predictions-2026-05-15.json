@@ -1,0 +1,91 @@
+{
+  "generated_at": "2026-05-15 18:48:33",
+  "csv_source": "italy-serie-b-matches-2025-to-2026-stats.csv",
+  "filter": "date=2026-05-15",
+  "dc_weight": 0.5,
+  "half_life_days": 90,
+  "n_completed": 382,
+  "n_predicted": 1,
+  "converged": true,
+  "team_params": {
+    "attack": {
+      "Avellino": 0.2957,
+      "Bari 1908": 0.3958,
+      "Calcio Padova": 0.3144,
+      "Carrarese": 0.4266,
+      "Catanzaro": 0.9055,
+      "Cesena": 0.3637,
+      "Empoli": 0.455,
+      "Frosinone": 1.0011,
+      "Juve Stabia": 0.4222,
+      "Mantova": 0.582,
+      "Modena": 0.3915,
+      "Monza": 0.8009,
+      "Palermo": 0.7528,
+      "Pescara": 0.604,
+      "Reggiana": 0.1021,
+      "Sampdoria": 0.122,
+      "Spezia": 0.5778,
+      "S\u00fcdtirol": 0.2271,
+      "Venezia": 1.0209,
+      "Virtus Entella": 0.2293
+    },
+    "defence": {
+      "Avellino": -0.4665,
+      "Bari 1908": -0.2779,
+      "Calcio Padova": -0.4836,
+      "Carrarese": -0.4166,
+      "Catanzaro": -0.324,
+      "Cesena": -0.2396,
+      "Empoli": -0.4391,
+      "Frosinone": -0.8725,
+      "Juve Stabia": -0.6469,
+      "Mantova": -0.3427,
+      "Modena": -0.6566,
+      "Monza": -0.8151,
+      "Palermo": -0.7929,
+      "Pescara": -0.2616,
+      "Reggiana": -0.367,
+      "Sampdoria": -0.5889,
+      "Spezia": -0.2221,
+      "S\u00fcdtirol": -0.3562,
+      "Venezia": -0.9337,
+      "Virtus Entella": -0.5063
+    },
+    "home_advantage": 0.3638,
+    "rho": -0.133
+  },
+  "predictions": [
+    {
+      "home": "Bari 1908",
+      "away": "S\u00fcdtirol",
+      "date": "2026-05-15 18:00",
+      "pick": "1",
+      "label": "Home Win",
+      "pick_type": "Double Chance",
+      "confidence": 13.4,
+      "probs": {
+        "1": 42.9,
+        "X": 29.5,
+        "2": 27.6
+      },
+      "dc_probs": {
+        "1": 48.3,
+        "X": 29.4,
+        "2": 22.3
+      },
+      "odds_probs": {
+        "1": 37.5,
+        "X": 29.7,
+        "2": 32.8
+      },
+      "exp_home_goals": 1.497,
+      "exp_away_goals": 0.95,
+      "odds": {
+        "1": 2.45,
+        "X": 3.1,
+        "2": 2.8
+      }
+    }
+  ]
+}

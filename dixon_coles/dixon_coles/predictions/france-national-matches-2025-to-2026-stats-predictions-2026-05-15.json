@@ -1,0 +1,302 @@
+{
+  "generated_at": "2026-05-15 18:46:11",
+  "csv_source": "france-national-matches-2025-to-2026-stats.csv",
+  "filter": "date=2026-05-15",
+  "dc_weight": 0.5,
+  "half_life_days": 90,
+  "n_completed": 264,
+  "n_predicted": 8,
+  "converged": true,
+  "team_params": {
+    "attack": {
+      "Aubagne": 0.3628,
+      "Bourg-en-Bresse": 0.1367,
+      "Caen": 0.6511,
+      "Ch\u00e2teauroux": 0.5059,
+      "Concarneau": 0.3073,
+      "Dijon": 0.827,
+      "Fleury 91": 0.9181,
+      "Le Puy F.43 Auvergne": 0.6924,
+      "Orl\u00e9ans": 0.6189,
+      "Paris 13 Atletico": -0.0048,
+      "Quevilly Rouen": 0.5794,
+      "Rouen": 0.593,
+      "Sochaux": 0.7494,
+      "Stade Briochin": 0.5613,
+      "Valenciennes": 0.4038,
+      "Versailles": 0.7863,
+      "Villefranche": 0.4884
+    },
+    "defence": {
+      "Aubagne": -0.1539,
+      "Bourg-en-Bresse": -0.4517,
+      "Caen": -0.601,
+      "Ch\u00e2teauroux": -0.139,
+      "Concarneau": -0.4714,
+      "Dijon": -0.7848,
+      "Fleury 91": -0.6429,
+      "Le Puy F.43 Auvergne": -0.4395,
+      "Orl\u00e9ans": -0.5796,
+      "Paris 13 Atletico": -0.4047,
+      "Quevilly Rouen": -0.2949,
+      "Rouen": -0.4905,
+      "Sochaux": -0.7522,
+      "Stade Briochin": -0.2701,
+      "Valenciennes": -0.4027,
+      "Versailles": -0.6221,
+      "Villefranche": -0.322
+    },
+    "home_advantage": 0.1012,
+    "rho": -0.2459
+  },
+  "predictions": [
+    {
+      "home": "Sochaux",
+      "away": "Le Puy F.43 Auvergne",
+      "date": "2026-05-15 17:30",
+      "pick": "1",
+      "label": "Home Win",
+      "pick_type": "Double Chance",
+      "confidence": 23.1,
+      "probs": {
+        "1": 51.6,
+        "X": 28.4,
+        "2": 20.0
+      },
+      "dc_probs": {
+        "1": 47.4,
+        "X": 32.0,
+        "2": 20.6
+      },
+      "odds_probs": {
+        "1": 55.7,
+        "X": 24.8,
+        "2": 19.5
+      },
+      "exp_home_goals": 1.508,
+      "exp_away_goals": 0.942,
+      "odds": {
+        "1": 1.65,
+        "X": 3.7,
+        "2": 4.72
+      }
+    },
+    {
+      "home": "Dijon",
+      "away": "Orl\u00e9ans",
+      "date": "2026-05-15 17:30",
+      "pick": "1",
+      "label": "Home Win",
+      "pick_type": "Double Chance",
+      "confidence": 19.5,
+      "probs": {
+        "1": 49.3,
+        "X": 29.7,
+        "2": 21.0
+      },
+      "dc_probs": {
+        "1": 47.3,
+        "X": 33.3,
+        "2": 19.4
+      },
+      "odds_probs": {
+        "1": 51.2,
+        "X": 26.2,
+        "2": 22.6
+      },
+      "exp_home_goals": 1.417,
+      "exp_away_goals": 0.847,
+      "odds": {
+        "1": 1.79,
+        "X": 3.5,
+        "2": 4.05
+      }
+    },
+    {
+      "home": "Quevilly Rouen",
+      "away": "Paris 13 Atletico",
+      "date": "2026-05-15 17:30",
+      "pick": "1",
+      "label": "Home Win",
+      "pick_type": "Double Chance",
+      "confidence": 16.9,
+      "probs": {
+        "1": 48.2,
+        "X": 31.3,
+        "2": 20.6
+      },
+      "dc_probs": {
+        "1": 47.3,
+        "X": 34.7,
+        "2": 17.9
+      },
+      "odds_probs": {
+        "1": 49.0,
+        "X": 27.8,
+        "2": 23.2
+      },
+      "exp_home_goals": 1.318,
+      "exp_away_goals": 0.741,
+      "odds": {
+        "1": 1.87,
+        "X": 3.3,
+        "2": 3.95
+      }
+    },
+    {
+      "home": "Concarneau",
+      "away": "Villefranche",
+      "date": "2026-05-15 17:30",
+      "pick": "1",
+      "label": "Home Win",
+      "pick_type": "Double Chance",
+      "confidence": 12.2,
+      "probs": {
+        "1": 43.5,
+        "X": 31.4,
+        "2": 25.1
+      },
+      "dc_probs": {
+        "1": 33.6,
+        "X": 36.5,
+        "2": 29.9
+      },
+      "odds_probs": {
+        "1": 53.4,
+        "X": 26.3,
+        "2": 20.3
+      },
+      "exp_home_goals": 1.09,
+      "exp_away_goals": 1.017,
+      "odds": {
+        "1": 1.72,
+        "X": 3.5,
+        "2": 4.53
+      }
+    },
+    {
+      "home": "Aubagne",
+      "away": "Caen",
+      "date": "2026-05-15 17:30",
+      "pick": "2",
+      "label": "Away Win",
+      "pick_type": "Double Chance",
+      "confidence": 19.0,
+      "probs": {
+        "1": 23.0,
+        "X": 29.0,
+        "2": 48.0
+      },
+      "dc_probs": {
+        "1": 17.0,
+        "X": 30.2,
+        "2": 52.8
+      },
+      "odds_probs": {
+        "1": 29.1,
+        "X": 27.7,
+        "2": 43.2
+      },
+      "exp_home_goals": 0.872,
+      "exp_away_goals": 1.644,
+      "odds": {
+        "1": 3.15,
+        "X": 3.3,
+        "2": 2.12
+      }
+    },
+    {
+      "home": "Valenciennes",
+      "away": "Ch\u00e2teauroux",
+      "date": "2026-05-15 17:30",
+      "pick": "1",
+      "label": "Home Win",
+      "pick_type": "Double Chance",
+      "confidence": 15.1,
+      "probs": {
+        "1": 44.4,
+        "X": 29.3,
+        "2": 26.3
+      },
+      "dc_probs": {
+        "1": 41.6,
+        "X": 32.4,
+        "2": 26.0
+      },
+      "odds_probs": {
+        "1": 47.1,
+        "X": 26.2,
+        "2": 26.7
+      },
+      "exp_home_goals": 1.442,
+      "exp_away_goals": 1.109,
+      "odds": {
+        "1": 1.95,
+        "X": 3.5,
+        "2": 3.44
+      }
+    },
+    {
+      "home": "Fleury 91",
+      "away": "Rouen",
+      "date": "2026-05-15 17:30",
+      "pick": "1",
+      "label": "Home Win",
+      "pick_type": "Double Chance",
+      "confidence": 14.4,
+      "probs": {
+        "1": 43.9,
+        "X": 29.5,
+        "2": 26.6
+      },
+      "dc_probs": {
+        "1": 52.1,
+        "X": 29.7,
+        "2": 18.2
+      },
+      "odds_probs": {
+        "1": 35.7,
+        "X": 29.3,
+        "2": 35.0
+      },
+      "exp_home_goals": 1.697,
+      "exp_away_goals": 0.951,
+      "odds": {
+        "1": 2.55,
+        "X": 3.1,
+        "2": 2.6
+      }
+    },
+    {
+      "home": "Versailles",
+      "away": "Stade Briochin",
+      "date": "2026-05-15 17:30",
+      "pick": "1",
+      "label": "Home Win",
+      "pick_type": "Banker",
+      "confidence": 30.0,
+      "probs": {
+        "1": 55.9,
+        "X": 25.9,
+        "2": 18.2
+      },
+      "dc_probs": {
+        "1": 56.2,
+        "X": 27.7,
+        "2": 16.1
+      },
+      "odds_probs": {
+        "1": 55.6,
+        "X": 24.1,
+        "2": 20.3
+      },
+      "exp_home_goals": 1.854,
+      "exp_away_goals": 0.941,
+      "odds": {
+        "1": 1.65,
+        "X": 3.8,
+        "2": 4.53
+      }
+    }
+  ]
+}

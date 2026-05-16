@@ -1,0 +1,118 @@
+{
+  "generated_at": "2026-05-15 18:48:53",
+  "csv_source": "poland-2-liga-matches-2025-to-2026-stats.csv",
+  "filter": "date=2026-05-15",
+  "dc_weight": 0.5,
+  "half_life_days": 90,
+  "n_completed": 280,
+  "n_predicted": 2,
+  "converged": true,
+  "team_params": {
+    "attack": {
+      "Chojniczanka Chojnice": 0.8548,
+      "Hutnik Krak\u00f3w": 0.594,
+      "Jastrz\u0119bie": -0.7827,
+      "Kalisz": 0.3663,
+      "NKP Podhale": 0.7415,
+      "Olimpia Grudzi\u0105dz": 1.0009,
+      "Podbeskidzie": 1.0415,
+      "Rekord Bielsko-Bia\u0142a W": 0.6266,
+      "Resovia Rzesz\u00f3w": 0.6191,
+      "Sandecja Nowy S\u0105cz": 0.7834,
+      "Sok\u00f3\u0142 Kleczew": 0.3047,
+      "Stal Stalowa Wola": 0.6013,
+      "Unia Skierniewice": 1.0241,
+      "Warta Pozna\u0144": 0.8253,
+      "Zag\u0142\u0119bie Sosnowiec": 0.2964,
+      "\u0141KS \u0141\u00f3d\u017a II": 0.2476,
+      "\u015al\u0105sk Wroc\u0142aw II": 0.9548,
+      "\u015awit Skolwin": 0.5142
+    },
+    "defence": {
+      "Chojniczanka Chojnice": -0.3818,
+      "Hutnik Krak\u00f3w": -0.8519,
+      "Jastrz\u0119bie": 0.1587,
+      "Kalisz": -0.2113,
+      "NKP Podhale": -0.576,
+      "Olimpia Grudzi\u0105dz": -0.4689,
+      "Podbeskidzie": -0.6501,
+      "Rekord Bielsko-Bia\u0142a W": -0.558,
+      "Resovia Rzesz\u00f3w": -0.3212,
+      "Sandecja Nowy S\u0105cz": -0.8855,
+      "Sok\u00f3\u0142 Kleczew": -0.182,
+      "Stal Stalowa Wola": -0.6158,
+      "Unia Skierniewice": -0.3378,
+      "Warta Pozna\u0144": -0.7194,
+      "Zag\u0142\u0119bie Sosnowiec": -0.0182,
+      "\u0141KS \u0141\u00f3d\u017a II": -0.2067,
+      "\u015al\u0105sk Wroc\u0142aw II": -0.4725,
+      "\u015awit Skolwin": -0.088
+    },
+    "home_advantage": 0.082,
+    "rho": -0.1239
+  },
+  "predictions": [
+    {
+      "home": "\u0141KS \u0141\u00f3d\u017a II",
+      "away": "Unia Skierniewice",
+      "date": "2026-05-15 15:00",
+      "pick": "2",
+      "label": "Away Win",
+      "pick_type": "Banker",
+      "confidence": 36.9,
+      "probs": {
+        "1": 17.6,
+        "X": 22.7,
+        "2": 59.7
+      },
+      "dc_probs": {
+        "1": 14.1,
+        "X": 20.9,
+        "2": 65.0
+      },
+      "odds_probs": {
+        "1": 21.0,
+        "X": 24.6,
+        "2": 54.4
+      },
+      "exp_home_goals": 0.992,
+      "exp_away_goals": 2.265,
+      "odds": {
+        "1": 4.32,
+        "X": 3.7,
+        "2": 1.67
+      }
+    },
+    {
+      "home": "Resovia Rzesz\u00f3w",
+      "away": "Stal Stalowa Wola",
+      "date": "2026-05-15 18:00",
+      "pick": "2",
+      "label": "Away Win",
+      "pick_type": "Speculative",
+      "confidence": 2.3,
+      "probs": {
+        "1": 34.3,
+        "X": 29.1,
+        "2": 36.6
+      },
+      "dc_probs": {
+        "1": 29.1,
+        "X": 30.5,
+        "2": 40.4
+      },
+      "odds_probs": {
+        "1": 39.5,
+        "X": 27.7,
+        "2": 32.8
+      },
+      "exp_home_goals": 1.089,
+      "exp_away_goals": 1.323,
+      "odds": {
+        "1": 2.32,
+        "X": 3.3,
+        "2": 2.79
+      }
+    }
+  ]
+}

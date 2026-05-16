@@ -1,0 +1,114 @@
+{
+  "generated_at": "2026-05-15 18:39:07",
+  "csv_source": "belgium-pro-league-matches-2025-to-2026-stats.csv",
+  "filter": "date=2026-05-17",
+  "dc_weight": 0.5,
+  "half_life_days": 90,
+  "n_completed": 294,
+  "n_predicted": 2,
+  "converged": true,
+  "team_params": {
+    "attack": {
+      "Cercle Brugge": 0.7828,
+      "Club Brugge": 1.2322,
+      "FCV Dender EH": 0.2502,
+      "KAA Gent": 0.5079,
+      "KRC Genk": 0.7718,
+      "KV Mechelen": 0.4954,
+      "KVC Westerlo": 0.5832,
+      "OH Leuven": 0.3326,
+      "RAAL La Louvi\u00e8re": 0.3616,
+      "RSC Anderlecht": 0.7342,
+      "Royal Antwerp FC": 0.453,
+      "Sint-Truiden": 0.7766,
+      "Sporting Charleroi": 0.5523,
+      "Standard Li\u00e8ge": 0.6334,
+      "Union Saint-Gilloise": 0.7623,
+      "Zulte-Waregem": 0.7313
+    },
+    "defence": {
+      "Cercle Brugge": -0.0564,
+      "Club Brugge": -0.5252,
+      "FCV Dender EH": -0.0971,
+      "KAA Gent": -0.4641,
+      "KRC Genk": -0.3134,
+      "KV Mechelen": -0.1705,
+      "KVC Westerlo": -0.2921,
+      "OH Leuven": -0.2063,
+      "RAAL La Louvi\u00e8re": -0.1708,
+      "RSC Anderlecht": -0.2187,
+      "Royal Antwerp FC": -0.3361,
+      "Sint-Truiden": -0.6319,
+      "Sporting Charleroi": -0.4737,
+      "Standard Li\u00e8ge": -0.5466,
+      "Union Saint-Gilloise": -1.2561,
+      "Zulte-Waregem": -0.28
+    },
+    "home_advantage": 0.0578,
+    "rho": -0.032
+  },
+  "predictions": [
+    {
+      "home": "RSC Anderlecht",
+      "away": "KV Mechelen",
+      "date": "2026-05-17 11:30",
+      "pick": "1",
+      "label": "Home Win",
+      "pick_type": "Double Chance",
+      "confidence": 27.7,
+      "probs": {
+        "1": 52.2,
+        "X": 23.4,
+        "2": 24.4
+      },
+      "dc_probs": {
+        "1": 49.9,
+        "X": 23.3,
+        "2": 26.9
+      },
+      "odds_probs": {
+        "1": 54.5,
+        "X": 23.4,
+        "2": 22.0
+      },
+      "exp_home_goals": 1.862,
+      "exp_away_goals": 1.319,
+      "odds": {
+        "1": 1.75,
+        "X": 4.07,
+        "2": 4.33
+      }
+    },
+    {
+      "home": "Club Brugge",
+      "away": "Union Saint-Gilloise",
+      "date": "2026-05-17 16:30",
+      "pick": "1",
+      "label": "Home Win",
+      "pick_type": "Speculative",
+      "confidence": 2.2,
+      "probs": {
+        "1": 37.5,
+        "X": 27.2,
+        "2": 35.3
+      },
+      "dc_probs": {
+        "1": 29.8,
+        "X": 28.9,
+        "2": 41.3
+      },
+      "odds_probs": {
+        "1": 45.3,
+        "X": 25.4,
+        "2": 29.3
+      },
+      "exp_home_goals": 1.035,
+      "exp_away_goals": 1.268,
+      "odds": {
+        "1": 2.08,
+        "X": 3.71,
+        "2": 3.21
+      }
+    }
+  ]
+}

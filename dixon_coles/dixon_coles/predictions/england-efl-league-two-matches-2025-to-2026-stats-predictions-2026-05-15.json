@@ -1,0 +1,130 @@
+{
+  "generated_at": "2026-05-15 18:50:52",
+  "csv_source": "england-efl-league-two-matches-2025-to-2026-stats.csv",
+  "filter": "date=2026-05-15",
+  "dc_weight": 0.5,
+  "half_life_days": 90,
+  "n_completed": 554,
+  "n_predicted": 2,
+  "converged": true,
+  "team_params": {
+    "attack": {
+      "Accrington Stanley": 0.3412,
+      "Barnet": 0.9052,
+      "Barrow": 0.3272,
+      "Bristol Rovers": 0.7046,
+      "Bromley": 0.7087,
+      "Cambridge United": 0.7192,
+      "Cheltenham Town": 0.5894,
+      "Chesterfield": 0.6659,
+      "Colchester United": 0.5865,
+      "Crawley Town": 0.2443,
+      "Crewe Alexandra": 0.6,
+      "Fleetwood Town": 0.4812,
+      "Gillingham": 0.4001,
+      "Grimsby Town": 0.8581,
+      "Harrogate Town": 0.2648,
+      "Milton Keynes Dons": 0.94,
+      "Newport County": 0.434,
+      "Notts County": 0.8111,
+      "Oldham Athletic": 0.7464,
+      "Salford City": 0.5948,
+      "Shrewsbury Town": 0.2263,
+      "Swindon Town": 0.6779,
+      "Tranmere Rovers": 0.3228,
+      "Walsall": 0.4696
+    },
+    "defence": {
+      "Accrington Stanley": -0.3095,
+      "Barnet": -0.438,
+      "Barrow": -0.0481,
+      "Bristol Rovers": -0.456,
+      "Bromley": -0.6934,
+      "Cambridge United": -1.1338,
+      "Cheltenham Town": -0.0731,
+      "Chesterfield": -0.5844,
+      "Colchester United": -0.6439,
+      "Crawley Town": -0.3719,
+      "Crewe Alexandra": -0.4128,
+      "Fleetwood Town": -0.4367,
+      "Gillingham": -0.0488,
+      "Grimsby Town": -0.563,
+      "Harrogate Town": -0.3346,
+      "Milton Keynes Dons": -0.7277,
+      "Newport County": -0.2009,
+      "Notts County": -0.5216,
+      "Oldham Athletic": -0.5893,
+      "Salford City": -0.7223,
+      "Shrewsbury Town": -0.328,
+      "Swindon Town": -0.3206,
+      "Tranmere Rovers": -0.1156,
+      "Walsall": -0.3066
+    },
+    "home_advantage": 0.1259,
+    "rho": 0.0552
+  },
+  "predictions": [
+    {
+      "home": "Salford City",
+      "away": "Grimsby Town",
+      "date": "2026-05-15 18:15",
+      "pick": "1",
+      "label": "Home Win",
+      "pick_type": "Speculative",
+      "confidence": 6.8,
+      "probs": {
+        "1": 40.1,
+        "X": 26.6,
+        "2": 33.3
+      },
+      "dc_probs": {
+        "1": 37.2,
+        "X": 26.8,
+        "2": 36.0
+      },
+      "odds_probs": {
+        "1": 43.0,
+        "X": 26.4,
+        "2": 30.6
+      },
+      "exp_home_goals": 1.171,
+      "exp_away_goals": 1.145,
+      "odds": {
+        "1": 2.07,
+        "X": 3.37,
+        "2": 2.91
+      }
+    },
+    {
+      "home": "Notts County",
+      "away": "Chesterfield",
+      "date": "2026-05-15 19:00",
+      "pick": "1",
+      "label": "Home Win",
+      "pick_type": "Double Chance",
+      "confidence": 10.4,
+      "probs": {
+        "1": 41.8,
+        "X": 26.9,
+        "2": 31.3
+      },
+      "dc_probs": {
+        "1": 43.8,
+        "X": 24.9,
+        "2": 31.3
+      },
+      "odds_probs": {
+        "1": 39.7,
+        "X": 28.9,
+        "2": 31.4
+      },
+      "exp_home_goals": 1.423,
+      "exp_away_goals": 1.155,
+      "odds": {
+        "1": 2.37,
+        "X": 3.25,
+        "2": 3.0
+      }
+    }
+  ]
+}
