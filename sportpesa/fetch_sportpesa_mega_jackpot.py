@@ -53,7 +53,6 @@ HEADERS = {
 
 def fetch_json(url: str) -> dict | list | None:
     """Fetch JSON from a URL. Returns parsed data or None on failure."""
-    import gzip
     print(f"  🔗  GET {url}")
     req = urllib.request.Request(url, headers=HEADERS)
     try:
@@ -330,7 +329,6 @@ def scrape():
             ],
         }
 
-        import sys
         sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
         from round_to_results import save_mega_round
         round_path = save_mega_round(data)
