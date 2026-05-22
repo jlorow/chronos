@@ -1,0 +1,432 @@
+{
+  "id": "e9535420-778e-442f-9209-28c8c86fe6d6",
+  "humanId": 182,
+  "settings": {
+    "numberOfEvents": 17,
+    "jackpotTypes": [
+      "17/17",
+      "16/16",
+      "15/15",
+      "14/14",
+      "13/13"
+    ]
+  },
+  "betCombinationsLimits": {
+    "maxOnlyDoubles": 10,
+    "maxOnlyTriples": 5,
+    "maxCombining": 10,
+    "maxCombiningDoubles": 9,
+    "maxCombiningTriples": 5
+  },
+  "bettingStatus": "Open",
+  "events": [
+    {
+      "id": "sr:match:61624684",
+      "utcKickOffTime": "2026-05-23T19:00:00Z",
+      "bettingStatus": "Open",
+      "competitors": [
+        {
+          "competitorName": "Espanyol Barcelona",
+          "isHome": true
+        },
+        {
+          "competitorName": "Real Sociedad San Sebastian",
+          "isHome": false
+        }
+      ],
+      "tournamentName": "LaLiga",
+      "countryIsoCode": "ESP",
+      "countryName": "Spain",
+      "home": 2.47,
+      "draw": 3.5,
+      "away": 2.85,
+      "score": null,
+      "publicDraw": null,
+      "order": 1
+    },
+    {
+      "id": "sr:match:61624680",
+      "utcKickOffTime": "2026-05-23T19:00:00Z",
+      "bettingStatus": "Open",
+      "competitors": [
+        {
+          "competitorName": "Real Betis Seville",
+          "isHome": true
+        },
+        {
+          "competitorName": "Levante UD",
+          "isHome": false
+        }
+      ],
+      "tournamentName": "LaLiga",
+      "countryIsoCode": "ESP",
+      "countryName": "Spain",
+      "home": 2.25,
+      "draw": 3.3,
+      "away": 3.4,
+      "score": null,
+      "publicDraw": null,
+      "order": 2
+    },
+    {
+      "id": "sr:match:61624686",
+      "utcKickOffTime": "2026-05-23T19:00:00Z",
+      "bettingStatus": "Open",
+      "competitors": [
+        {
+          "competitorName": "Getafe CF",
+          "isHome": true
+        },
+        {
+          "competitorName": "CA Osasuna",
+          "isHome": false
+        }
+      ],
+      "tournamentName": "LaLiga",
+      "countryIsoCode": "ESP",
+      "countryName": "Spain",
+      "home": 2.47,
+      "draw": 2.85,
+      "away": 3.55,
+      "score": null,
+      "publicDraw": null,
+      "order": 3
+    },
+    {
+      "id": "sr:match:61624678",
+      "utcKickOffTime": "2026-05-23T19:00:00Z",
+      "bettingStatus": "Open",
+      "competitors": [
+        {
+          "competitorName": "Deportivo Alaves",
+          "isHome": true
+        },
+        {
+          "competitorName": "Rayo Vallecano",
+          "isHome": false
+        }
+      ],
+      "tournamentName": "LaLiga",
+      "countryIsoCode": "ESP",
+      "countryName": "Spain",
+      "home": 2.49,
+      "draw": 3.4,
+      "away": 2.9,
+      "score": null,
+      "publicDraw": null,
+      "order": 4
+    },
+    {
+      "id": "sr:match:61061699",
+      "utcKickOffTime": "2026-05-24T13:00:00Z",
+      "bettingStatus": "Open",
+      "competitors": [
+        {
+          "competitorName": "Parma Calcio",
+          "isHome": true
+        },
+        {
+          "competitorName": "Sassuolo Calcio",
+          "isHome": false
+        }
+      ],
+      "tournamentName": "Serie A",
+      "countryIsoCode": "ITA",
+      "countryName": "Italy",
+      "home": 2.75,
+      "draw": 3.4,
+      "away": 2.65,
+      "score": null,
+      "publicDraw": null,
+      "order": 5
+    },
+    {
+      "id": "sr:match:70318302",
+      "utcKickOffTime": "2026-05-24T14:00:00Z",
+      "bettingStatus": "Open",
+      "competitors": [
+        {
+          "competitorName": "HB Koege",
+          "isHome": true
+        },
+        {
+          "competitorName": "Hobro IK",
+          "isHome": false
+        }
+      ],
+      "tournamentName": "1. Division",
+      "countryIsoCode": "DNK",
+      "countryName": "Denmark",
+      "home": 2.7,
+      "draw": 3.25,
+      "away": 2.27,
+      "score": null,
+      "publicDraw": null,
+      "order": 6
+    },
+    {
+      "id": "sr:match:61301273",
+      "utcKickOffTime": "2026-05-24T15:00:00Z",
+      "bettingStatus": "Open",
+      "competitors": [
+        {
+          "competitorName": "Fulham FC",
+          "isHome": true
+        },
+        {
+          "competitorName": "Newcastle United",
+          "isHome": false
+        }
+      ],
+      "tournamentName": "Premier League",
+      "countryIsoCode": "ENG",
+      "countryName": "England",
+      "home": 2.85,
+      "draw": 3.7,
+      "away": 2.28,
+      "score": null,
+      "publicDraw": null,
+      "order": 7
+    },
+    {
+      "id": "sr:match:71372110",
+      "utcKickOffTime": "2026-05-24T15:00:00Z",
+      "bettingStatus": "Open",
+      "competitors": [
+        {
+          "competitorName": "FK Spartak Moscow",
+          "isHome": true
+        },
+        {
+          "competitorName": "FK Krasnodar",
+          "isHome": false
+        }
+      ],
+      "tournamentName": "Russian Cup",
+      "countryIsoCode": "RUS",
+      "countryName": "Russian Federation",
+      "home": 2.38,
+      "draw": 3.35,
+      "away": 2.49,
+      "score": null,
+      "publicDraw": null,
+      "order": 8
+    },
+    {
+      "id": "sr:match:61301269",
+      "utcKickOffTime": "2026-05-24T15:00:00Z",
+      "bettingStatus": "Open",
+      "competitors": [
+        {
+          "competitorName": "Burnley FC",
+          "isHome": true
+        },
+        {
+          "competitorName": "Wolverhampton Wanderers",
+          "isHome": false
+        }
+      ],
+      "tournamentName": "Premier League",
+      "countryIsoCode": "ENG",
+      "countryName": "England",
+      "home": 2.35,
+      "draw": 3.5,
+      "away": 2.85,
+      "score": null,
+      "publicDraw": null,
+      "order": 9
+    },
+    {
+      "id": "sr:match:71540170",
+      "utcKickOffTime": "2026-05-24T15:00:00Z",
+      "bettingStatus": "Open",
+      "competitors": [
+        {
+          "competitorName": "Stade Lavallois MFC",
+          "isHome": true
+        },
+        {
+          "competitorName": "FC Rouen",
+          "isHome": false
+        }
+      ],
+      "tournamentName": "Ligue 2",
+      "countryIsoCode": "FRA",
+      "countryName": "France",
+      "home": 2.16,
+      "draw": 3.2,
+      "away": 3.4,
+      "score": null,
+      "publicDraw": null,
+      "order": 10
+    },
+    {
+      "id": "sr:match:67126124",
+      "utcKickOffTime": "2026-05-24T15:00:00Z",
+      "bettingStatus": "Open",
+      "competitors": [
+        {
+          "competitorName": "Sandvikens IF",
+          "isHome": true
+        },
+        {
+          "competitorName": "Landskrona BoIS",
+          "isHome": false
+        }
+      ],
+      "tournamentName": "Superettan",
+      "countryIsoCode": "SWE",
+      "countryName": "Sweden",
+      "home": 2.44,
+      "draw": 3.25,
+      "away": 2.47,
+      "score": null,
+      "publicDraw": null,
+      "order": 11
+    },
+    {
+      "id": "sr:match:67912700",
+      "utcKickOffTime": "2026-05-24T15:00:00Z",
+      "bettingStatus": "Open",
+      "competitors": [
+        {
+          "competitorName": "FC Dinamo Tbilisi",
+          "isHome": true
+        },
+        {
+          "competitorName": "FC Torpedo Kutaisi",
+          "isHome": false
+        }
+      ],
+      "tournamentName": "Erovnuli Liga",
+      "countryIsoCode": "GEO",
+      "countryName": "Georgia",
+      "home": 2.38,
+      "draw": 3.25,
+      "away": 2.55,
+      "score": null,
+      "publicDraw": null,
+      "order": 12
+    },
+    {
+      "id": "sr:match:61687642",
+      "utcKickOffTime": "2026-05-24T16:00:00Z",
+      "bettingStatus": "Open",
+      "competitors": [
+        {
+          "competitorName": "Real Murcia CF",
+          "isHome": true
+        },
+        {
+          "competitorName": "Club Deportivo Eldense",
+          "isHome": false
+        }
+      ],
+      "tournamentName": "Primera Federacion",
+      "countryIsoCode": "ESP",
+      "countryName": "Spain",
+      "home": 2.33,
+      "draw": 2.95,
+      "away": 2.85,
+      "score": null,
+      "publicDraw": null,
+      "order": 13
+    },
+    {
+      "id": "sr:match:61623924",
+      "utcKickOffTime": "2026-05-24T16:30:00Z",
+      "bettingStatus": "Open",
+      "competitors": [
+        {
+          "competitorName": "Cultural Leonesa",
+          "isHome": true
+        },
+        {
+          "competitorName": "Burgos CF",
+          "isHome": false
+        }
+      ],
+      "tournamentName": "LaLiga 2",
+      "countryIsoCode": "ESP",
+      "countryName": "Spain",
+      "home": 3.05,
+      "draw": 3.1,
+      "away": 2.33,
+      "score": null,
+      "publicDraw": null,
+      "order": 14
+    },
+    {
+      "id": "sr:match:67117698",
+      "utcKickOffTime": "2026-05-24T17:00:00Z",
+      "bettingStatus": "Open",
+      "competitors": [
+        {
+          "competitorName": "CA Acassuso",
+          "isHome": true
+        },
+        {
+          "competitorName": "CA Defensores de Belgrano",
+          "isHome": false
+        }
+      ],
+      "tournamentName": "Primera Nacional",
+      "countryIsoCode": "ARG",
+      "countryName": "Argentina",
+      "home": 3.05,
+      "draw": 2.75,
+      "away": 2.47,
+      "score": null,
+      "publicDraw": null,
+      "order": 15
+    },
+    {
+      "id": "sr:match:61624692",
+      "utcKickOffTime": "2026-05-24T19:00:00Z",
+      "bettingStatus": "Open",
+      "competitors": [
+        {
+          "competitorName": "Villarreal CF",
+          "isHome": true
+        },
+        {
+          "competitorName": "Atletico Madrid",
+          "isHome": false
+        }
+      ],
+      "tournamentName": "LaLiga",
+      "countryIsoCode": "ESP",
+      "countryName": "Spain",
+      "home": 2.43,
+      "draw": 3.8,
+      "away": 2.75,
+      "score": null,
+      "publicDraw": null,
+      "order": 16
+    },
+    {
+      "id": "sr:match:66886816",
+      "utcKickOffTime": "2026-05-24T19:00:00Z",
+      "bettingStatus": "Open",
+      "competitors": [
+        {
+          "competitorName": "Clube do Remo PA",
+          "isHome": true
+        },
+        {
+          "competitorName": "CA Paranaense PR",
+          "isHome": false
+        }
+      ],
+      "tournamentName": "Brasileiro Serie A",
+      "countryIsoCode": "BRA",
+      "countryName": "Brazil",
+      "home": 2.7,
+      "draw": 3.05,
+      "away": 2.38,
+      "score": null,
+      "publicDraw": null,
+      "order": 17
+    }
+  ]
+}

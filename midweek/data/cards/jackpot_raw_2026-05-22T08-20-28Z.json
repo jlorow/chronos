@@ -1,0 +1,717 @@
+[
+  {
+    "id": 8902689,
+    "smsId": 3909,
+    "competition": {},
+    "country": {
+      "id": 172,
+      "name": "Sweden",
+      "iso": "swe"
+    },
+    "sport": {},
+    "competitors": [
+      {
+        "id": 86800,
+        "name": "Kristianstads FF"
+      },
+      {
+        "id": 97936,
+        "name": "Hassleholms IF"
+      }
+    ],
+    "dateTimestamp": 1779469200000,
+    "date": "2026-05-22T17:00:00.000Z",
+    "state": {
+      "result": "-:-"
+    },
+    "markets": [
+      {
+        "columns": 3,
+        "columnsApp": 3,
+        "selections": [
+          {
+            "id": 2668054457,
+            "name": "Kristianstads FF",
+            "odds": "2.33",
+            "shortName": "1",
+            "specValue": 0
+          },
+          {
+            "id": 2668054461,
+            "name": "Draw",
+            "odds": "3.30",
+            "shortName": "X",
+            "specValue": 0
+          },
+          {
+            "id": 2668054467,
+            "name": "Hassleholms IF",
+            "odds": "2.65",
+            "shortName": "2",
+            "specValue": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8902693,
+    "smsId": 2765,
+    "competition": {},
+    "country": {
+      "id": 172,
+      "name": "Sweden",
+      "iso": "swe"
+    },
+    "sport": {},
+    "competitors": [
+      {
+        "id": 705035,
+        "name": "Linero IF"
+      },
+      {
+        "id": 524184,
+        "name": "IFK Trelleborg"
+      }
+    ],
+    "dateTimestamp": 1779469200000,
+    "date": "2026-05-22T17:00:00.000Z",
+    "state": {
+      "result": "-:-"
+    },
+    "markets": [
+      {
+        "columns": 3,
+        "columnsApp": 3,
+        "selections": [
+          {
+            "id": 2668054515,
+            "name": "Linero IF",
+            "odds": "2.60",
+            "shortName": "1",
+            "specValue": 0
+          },
+          {
+            "id": 2668054521,
+            "name": "Draw",
+            "odds": "3.60",
+            "shortName": "X",
+            "specValue": 0
+          },
+          {
+            "id": 2668054525,
+            "name": "IFK Trelleborg",
+            "odds": "2.22",
+            "shortName": "2",
+            "specValue": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8902715,
+    "smsId": 3896,
+    "competition": {},
+    "country": {
+      "id": 53,
+      "name": "Denmark",
+      "iso": "dnk"
+    },
+    "sport": {},
+    "competitors": [
+      {
+        "id": 87345,
+        "name": "Brabrand IF"
+      },
+      {
+        "id": 342,
+        "name": "Skive IK"
+      }
+    ],
+    "dateTimestamp": 1779469200000,
+    "date": "2026-05-22T17:00:00.000Z",
+    "state": {
+      "result": "-:-"
+    },
+    "markets": [
+      {
+        "columns": 3,
+        "columnsApp": 3,
+        "selections": [
+          {
+            "id": 2668054745,
+            "name": "Brabrand IF",
+            "odds": "2.16",
+            "shortName": "1",
+            "specValue": 0
+          },
+          {
+            "id": 2668054751,
+            "name": "Draw",
+            "odds": "2.80",
+            "shortName": "X",
+            "specValue": 0
+          },
+          {
+            "id": 2668054757,
+            "name": "Skive IK",
+            "odds": "3.35",
+            "shortName": "2",
+            "specValue": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8902835,
+    "smsId": 3337,
+    "competition": {},
+    "country": {
+      "id": 172,
+      "name": "Sweden",
+      "iso": "swe"
+    },
+    "sport": {},
+    "competitors": [
+      {
+        "id": 597915,
+        "name": "FOC Farsta"
+      },
+      {
+        "id": 535468,
+        "name": "IFK Haninge"
+      }
+    ],
+    "dateTimestamp": 1779472800000,
+    "date": "2026-05-22T18:00:00.000Z",
+    "state": {
+      "result": "-:-"
+    },
+    "markets": [
+      {
+        "columns": 3,
+        "columnsApp": 3,
+        "selections": [
+          {
+            "id": 2668063421,
+            "name": "FOC Farsta",
+            "odds": "2.50",
+            "shortName": "1",
+            "specValue": 0
+          },
+          {
+            "id": 2668063427,
+            "name": "Draw",
+            "odds": "3.80",
+            "shortName": "X",
+            "specValue": 0
+          },
+          {
+            "id": 2668063433,
+            "name": "IFK Haninge",
+            "odds": "2.27",
+            "shortName": "2",
+            "specValue": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8902847,
+    "smsId": 3762,
+    "competition": {},
+    "country": {
+      "id": 86,
+      "name": "Iceland",
+      "iso": "isl"
+    },
+    "sport": {},
+    "competitors": [
+      {
+        "id": 86534,
+        "name": "KA Akureyri"
+      },
+      {
+        "id": 86090,
+        "name": "Valur"
+      }
+    ],
+    "dateTimestamp": 1779472800000,
+    "date": "2026-05-22T18:00:00.000Z",
+    "state": {
+      "result": "-:-"
+    },
+    "markets": [
+      {
+        "columns": 3,
+        "columnsApp": 3,
+        "selections": [
+          {
+            "id": 2668064329,
+            "name": "KA Akureyri",
+            "odds": "2.10",
+            "shortName": "1",
+            "specValue": 0
+          },
+          {
+            "id": 2668064333,
+            "name": "Draw",
+            "odds": "3.75",
+            "shortName": "X",
+            "specValue": 0
+          },
+          {
+            "id": 2668064339,
+            "name": "Valur",
+            "odds": "2.65",
+            "shortName": "2",
+            "specValue": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8902903,
+    "smsId": 2513,
+    "competition": {},
+    "country": {
+      "id": 72,
+      "name": "Germany",
+      "iso": "deu"
+    },
+    "sport": {},
+    "competitors": [
+      {
+        "id": 84248,
+        "name": "RW Essen"
+      },
+      {
+        "id": 73,
+        "name": "Greuther Furth"
+      }
+    ],
+    "dateTimestamp": 1779474600000,
+    "date": "2026-05-22T18:30:00.000Z",
+    "state": {
+      "result": "-:-"
+    },
+    "markets": [
+      {
+        "columns": 3,
+        "columnsApp": 3,
+        "selections": [
+          {
+            "id": 2668068023,
+            "name": "RW Essen",
+            "odds": "2.65",
+            "shortName": "1",
+            "specValue": 0
+          },
+          {
+            "id": 2668068025,
+            "name": "Draw",
+            "odds": "3.70",
+            "shortName": "X",
+            "specValue": 0
+          },
+          {
+            "id": 2668068027,
+            "name": "Greuther Furth",
+            "odds": "2.43",
+            "shortName": "2",
+            "specValue": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8898065,
+    "smsId": 3541,
+    "competition": {},
+    "country": {
+      "id": 92,
+      "name": "Ireland",
+      "iso": "irl"
+    },
+    "sport": {},
+    "competitors": [
+      {
+        "id": 474,
+        "name": "Derry City"
+      },
+      {
+        "id": 481,
+        "name": "St Patricks"
+      }
+    ],
+    "dateTimestamp": 1779475500000,
+    "date": "2026-05-22T18:45:00.000Z",
+    "state": {
+      "result": "-:-"
+    },
+    "markets": [
+      {
+        "columns": 3,
+        "columnsApp": 3,
+        "selections": [
+          {
+            "id": 2667673141,
+            "name": "Derry City",
+            "odds": "2.60",
+            "shortName": "1",
+            "specValue": 0
+          },
+          {
+            "id": 2667673269,
+            "name": "Draw",
+            "odds": "3.25",
+            "shortName": "X",
+            "specValue": 0
+          },
+          {
+            "id": 2667673335,
+            "name": "St Patricks",
+            "odds": "2.60",
+            "shortName": "2",
+            "specValue": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8898067,
+    "smsId": 1033,
+    "competition": {},
+    "country": {
+      "id": 92,
+      "name": "Ireland",
+      "iso": "irl"
+    },
+    "sport": {},
+    "competitors": [
+      {
+        "id": 615365,
+        "name": "Treaty United"
+      },
+      {
+        "id": 86166,
+        "name": "Cobh Ramblers"
+      }
+    ],
+    "dateTimestamp": 1779475500000,
+    "date": "2026-05-22T18:45:00.000Z",
+    "state": {
+      "result": "-:-"
+    },
+    "markets": [
+      {
+        "columns": 3,
+        "columnsApp": 3,
+        "selections": [
+          {
+            "id": 2667673539,
+            "name": "Treaty United",
+            "odds": "2.49",
+            "shortName": "1",
+            "specValue": 0
+          },
+          {
+            "id": 2667673651,
+            "name": "Draw",
+            "odds": "3.10",
+            "shortName": "X",
+            "specValue": 0
+          },
+          {
+            "id": 2667673717,
+            "name": "Cobh Ramblers",
+            "odds": "2.55",
+            "shortName": "2",
+            "specValue": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8898069,
+    "smsId": 3887,
+    "competition": {},
+    "country": {
+      "id": 92,
+      "name": "Ireland",
+      "iso": "irl"
+    },
+    "sport": {},
+    "competitors": [
+      {
+        "id": 86165,
+        "name": "Wexford Youths"
+      },
+      {
+        "id": 482,
+        "name": "UCD Dublin"
+      }
+    ],
+    "dateTimestamp": 1779475500000,
+    "date": "2026-05-22T18:45:00.000Z",
+    "state": {
+      "result": "-:-"
+    },
+    "markets": [
+      {
+        "columns": 3,
+        "columnsApp": 3,
+        "selections": [
+          {
+            "id": 2667674021,
+            "name": "Wexford Youths",
+            "odds": "2.42",
+            "shortName": "1",
+            "specValue": 0
+          },
+          {
+            "id": 2667674107,
+            "name": "Draw",
+            "odds": "3.20",
+            "shortName": "X",
+            "specValue": 0
+          },
+          {
+            "id": 2667674177,
+            "name": "UCD Dublin",
+            "odds": "2.55",
+            "shortName": "2",
+            "specValue": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8900445,
+    "smsId": 1144,
+    "competition": {},
+    "country": {
+      "id": 92,
+      "name": "Ireland",
+      "iso": "irl"
+    },
+    "sport": {},
+    "competitors": [
+      {
+        "id": 86110,
+        "name": "Finn Harps"
+      },
+      {
+        "id": 86167,
+        "name": "Longford Town"
+      }
+    ],
+    "dateTimestamp": 1779475500000,
+    "date": "2026-05-22T18:45:00.000Z",
+    "state": {
+      "result": "-:-"
+    },
+    "markets": [
+      {
+        "columns": 3,
+        "columnsApp": 3,
+        "selections": [
+          {
+            "id": 2667893013,
+            "name": "Finn Harps",
+            "odds": "2.40",
+            "shortName": "1",
+            "specValue": 0
+          },
+          {
+            "id": 2667893099,
+            "name": "Draw",
+            "odds": "3.20",
+            "shortName": "X",
+            "specValue": 0
+          },
+          {
+            "id": 2667893197,
+            "name": "Longford Town",
+            "odds": "2.55",
+            "shortName": "2",
+            "specValue": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8903785,
+    "smsId": 1651,
+    "competition": {},
+    "country": {
+      "id": 94,
+      "name": "Italy",
+      "iso": "ita"
+    },
+    "sport": {},
+    "competitors": [
+      {
+        "id": 89,
+        "name": "Fiorentina"
+      },
+      {
+        "id": 84,
+        "name": "Atalanta"
+      }
+    ],
+    "dateTimestamp": 1779475500000,
+    "date": "2026-05-22T18:45:00.000Z",
+    "state": {
+      "result": "-:-"
+    },
+    "markets": [
+      {
+        "columns": 3,
+        "columnsApp": 3,
+        "selections": [
+          {
+            "id": 2668118341,
+            "name": "Fiorentina",
+            "odds": "2.75",
+            "shortName": "1",
+            "specValue": 0
+          },
+          {
+            "id": 2668118411,
+            "name": "Draw",
+            "odds": "3.50",
+            "shortName": "X",
+            "specValue": 0
+          },
+          {
+            "id": 2668118465,
+            "name": "Atalanta",
+            "odds": "2.60",
+            "shortName": "2",
+            "specValue": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8902911,
+    "smsId": 3306,
+    "competition": {},
+    "country": {
+      "id": 86,
+      "name": "Iceland",
+      "iso": "isl"
+    },
+    "sport": {},
+    "competitors": [
+      {
+        "id": 83915,
+        "name": "Breidablik"
+      },
+      {
+        "id": 83906,
+        "name": "KR Reykjavik"
+      }
+    ],
+    "dateTimestamp": 1779477300000,
+    "date": "2026-05-22T19:15:00.000Z",
+    "state": {
+      "result": "-:-"
+    },
+    "markets": [
+      {
+        "columns": 3,
+        "columnsApp": 3,
+        "selections": [
+          {
+            "id": 2668068527,
+            "name": "Breidablik",
+            "odds": "2.60",
+            "shortName": "1",
+            "specValue": 0
+          },
+          {
+            "id": 2668068659,
+            "name": "Draw",
+            "odds": "3.90",
+            "shortName": "X",
+            "specValue": 0
+          },
+          {
+            "id": 2668068783,
+            "name": "KR Reykjavik",
+            "odds": "2.09",
+            "shortName": "2",
+            "specValue": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8902913,
+    "smsId": 3664,
+    "competition": {},
+    "country": {
+      "id": 86,
+      "name": "Iceland",
+      "iso": "isl"
+    },
+    "sport": {},
+    "competitors": [
+      {
+        "id": 86088,
+        "name": "Stjarnan"
+      },
+      {
+        "id": 86085,
+        "name": "Fram Reykjavik"
+      }
+    ],
+    "dateTimestamp": 1779477300000,
+    "date": "2026-05-22T19:15:00.000Z",
+    "state": {
+      "result": "-:-"
+    },
+    "markets": [
+      {
+        "columns": 3,
+        "columnsApp": 3,
+        "selections": [
+          {
+            "id": 2668069007,
+            "name": "Stjarnan",
+            "odds": "2.33",
+            "shortName": "1",
+            "specValue": 0
+          },
+          {
+            "id": 2668069093,
+            "name": "Draw",
+            "odds": "3.90",
+            "shortName": "X",
+            "specValue": 0
+          },
+          {
+            "id": 2668069137,
+            "name": "Fram Reykjavik",
+            "odds": "2.31",
+            "shortName": "2",
+            "specValue": 0
+          }
+        ]
+      }
+    ]
+  }
+]

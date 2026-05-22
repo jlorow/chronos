@@ -1,0 +1,812 @@
+{
+  "generated_at": "2026-05-22_132113",
+  "card_file": "mozzart_daily_2026-05-09_094837.json",
+  "model": "chronos-t5-tiny",
+  "num_samples": 50,
+  "base_rates": {
+    "1": 0.3697,
+    "X": 0.3253,
+    "2": 0.3051
+  },
+  "card_signals": {
+    "mirror_count": 3,
+    "clear_fav_count": 1,
+    "away_fav_count": 4,
+    "home_odds_weak": 12,
+    "strong_fav_trap": 0,
+    "draw_pct_weighted": 0.3,
+    "high_draw_ratio": 0.375,
+    "same_league_cluster": 1,
+    "mirror_ge3_flag": 1,
+    "clear_fav_ge3_flag": 0,
+    "away_fav_ge5_flag": 0,
+    "home_odds_weak_flag": 0,
+    "strong_fav_trap_flag": 0,
+    "draws_t1": 9,
+    "draws_t2": 5,
+    "draws_t3": 3,
+    "draw_heavy_streak": 0,
+    "decisive_streak": 0
+  },
+  "draw_classifier": {
+    "regime": "Draw-Heavy",
+    "source": "rules_classifier",
+    "P10": 7,
+    "P50": 8,
+    "P90": 9,
+    "flags": {
+      "mirror_ge3": 1,
+      "clear_fav_ge3": 0,
+      "draws_t1": 9
+    }
+  },
+  "forecast": {
+    "total_draws": {
+      "P10": 7,
+      "P50": 8,
+      "P90": 9,
+      "context_len": "rules",
+      "regime": "Draw-Heavy",
+      "source": "rules_classifier"
+    },
+    "total_homes": {
+      "P10": 2.5,
+      "P50": 4.48,
+      "P90": 5.99,
+      "context_len": 10
+    },
+    "total_aways": {
+      "P10": 3.37,
+      "P50": 4.02,
+      "P90": 4.89,
+      "context_len": 5
+    }
+  },
+  "tickets": {
+    "conservative": {
+      "percentile": "P10",
+      "target_counts": {
+        "1": 2,
+        "X": 7,
+        "2": 7
+      },
+      "regime": "Draw-Heavy",
+      "ticket": [
+        "2",
+        "2",
+        "X",
+        "1",
+        "2",
+        "1",
+        "X",
+        "X",
+        "2",
+        "X",
+        "X",
+        "X",
+        "X",
+        "2",
+        "2",
+        "2"
+      ],
+      "matches": [
+        {
+          "index": 1,
+          "home": "Fulham",
+          "away": "Bournemouth",
+          "league": "England - Premier",
+          "pred": "2",
+          "label": "Away Win",
+          "pick_type": "Double Chance",
+          "entropy": 1.0866
+        },
+        {
+          "index": 2,
+          "home": "Sunderland",
+          "away": "Man.Utd.",
+          "league": "England - Premier",
+          "pred": "2",
+          "label": "Away Win",
+          "pick_type": "Banker",
+          "entropy": 1.0482
+        },
+        {
+          "index": 3,
+          "home": "Stevenage",
+          "away": "Stockport",
+          "league": "England League One Play Off",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Double Chance",
+          "entropy": 1.0938
+        },
+        {
+          "index": 4,
+          "home": "Falkirk",
+          "away": "Hibernian",
+          "league": "Scotland Premier Play Off",
+          "pred": "1",
+          "label": "Home Win",
+          "pick_type": "Double Chance",
+          "entropy": 1.068
+        },
+        {
+          "index": 5,
+          "home": "RAAL La Louviere",
+          "away": "Cercle Brugge",
+          "league": "Belgium 1 Play Out",
+          "pred": "2",
+          "label": "Away Win",
+          "pick_type": "Double Chance",
+          "entropy": 1.0858
+        },
+        {
+          "index": 6,
+          "home": "Sevilla",
+          "away": "Espanyol",
+          "league": "Spain - Primera Division",
+          "pred": "1",
+          "label": "Home Win",
+          "pick_type": "Double Chance",
+          "entropy": 1.0668
+        },
+        {
+          "index": 7,
+          "home": "Albacete",
+          "away": "Cultural Leonesa",
+          "league": "Spain - Segunda Division",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Double Chance",
+          "entropy": 1.0774
+        },
+        {
+          "index": 8,
+          "home": "Burgos",
+          "away": "Almeria",
+          "league": "Spain - Segunda Division",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Double Chance",
+          "entropy": 1.0954
+        },
+        {
+          "index": 9,
+          "home": "Atl.Madrid",
+          "away": "Celta",
+          "league": "Spain - Primera Division",
+          "pred": "2",
+          "label": "Away Win",
+          "pick_type": "Double Chance",
+          "entropy": 1.068
+        },
+        {
+          "index": 10,
+          "home": "Valladolid",
+          "away": "Zaragoza",
+          "league": "Spain - Segunda Division",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Double Chance",
+          "entropy": 1.0629
+        },
+        {
+          "index": 11,
+          "home": "Bastia",
+          "away": "Le Mans",
+          "league": "France - Ligue 2",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Double Chance",
+          "entropy": 1.0894
+        },
+        {
+          "index": 12,
+          "home": "Clermont",
+          "away": "Guingamp",
+          "league": "France - Ligue 2",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Double Chance",
+          "entropy": 1.0837
+        },
+        {
+          "index": 13,
+          "home": "Nancy",
+          "away": "Dunkerque",
+          "league": "France - Ligue 2",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Double Chance",
+          "entropy": 1.0898
+        },
+        {
+          "index": 14,
+          "home": "Nurnberg",
+          "away": "Schalke",
+          "league": "Germany - 2. Bundesliga",
+          "pred": "2",
+          "label": "Away Win",
+          "pick_type": "Double Chance",
+          "entropy": 1.0689
+        },
+        {
+          "index": 15,
+          "home": "Motherwell",
+          "away": "Hearts",
+          "league": "Scotland Premier Play Off",
+          "pred": "2",
+          "label": "Away Win",
+          "pick_type": "Double Chance",
+          "entropy": 1.0883
+        },
+        {
+          "index": 16,
+          "home": "Sociedad",
+          "away": "Betis",
+          "league": "Spain - Primera Division",
+          "pred": "2",
+          "label": "Away Win",
+          "pick_type": "Double Chance",
+          "entropy": 1.0927
+        }
+      ]
+    },
+    "base": {
+      "percentile": "P50",
+      "target_counts": {
+        "1": 4,
+        "X": 8,
+        "2": 4
+      },
+      "regime": "Draw-Heavy",
+      "ticket": [
+        "2",
+        "2",
+        "X",
+        "1",
+        "2",
+        "X",
+        "X",
+        "X",
+        "1",
+        "X",
+        "X",
+        "X",
+        "X",
+        "1",
+        "2",
+        "1"
+      ],
+      "matches": [
+        {
+          "index": 1,
+          "home": "Fulham",
+          "away": "Bournemouth",
+          "league": "England - Premier",
+          "pred": "2",
+          "label": "Away Win",
+          "pick_type": "Double Chance",
+          "entropy": 1.0866
+        },
+        {
+          "index": 2,
+          "home": "Sunderland",
+          "away": "Man.Utd.",
+          "league": "England - Premier",
+          "pred": "2",
+          "label": "Away Win",
+          "pick_type": "Banker",
+          "entropy": 1.0482
+        },
+        {
+          "index": 3,
+          "home": "Stevenage",
+          "away": "Stockport",
+          "league": "England League One Play Off",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Double Chance",
+          "entropy": 1.0938
+        },
+        {
+          "index": 4,
+          "home": "Falkirk",
+          "away": "Hibernian",
+          "league": "Scotland Premier Play Off",
+          "pred": "1",
+          "label": "Home Win",
+          "pick_type": "Double Chance",
+          "entropy": 1.068
+        },
+        {
+          "index": 5,
+          "home": "RAAL La Louviere",
+          "away": "Cercle Brugge",
+          "league": "Belgium 1 Play Out",
+          "pred": "2",
+          "label": "Away Win",
+          "pick_type": "Double Chance",
+          "entropy": 1.0858
+        },
+        {
+          "index": 6,
+          "home": "Sevilla",
+          "away": "Espanyol",
+          "league": "Spain - Primera Division",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Double Chance",
+          "entropy": 1.0668
+        },
+        {
+          "index": 7,
+          "home": "Albacete",
+          "away": "Cultural Leonesa",
+          "league": "Spain - Segunda Division",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Double Chance",
+          "entropy": 1.0774
+        },
+        {
+          "index": 8,
+          "home": "Burgos",
+          "away": "Almeria",
+          "league": "Spain - Segunda Division",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Double Chance",
+          "entropy": 1.0954
+        },
+        {
+          "index": 9,
+          "home": "Atl.Madrid",
+          "away": "Celta",
+          "league": "Spain - Primera Division",
+          "pred": "1",
+          "label": "Home Win",
+          "pick_type": "Double Chance",
+          "entropy": 1.068
+        },
+        {
+          "index": 10,
+          "home": "Valladolid",
+          "away": "Zaragoza",
+          "league": "Spain - Segunda Division",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Double Chance",
+          "entropy": 1.0629
+        },
+        {
+          "index": 11,
+          "home": "Bastia",
+          "away": "Le Mans",
+          "league": "France - Ligue 2",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Double Chance",
+          "entropy": 1.0894
+        },
+        {
+          "index": 12,
+          "home": "Clermont",
+          "away": "Guingamp",
+          "league": "France - Ligue 2",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Double Chance",
+          "entropy": 1.0837
+        },
+        {
+          "index": 13,
+          "home": "Nancy",
+          "away": "Dunkerque",
+          "league": "France - Ligue 2",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Double Chance",
+          "entropy": 1.0898
+        },
+        {
+          "index": 14,
+          "home": "Nurnberg",
+          "away": "Schalke",
+          "league": "Germany - 2. Bundesliga",
+          "pred": "1",
+          "label": "Home Win",
+          "pick_type": "Double Chance",
+          "entropy": 1.0689
+        },
+        {
+          "index": 15,
+          "home": "Motherwell",
+          "away": "Hearts",
+          "league": "Scotland Premier Play Off",
+          "pred": "2",
+          "label": "Away Win",
+          "pick_type": "Double Chance",
+          "entropy": 1.0883
+        },
+        {
+          "index": 16,
+          "home": "Sociedad",
+          "away": "Betis",
+          "league": "Spain - Primera Division",
+          "pred": "1",
+          "label": "Home Win",
+          "pick_type": "Double Chance",
+          "entropy": 1.0927
+        }
+      ]
+    },
+    "draw_heavy": {
+      "percentile": "P90",
+      "target_counts": {
+        "1": 6,
+        "X": 9,
+        "2": 1
+      },
+      "regime": "Draw-Heavy",
+      "ticket": [
+        "1",
+        "2",
+        "X",
+        "1",
+        "1",
+        "X",
+        "X",
+        "X",
+        "1",
+        "X",
+        "X",
+        "X",
+        "X",
+        "1",
+        "1",
+        "X"
+      ],
+      "matches": [
+        {
+          "index": 1,
+          "home": "Fulham",
+          "away": "Bournemouth",
+          "league": "England - Premier",
+          "pred": "1",
+          "label": "Home Win",
+          "pick_type": "Double Chance",
+          "entropy": 1.0866
+        },
+        {
+          "index": 2,
+          "home": "Sunderland",
+          "away": "Man.Utd.",
+          "league": "England - Premier",
+          "pred": "2",
+          "label": "Away Win",
+          "pick_type": "Banker",
+          "entropy": 1.0482
+        },
+        {
+          "index": 3,
+          "home": "Stevenage",
+          "away": "Stockport",
+          "league": "England League One Play Off",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Double Chance",
+          "entropy": 1.0938
+        },
+        {
+          "index": 4,
+          "home": "Falkirk",
+          "away": "Hibernian",
+          "league": "Scotland Premier Play Off",
+          "pred": "1",
+          "label": "Home Win",
+          "pick_type": "Double Chance",
+          "entropy": 1.068
+        },
+        {
+          "index": 5,
+          "home": "RAAL La Louviere",
+          "away": "Cercle Brugge",
+          "league": "Belgium 1 Play Out",
+          "pred": "1",
+          "label": "Home Win",
+          "pick_type": "Double Chance",
+          "entropy": 1.0858
+        },
+        {
+          "index": 6,
+          "home": "Sevilla",
+          "away": "Espanyol",
+          "league": "Spain - Primera Division",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Double Chance",
+          "entropy": 1.0668
+        },
+        {
+          "index": 7,
+          "home": "Albacete",
+          "away": "Cultural Leonesa",
+          "league": "Spain - Segunda Division",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Double Chance",
+          "entropy": 1.0774
+        },
+        {
+          "index": 8,
+          "home": "Burgos",
+          "away": "Almeria",
+          "league": "Spain - Segunda Division",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Double Chance",
+          "entropy": 1.0954
+        },
+        {
+          "index": 9,
+          "home": "Atl.Madrid",
+          "away": "Celta",
+          "league": "Spain - Primera Division",
+          "pred": "1",
+          "label": "Home Win",
+          "pick_type": "Double Chance",
+          "entropy": 1.068
+        },
+        {
+          "index": 10,
+          "home": "Valladolid",
+          "away": "Zaragoza",
+          "league": "Spain - Segunda Division",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Double Chance",
+          "entropy": 1.0629
+        },
+        {
+          "index": 11,
+          "home": "Bastia",
+          "away": "Le Mans",
+          "league": "France - Ligue 2",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Double Chance",
+          "entropy": 1.0894
+        },
+        {
+          "index": 12,
+          "home": "Clermont",
+          "away": "Guingamp",
+          "league": "France - Ligue 2",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Double Chance",
+          "entropy": 1.0837
+        },
+        {
+          "index": 13,
+          "home": "Nancy",
+          "away": "Dunkerque",
+          "league": "France - Ligue 2",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Double Chance",
+          "entropy": 1.0898
+        },
+        {
+          "index": 14,
+          "home": "Nurnberg",
+          "away": "Schalke",
+          "league": "Germany - 2. Bundesliga",
+          "pred": "1",
+          "label": "Home Win",
+          "pick_type": "Double Chance",
+          "entropy": 1.0689
+        },
+        {
+          "index": 15,
+          "home": "Motherwell",
+          "away": "Hearts",
+          "league": "Scotland Premier Play Off",
+          "pred": "1",
+          "label": "Home Win",
+          "pick_type": "Double Chance",
+          "entropy": 1.0883
+        },
+        {
+          "index": 16,
+          "home": "Sociedad",
+          "away": "Betis",
+          "league": "Spain - Primera Division",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Double Chance",
+          "entropy": 1.0927
+        }
+      ]
+    }
+  },
+  "match_analysis": [
+    {
+      "index": 1,
+      "home": "Fulham",
+      "away": "Bournemouth",
+      "league": "England - Premier",
+      "pick_type": "Double Chance",
+      "entropy": 1.0866,
+      "spread": 1.1,
+      "reason": "spread=1.1 \u2014 moderate uncertainty",
+      "league_draw_pct": 25.0
+    },
+    {
+      "index": 2,
+      "home": "Sunderland",
+      "away": "Man.Utd.",
+      "league": "England - Premier",
+      "pick_type": "Banker",
+      "entropy": 1.0482,
+      "spread": 1.95,
+      "reason": "spread=1.95, fav=1.95 \u2014 calibrated zone",
+      "league_draw_pct": 25.0
+    },
+    {
+      "index": 3,
+      "home": "Stevenage",
+      "away": "Stockport",
+      "league": "England League One Play Off",
+      "pick_type": "Double Chance",
+      "entropy": 1.0938,
+      "spread": 0.65,
+      "reason": "spread=0.65 \u2014 moderate uncertainty",
+      "league_draw_pct": 28.0
+    },
+    {
+      "index": 4,
+      "home": "Falkirk",
+      "away": "Hibernian",
+      "league": "Scotland Premier Play Off",
+      "pick_type": "Double Chance",
+      "entropy": 1.068,
+      "spread": 1.4,
+      "reason": "spread=1.4 \u2014 moderate uncertainty",
+      "league_draw_pct": 28.0
+    },
+    {
+      "index": 5,
+      "home": "RAAL La Louviere",
+      "away": "Cercle Brugge",
+      "league": "Belgium 1 Play Out",
+      "pick_type": "Double Chance",
+      "entropy": 1.0858,
+      "spread": 1.1,
+      "reason": "spread=1.1 \u2014 moderate uncertainty",
+      "league_draw_pct": 28.0
+    },
+    {
+      "index": 6,
+      "home": "Sevilla",
+      "away": "Espanyol",
+      "league": "Spain - Primera Division",
+      "pick_type": "Double Chance",
+      "entropy": 1.0668,
+      "spread": 1.65,
+      "reason": "spread=1.65 \u2014 moderate uncertainty",
+      "league_draw_pct": 25.0
+    },
+    {
+      "index": 7,
+      "home": "Albacete",
+      "away": "Cultural Leonesa",
+      "league": "Spain - Segunda Division",
+      "pick_type": "Double Chance",
+      "entropy": 1.0774,
+      "spread": 1.2,
+      "reason": "spread=1.2 \u2014 moderate uncertainty",
+      "league_draw_pct": 35.0
+    },
+    {
+      "index": 8,
+      "home": "Burgos",
+      "away": "Almeria",
+      "league": "Spain - Segunda Division",
+      "pick_type": "Double Chance",
+      "entropy": 1.0954,
+      "spread": 0.55,
+      "reason": "spread=0.55 \u2014 moderate uncertainty",
+      "league_draw_pct": 35.0
+    },
+    {
+      "index": 9,
+      "home": "Atl.Madrid",
+      "away": "Celta",
+      "league": "Spain - Primera Division",
+      "pick_type": "Double Chance",
+      "entropy": 1.068,
+      "spread": 1.4,
+      "reason": "spread=1.4 \u2014 moderate uncertainty",
+      "league_draw_pct": 25.0
+    },
+    {
+      "index": 10,
+      "home": "Valladolid",
+      "away": "Zaragoza",
+      "league": "Spain - Segunda Division",
+      "pick_type": "Double Chance",
+      "entropy": 1.0629,
+      "spread": 1.55,
+      "reason": "spread=1.55 \u2014 moderate uncertainty",
+      "league_draw_pct": 35.0
+    },
+    {
+      "index": 11,
+      "home": "Bastia",
+      "away": "Le Mans",
+      "league": "France - Ligue 2",
+      "pick_type": "Double Chance",
+      "entropy": 1.0894,
+      "spread": 0.9,
+      "reason": "spread=0.9 \u2014 moderate uncertainty",
+      "league_draw_pct": 37.0
+    },
+    {
+      "index": 12,
+      "home": "Clermont",
+      "away": "Guingamp",
+      "league": "France - Ligue 2",
+      "pick_type": "Double Chance",
+      "entropy": 1.0837,
+      "spread": 1.15,
+      "reason": "spread=1.15 \u2014 moderate uncertainty",
+      "league_draw_pct": 37.0
+    },
+    {
+      "index": 13,
+      "home": "Nancy",
+      "away": "Dunkerque",
+      "league": "France - Ligue 2",
+      "pick_type": "Double Chance",
+      "entropy": 1.0898,
+      "spread": 0.95,
+      "reason": "spread=0.95 \u2014 moderate uncertainty",
+      "league_draw_pct": 37.0
+    },
+    {
+      "index": 14,
+      "home": "Nurnberg",
+      "away": "Schalke",
+      "league": "Germany - 2. Bundesliga",
+      "pick_type": "Double Chance",
+      "entropy": 1.0689,
+      "spread": 1.4,
+      "reason": "spread=1.4 \u2014 moderate uncertainty",
+      "league_draw_pct": 27.0
+    },
+    {
+      "index": 15,
+      "home": "Motherwell",
+      "away": "Hearts",
+      "league": "Scotland Premier Play Off",
+      "pick_type": "Double Chance",
+      "entropy": 1.0883,
+      "spread": 1.0,
+      "reason": "spread=1.0 \u2014 moderate uncertainty",
+      "league_draw_pct": 28.0
+    },
+    {
+      "index": 16,
+      "home": "Sociedad",
+      "away": "Betis",
+      "league": "Spain - Primera Division",
+      "pick_type": "Double Chance",
+      "entropy": 1.0927,
+      "spread": 0.75,
+      "reason": "spread=0.75 \u2014 moderate uncertainty",
+      "league_draw_pct": 25.0
+    }
+  ]
+}

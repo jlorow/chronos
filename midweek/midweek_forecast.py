@@ -725,6 +725,55 @@ def compute_card_features(card, fm):
 # ================================================================
 # 6. CHRONOS FORECAST
 # ================================================================
+def rules_based_draw_forecast(card_feat, total_matches):
+    """
+    Rules-based draw count forecast using Feature Set D signals.
+    Replaces Chronos total_draws output.
+    Returns dict matching forecast[target] structure: P10, P50, P90, context_len,
+    plus a 'regime' key and 'source' key for logging.
+
+    IMPORTANT: Do NOT use the pre-computed mirror_ge3_flag from card_feat.
+    Read mirror_count directly and apply threshold >= 4.
+    mirror_ge3_flag (threshold=3) is too sensitive — a single marginal match
+    can fire it on a balanced card. Threshold=4 requires a stronger signal.
+    clear_fav_ge3_flag keeps its existing threshold of >= 3 (unchanged).
+    """
+    DRAW_THRESHOLDS = {
+        "Draw-Heavy": {"P10": 5, "P50": 6, "P90": 7},
+        "Balanced"  : {"P10": 3, "P50": 4, "P90": 5},
+        "Decisive"  : {"P10": 2, "P50": 3, "P90": 4},
+    }
+    TIEBREAK_THRESHOLD = 4
+
+    mirror_count = card_feat["mirror_count"]   # read raw count, not the flag
+    clear_fav    = card_feat["clear_fav_ge3_flag"]
+    draws_t1     = card_feat["draws_t1"]
+
+    mirror = int(mirror_count >= 4)   # local threshold — overrides mirror_ge3_flag
+
+    if mirror == 1 and clear_fav == 0:
+        regime = "Draw-Heavy"
+    elif clear_fav == 1 and mirror == 0:
+        regime = "Decisive"
+    elif mirror == 0 and clear_fav == 0:
+        regime = "Balanced"
+    else:
+        if draws_t1 >= TIEBREAK_THRESHOLD:
+            regime = "Draw-Heavy"
+        else:
+            regime = "Decisive"
+
+    thresholds = DRAW_THRESHOLDS[regime]
+    return {
+        "P10"        : thresholds["P10"],
+        "P50"        : thresholds["P50"],
+        "P90"        : thresholds["P90"],
+        "context_len": "rules",
+        "regime"     : regime,
+        "source"     : "rules_classifier",
+    }
+
+
 def load_chronos(model_size="small"):
     model_name = f"amazon/chronos-t5-{model_size}"
     print(f"  Loading Chronos ({model_name}) ...")
@@ -787,13 +836,35 @@ def run_all_forecasts(pipeline, fm, context_lengths, num_samples):
     print(f"\n  Best context: " + "  ".join(
         f"{t.split('_')[1]}={best[t]['context_len']}" for t in targets
     ))
+
+    # --- Recency bias correction (Improvement 4) ---
+    draws_series = [f["total_draws"] for f in fm]
+    recent_avg   = float(np.mean(draws_series[-5:])) if len(draws_series) >= 5 \
+                   else float(np.mean(draws_series))
+    hist_avg     = float(np.mean(draws_series))
+    corrected_p50 = round(0.60 * recent_avg + 0.40 * hist_avg, 2)
+    raw_p50       = best["total_draws"]["P50"]
+    delta         = corrected_p50 - raw_p50
+
+    best["total_draws"]["P10"] = round(best["total_draws"]["P10"] + delta, 2)
+    best["total_draws"]["P50"] = round(corrected_p50, 2)
+    best["total_draws"]["P90"] = round(best["total_draws"]["P90"] + delta, 2)
+    best["total_draws"]["recency_corrected"] = True
+    best["total_draws"]["raw_p50_before_correction"] = raw_p50
+    best["total_draws"]["corrected_p50"] = corrected_p50
+    best["total_draws"]["delta"] = round(delta, 2)
+
+    print(f"\n  [Recency Correction] raw_p50={raw_p50}  "
+          f"recent_avg={round(recent_avg,2)}  hist_avg={round(hist_avg,2)}  "
+          f"corrected_p50={corrected_p50}  delta={round(delta,2)}")
+
     return best
 
 
 # ================================================================
 # 7. TICKET GENERATION
 # ================================================================
-def score_match(match, base_rates):
+def score_match(match, base_rates, dc_probs=None):
     o1 = match["odds_1"]
     ox = match["odds_x"]
     o2 = match["odds_2"]
@@ -808,6 +879,14 @@ def score_match(match, base_rates):
     impl["X"]  = min(impl["X"] + draw_corr, 0.60)
     impl_total = sum(impl.values())
     impl       = {k: v/impl_total for k,v in impl.items()}
+
+    # Dixon-Coles blend hook (Improvement 3)
+    if dc_probs is not None:
+        dc_total = sum(dc_probs.values())
+        dc_norm  = {k: v / dc_total for k, v in dc_probs.items()}
+        impl     = {k: 0.25 * dc_norm[k] + 0.75 * impl[k] for k in impl}
+        impl_total = sum(impl.values())
+        impl     = {k: v / impl_total for k, v in impl.items()}
 
     # Favourite calibration
     fav_odds    = min(o1, o2)
@@ -1052,6 +1131,12 @@ def main():
         pipeline, fm, context_lengths, args.samples
     )
 
+    # --- Rules-based draw override (Improvement 1) ---
+    rules_draw = rules_based_draw_forecast(card_feat, len(card))
+    forecast["total_draws"] = rules_draw
+    print(f"\n  [Draw Override] Regime: {rules_draw['regime']}  "
+          f"P10={rules_draw['P10']}  P50={rules_draw['P50']}  P90={rules_draw['P90']}")
+
     print(f"\n  FORECAST SUMMARY:")
     print(f"  {'Target':<15} {'P10':>6} {'P50':>6} {'P90':>6}  CL")
     print("  " + "-" * 42)
@@ -1108,6 +1193,20 @@ def main():
         "base_rates"   : {k: round(v,4) for k,v in base_rates.items()},
         "total_rounds" : len(fm),
         "card_signals" : card_feat,
+        "draw_classifier": {
+            "regime" : rules_draw["regime"],
+            "source" : "rules_classifier",
+            "P10"    : rules_draw["P10"],
+            "P50"    : rules_draw["P50"],
+            "P90"    : rules_draw["P90"],
+            "flags"  : {
+                "mirror_count"         : card_feat["mirror_count"],
+                "mirror_ge4_used"      : int(card_feat["mirror_count"] >= 4),
+                "mirror_ge3_flag_raw"  : card_feat["mirror_ge3_flag"],
+                "clear_fav_ge3"        : card_feat["clear_fav_ge3_flag"],
+                "draws_t1"             : card_feat["draws_t1"],
+            },
+        },
         "forecast"     : forecast,
         "tickets"      : {
             scenario: {

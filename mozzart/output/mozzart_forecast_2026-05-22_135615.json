@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-05-09_094958",
+  "generated_at": "2026-05-22_135615",
   "card_file": "mozzart_daily_2026-05-09_094837.json",
-  "model": "chronos-t5-small",
-  "num_samples": 500,
+  "model": "chronos-t5-tiny",
+  "num_samples": 50,
   "base_rates": {
     "1": 0.3697,
     "X": 0.3253,
@@ -28,23 +28,39 @@
     "draw_heavy_streak": 0,
     "decisive_streak": 0
   },
+  "draw_classifier": {
+    "regime": "Balanced",
+    "source": "rules_classifier",
+    "P10": 4,
+    "P50": 5,
+    "P90": 6,
+    "flags": {
+      "mirror_count": 3,
+      "mirror_ge4_used": 0,
+      "mirror_ge3_flag_raw": 1,
+      "clear_fav_ge3": 0,
+      "draws_t1": 9
+    }
+  },
   "forecast": {
     "total_draws": {
-      "P10": 3.47,
-      "P50": 6.01,
-      "P90": 9.02,
-      "context_len": 5
+      "P10": 4,
+      "P50": 5,
+      "P90": 6,
+      "context_len": "rules",
+      "regime": "Balanced",
+      "source": "rules_classifier"
     },
     "total_homes": {
-      "P10": 2.01,
+      "P10": 2.49,
       "P50": 3.98,
       "P90": 5.99,
       "context_len": 10
     },
     "total_aways": {
-      "P10": 3.07,
-      "P50": 4.11,
-      "P90": 5.21,
+      "P10": 3.41,
+      "P50": 4.06,
+      "P90": 4.89,
       "context_len": 5
     }
   },
@@ -53,10 +69,10 @@
       "percentile": "P10",
       "target_counts": {
         "1": 2,
-        "X": 3,
-        "2": 11
+        "X": 4,
+        "2": 10
       },
-      "regime": "Decisive",
+      "regime": "Balanced",
       "ticket": [
         "2",
         "2",
@@ -69,7 +85,7 @@
         "2",
         "1",
         "X",
-        "2",
+        "X",
         "X",
         "2",
         "2",
@@ -191,8 +207,8 @@
           "home": "Clermont",
           "away": "Guingamp",
           "league": "France - Ligue 2",
-          "pred": "2",
-          "label": "Away Win",
+          "pred": "X",
+          "label": "Draw",
           "pick_type": "Double Chance",
           "entropy": 1.0837
         },
@@ -242,14 +258,14 @@
       "percentile": "P50",
       "target_counts": {
         "1": 4,
-        "X": 6,
-        "2": 6
+        "X": 5,
+        "2": 7
       },
       "regime": "Balanced",
       "ticket": [
         "2",
         "2",
-        "X",
+        "2",
         "1",
         "2",
         "1",
@@ -290,8 +306,8 @@
           "home": "Stevenage",
           "away": "Stockport",
           "league": "England League One Play Off",
-          "pred": "X",
-          "label": "Draw",
+          "pred": "2",
+          "label": "Away Win",
           "pick_type": "Double Chance",
           "entropy": 1.0938
         },
@@ -431,27 +447,27 @@
       "percentile": "P90",
       "target_counts": {
         "1": 6,
-        "X": 9,
-        "2": 1
+        "X": 6,
+        "2": 4
       },
-      "regime": "Draw-Heavy",
+      "regime": "Balanced",
       "ticket": [
-        "1",
+        "2",
         "2",
         "X",
         "1",
+        "2",
         "1",
-        "X",
-        "X",
-        "X",
-        "1",
-        "X",
-        "X",
         "X",
         "X",
         "1",
         "1",
-        "X"
+        "X",
+        "X",
+        "X",
+        "1",
+        "2",
+        "1"
       ],
       "matches": [
         {
@@ -459,8 +475,8 @@
           "home": "Fulham",
           "away": "Bournemouth",
           "league": "England - Premier",
-          "pred": "1",
-          "label": "Home Win",
+          "pred": "2",
+          "label": "Away Win",
           "pick_type": "Double Chance",
           "entropy": 1.0866
         },
@@ -499,8 +515,8 @@
           "home": "RAAL La Louviere",
           "away": "Cercle Brugge",
           "league": "Belgium 1 Play Out",
-          "pred": "1",
-          "label": "Home Win",
+          "pred": "2",
+          "label": "Away Win",
           "pick_type": "Double Chance",
           "entropy": 1.0858
         },
@@ -509,8 +525,8 @@
           "home": "Sevilla",
           "away": "Espanyol",
           "league": "Spain - Primera Division",
-          "pred": "X",
-          "label": "Draw",
+          "pred": "1",
+          "label": "Home Win",
           "pick_type": "Double Chance",
           "entropy": 1.0668
         },
@@ -549,8 +565,8 @@
           "home": "Valladolid",
           "away": "Zaragoza",
           "league": "Spain - Segunda Division",
-          "pred": "X",
-          "label": "Draw",
+          "pred": "1",
+          "label": "Home Win",
           "pick_type": "Double Chance",
           "entropy": 1.0629
         },
@@ -599,8 +615,8 @@
           "home": "Motherwell",
           "away": "Hearts",
           "league": "Scotland Premier Play Off",
-          "pred": "1",
-          "label": "Home Win",
+          "pred": "2",
+          "label": "Away Win",
           "pick_type": "Double Chance",
           "entropy": 1.0883
         },
@@ -609,8 +625,8 @@
           "home": "Sociedad",
           "away": "Betis",
           "league": "Spain - Primera Division",
-          "pred": "X",
-          "label": "Draw",
+          "pred": "1",
+          "label": "Home Win",
           "pick_type": "Double Chance",
           "entropy": 1.0927
         }

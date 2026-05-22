@@ -1,0 +1,814 @@
+{
+  "generated_at": "2026-05-22_140804",
+  "card_file": "mozzart_daily_2026-05-05_141356.json",
+  "model": "chronos-t5-tiny",
+  "num_samples": 50,
+  "base_rates": {
+    "1": 0.3697,
+    "X": 0.3253,
+    "2": 0.3051
+  },
+  "card_signals": {
+    "mirror_count": 5,
+    "clear_fav_count": 3,
+    "away_fav_count": 1,
+    "home_odds_weak": 14,
+    "strong_fav_trap": 0,
+    "draw_pct_weighted": 0.282,
+    "high_draw_ratio": 0.375,
+    "same_league_cluster": 1,
+    "mirror_ge3_flag": 1,
+    "clear_fav_ge3_flag": 1,
+    "away_fav_ge5_flag": 0,
+    "home_odds_weak_flag": 1,
+    "strong_fav_trap_flag": 0,
+    "draws_t1": 9,
+    "draws_t2": 5,
+    "draws_t3": 3,
+    "draw_heavy_streak": 0,
+    "decisive_streak": 0
+  },
+  "draw_classifier": {
+    "regime": "Draw-Heavy",
+    "source": "rules_classifier",
+    "P10": 7,
+    "P50": 8,
+    "P90": 9,
+    "flags": {
+      "mirror_count": 5,
+      "mirror_ge4_used": 1,
+      "mirror_ge3_flag_raw": 1,
+      "clear_fav_ge3": 1,
+      "draws_t1": 9
+    }
+  },
+  "forecast": {
+    "total_draws": {
+      "P10": 7,
+      "P50": 8,
+      "P90": 9,
+      "context_len": "rules",
+      "regime": "Draw-Heavy",
+      "source": "rules_classifier"
+    },
+    "total_homes": {
+      "P10": 2.5,
+      "P50": 4.52,
+      "P90": 5.99,
+      "context_len": 10
+    },
+    "total_aways": {
+      "P10": 3.37,
+      "P50": 4.15,
+      "P90": 4.97,
+      "context_len": 5
+    }
+  },
+  "tickets": {
+    "conservative": {
+      "percentile": "P10",
+      "target_counts": {
+        "1": 2,
+        "X": 7,
+        "2": 7
+      },
+      "regime": "Draw-Heavy",
+      "ticket": [
+        "2",
+        "2",
+        "1",
+        "2",
+        "X",
+        "2",
+        "X",
+        "2",
+        "2",
+        "X",
+        "X",
+        "1",
+        "X",
+        "2",
+        "X",
+        "X"
+      ],
+      "matches": [
+        {
+          "index": 1,
+          "home": "RKC Waalwijk",
+          "away": "Willem II",
+          "league": "Netherlands - Erste Divisie Play Off",
+          "pred": "2",
+          "label": "Away Win",
+          "pick_type": "Double Chance",
+          "entropy": 1.0882
+        },
+        {
+          "index": 2,
+          "home": "Falkenberg",
+          "away": "Norrkoping",
+          "league": "Sweden - Superettan",
+          "pred": "2",
+          "label": "Away Win",
+          "pick_type": "Double Chance",
+          "entropy": 1.0912
+        },
+        {
+          "index": 3,
+          "home": "Lokomotiv Sofia",
+          "away": "Botev Vratsa ",
+          "league": "Bulgaria 1 - Play Out",
+          "pred": "1",
+          "label": "Home Win",
+          "pick_type": "Banker",
+          "entropy": 1.0001
+        },
+        {
+          "index": 4,
+          "home": "Dunfermline",
+          "away": "Arbroath",
+          "league": "Scotland First Division Play Off",
+          "pred": "2",
+          "label": "Away Win",
+          "pick_type": "Double Chance",
+          "entropy": 1.0734
+        },
+        {
+          "index": 5,
+          "home": "Clyde",
+          "away": "Spartans",
+          "league": "Scotland Second Division Play Out",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Double Chance",
+          "entropy": 1.0935
+        },
+        {
+          "index": 6,
+          "home": "Alloa",
+          "away": "Airdrie",
+          "league": "Scotland Second Division Play Off",
+          "pred": "2",
+          "label": "Away Win",
+          "pick_type": "Double Chance",
+          "entropy": 1.092
+        },
+        {
+          "index": 7,
+          "home": "Queen of S.",
+          "away": "Stenhousemuir",
+          "league": "Scotland Second Division Play Off",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Double Chance",
+          "entropy": 1.0928
+        },
+        {
+          "index": 8,
+          "home": "Juventud L.P.",
+          "away": "Atletico Mineiro",
+          "league": "Copa Sudamericana",
+          "pred": "2",
+          "label": "Away Win",
+          "pick_type": "Double Chance",
+          "entropy": 1.0733
+        },
+        {
+          "index": 9,
+          "home": "Ind. Petrolero",
+          "away": "Caracas",
+          "league": "Copa Sudamericana",
+          "pred": "2",
+          "label": "Away Win",
+          "pick_type": "Double Chance",
+          "entropy": 1.0734
+        },
+        {
+          "index": 10,
+          "home": "Dep.Riestra",
+          "away": "Gremio",
+          "league": "Copa Sudamericana",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Speculative",
+          "entropy": 1.0983
+        },
+        {
+          "index": 11,
+          "home": "B.Guayaquil",
+          "away": "Boca Juniors",
+          "league": "Copa Libertadores",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Banker",
+          "entropy": 1.0535
+        },
+        {
+          "index": 12,
+          "home": "Puerto Cabello",
+          "away": "Cienciano",
+          "league": "Copa Sudamericana",
+          "pred": "1",
+          "label": "Home Win",
+          "pick_type": "Banker",
+          "entropy": 1.0482
+        },
+        {
+          "index": 13,
+          "home": "Deportivo Cuenca",
+          "away": "San Lorenzo",
+          "league": "Copa Sudamericana",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Double Chance",
+          "entropy": 1.0962
+        },
+        {
+          "index": 14,
+          "home": "Shimizu SP",
+          "away": "Cerezo Osaka",
+          "league": "Japan - J1 League",
+          "pred": "2",
+          "label": "Away Win",
+          "pick_type": "Double Chance",
+          "entropy": 1.0916
+        },
+        {
+          "index": 15,
+          "home": "V-Varen Nagasaki ",
+          "away": "Okayama",
+          "league": "Japan - J1 League",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Double Chance",
+          "entropy": 1.095
+        },
+        {
+          "index": 16,
+          "home": "Fukuoka",
+          "away": "Kyoto Purple Sanga",
+          "league": "Japan - J1 League",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Double Chance",
+          "entropy": 1.0919
+        }
+      ]
+    },
+    "base": {
+      "percentile": "P50",
+      "target_counts": {
+        "1": 5,
+        "X": 8,
+        "2": 3
+      },
+      "regime": "Draw-Heavy",
+      "ticket": [
+        "1",
+        "2",
+        "1",
+        "1",
+        "X",
+        "X",
+        "X",
+        "2",
+        "1",
+        "X",
+        "X",
+        "1",
+        "X",
+        "2",
+        "X",
+        "X"
+      ],
+      "matches": [
+        {
+          "index": 1,
+          "home": "RKC Waalwijk",
+          "away": "Willem II",
+          "league": "Netherlands - Erste Divisie Play Off",
+          "pred": "1",
+          "label": "Home Win",
+          "pick_type": "Double Chance",
+          "entropy": 1.0882
+        },
+        {
+          "index": 2,
+          "home": "Falkenberg",
+          "away": "Norrkoping",
+          "league": "Sweden - Superettan",
+          "pred": "2",
+          "label": "Away Win",
+          "pick_type": "Double Chance",
+          "entropy": 1.0912
+        },
+        {
+          "index": 3,
+          "home": "Lokomotiv Sofia",
+          "away": "Botev Vratsa ",
+          "league": "Bulgaria 1 - Play Out",
+          "pred": "1",
+          "label": "Home Win",
+          "pick_type": "Banker",
+          "entropy": 1.0001
+        },
+        {
+          "index": 4,
+          "home": "Dunfermline",
+          "away": "Arbroath",
+          "league": "Scotland First Division Play Off",
+          "pred": "1",
+          "label": "Home Win",
+          "pick_type": "Double Chance",
+          "entropy": 1.0734
+        },
+        {
+          "index": 5,
+          "home": "Clyde",
+          "away": "Spartans",
+          "league": "Scotland Second Division Play Out",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Double Chance",
+          "entropy": 1.0935
+        },
+        {
+          "index": 6,
+          "home": "Alloa",
+          "away": "Airdrie",
+          "league": "Scotland Second Division Play Off",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Double Chance",
+          "entropy": 1.092
+        },
+        {
+          "index": 7,
+          "home": "Queen of S.",
+          "away": "Stenhousemuir",
+          "league": "Scotland Second Division Play Off",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Double Chance",
+          "entropy": 1.0928
+        },
+        {
+          "index": 8,
+          "home": "Juventud L.P.",
+          "away": "Atletico Mineiro",
+          "league": "Copa Sudamericana",
+          "pred": "2",
+          "label": "Away Win",
+          "pick_type": "Double Chance",
+          "entropy": 1.0733
+        },
+        {
+          "index": 9,
+          "home": "Ind. Petrolero",
+          "away": "Caracas",
+          "league": "Copa Sudamericana",
+          "pred": "1",
+          "label": "Home Win",
+          "pick_type": "Double Chance",
+          "entropy": 1.0734
+        },
+        {
+          "index": 10,
+          "home": "Dep.Riestra",
+          "away": "Gremio",
+          "league": "Copa Sudamericana",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Speculative",
+          "entropy": 1.0983
+        },
+        {
+          "index": 11,
+          "home": "B.Guayaquil",
+          "away": "Boca Juniors",
+          "league": "Copa Libertadores",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Banker",
+          "entropy": 1.0535
+        },
+        {
+          "index": 12,
+          "home": "Puerto Cabello",
+          "away": "Cienciano",
+          "league": "Copa Sudamericana",
+          "pred": "1",
+          "label": "Home Win",
+          "pick_type": "Banker",
+          "entropy": 1.0482
+        },
+        {
+          "index": 13,
+          "home": "Deportivo Cuenca",
+          "away": "San Lorenzo",
+          "league": "Copa Sudamericana",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Double Chance",
+          "entropy": 1.0962
+        },
+        {
+          "index": 14,
+          "home": "Shimizu SP",
+          "away": "Cerezo Osaka",
+          "league": "Japan - J1 League",
+          "pred": "2",
+          "label": "Away Win",
+          "pick_type": "Double Chance",
+          "entropy": 1.0916
+        },
+        {
+          "index": 15,
+          "home": "V-Varen Nagasaki ",
+          "away": "Okayama",
+          "league": "Japan - J1 League",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Double Chance",
+          "entropy": 1.095
+        },
+        {
+          "index": 16,
+          "home": "Fukuoka",
+          "away": "Kyoto Purple Sanga",
+          "league": "Japan - J1 League",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Double Chance",
+          "entropy": 1.0919
+        }
+      ]
+    },
+    "draw_heavy": {
+      "percentile": "P90",
+      "target_counts": {
+        "1": 6,
+        "X": 9,
+        "2": 1
+      },
+      "regime": "Draw-Heavy",
+      "ticket": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "X",
+        "X",
+        "X",
+        "2",
+        "1",
+        "X",
+        "X",
+        "1",
+        "X",
+        "X",
+        "X",
+        "X"
+      ],
+      "matches": [
+        {
+          "index": 1,
+          "home": "RKC Waalwijk",
+          "away": "Willem II",
+          "league": "Netherlands - Erste Divisie Play Off",
+          "pred": "1",
+          "label": "Home Win",
+          "pick_type": "Double Chance",
+          "entropy": 1.0882
+        },
+        {
+          "index": 2,
+          "home": "Falkenberg",
+          "away": "Norrkoping",
+          "league": "Sweden - Superettan",
+          "pred": "1",
+          "label": "Home Win",
+          "pick_type": "Double Chance",
+          "entropy": 1.0912
+        },
+        {
+          "index": 3,
+          "home": "Lokomotiv Sofia",
+          "away": "Botev Vratsa ",
+          "league": "Bulgaria 1 - Play Out",
+          "pred": "1",
+          "label": "Home Win",
+          "pick_type": "Banker",
+          "entropy": 1.0001
+        },
+        {
+          "index": 4,
+          "home": "Dunfermline",
+          "away": "Arbroath",
+          "league": "Scotland First Division Play Off",
+          "pred": "1",
+          "label": "Home Win",
+          "pick_type": "Double Chance",
+          "entropy": 1.0734
+        },
+        {
+          "index": 5,
+          "home": "Clyde",
+          "away": "Spartans",
+          "league": "Scotland Second Division Play Out",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Double Chance",
+          "entropy": 1.0935
+        },
+        {
+          "index": 6,
+          "home": "Alloa",
+          "away": "Airdrie",
+          "league": "Scotland Second Division Play Off",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Double Chance",
+          "entropy": 1.092
+        },
+        {
+          "index": 7,
+          "home": "Queen of S.",
+          "away": "Stenhousemuir",
+          "league": "Scotland Second Division Play Off",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Double Chance",
+          "entropy": 1.0928
+        },
+        {
+          "index": 8,
+          "home": "Juventud L.P.",
+          "away": "Atletico Mineiro",
+          "league": "Copa Sudamericana",
+          "pred": "2",
+          "label": "Away Win",
+          "pick_type": "Double Chance",
+          "entropy": 1.0733
+        },
+        {
+          "index": 9,
+          "home": "Ind. Petrolero",
+          "away": "Caracas",
+          "league": "Copa Sudamericana",
+          "pred": "1",
+          "label": "Home Win",
+          "pick_type": "Double Chance",
+          "entropy": 1.0734
+        },
+        {
+          "index": 10,
+          "home": "Dep.Riestra",
+          "away": "Gremio",
+          "league": "Copa Sudamericana",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Speculative",
+          "entropy": 1.0983
+        },
+        {
+          "index": 11,
+          "home": "B.Guayaquil",
+          "away": "Boca Juniors",
+          "league": "Copa Libertadores",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Banker",
+          "entropy": 1.0535
+        },
+        {
+          "index": 12,
+          "home": "Puerto Cabello",
+          "away": "Cienciano",
+          "league": "Copa Sudamericana",
+          "pred": "1",
+          "label": "Home Win",
+          "pick_type": "Banker",
+          "entropy": 1.0482
+        },
+        {
+          "index": 13,
+          "home": "Deportivo Cuenca",
+          "away": "San Lorenzo",
+          "league": "Copa Sudamericana",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Double Chance",
+          "entropy": 1.0962
+        },
+        {
+          "index": 14,
+          "home": "Shimizu SP",
+          "away": "Cerezo Osaka",
+          "league": "Japan - J1 League",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Double Chance",
+          "entropy": 1.0916
+        },
+        {
+          "index": 15,
+          "home": "V-Varen Nagasaki ",
+          "away": "Okayama",
+          "league": "Japan - J1 League",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Double Chance",
+          "entropy": 1.095
+        },
+        {
+          "index": 16,
+          "home": "Fukuoka",
+          "away": "Kyoto Purple Sanga",
+          "league": "Japan - J1 League",
+          "pred": "X",
+          "label": "Draw",
+          "pick_type": "Double Chance",
+          "entropy": 1.0919
+        }
+      ]
+    }
+  },
+  "match_analysis": [
+    {
+      "index": 1,
+      "home": "RKC Waalwijk",
+      "away": "Willem II",
+      "league": "Netherlands - Erste Divisie Play Off",
+      "pick_type": "Double Chance",
+      "entropy": 1.0882,
+      "spread": 1.0,
+      "reason": "spread=1.0 \u2014 moderate uncertainty",
+      "league_draw_pct": 20.0
+    },
+    {
+      "index": 2,
+      "home": "Falkenberg",
+      "away": "Norrkoping",
+      "league": "Sweden - Superettan",
+      "pick_type": "Double Chance",
+      "entropy": 1.0912,
+      "spread": 0.85,
+      "reason": "spread=0.85 \u2014 moderate uncertainty",
+      "league_draw_pct": 28.0
+    },
+    {
+      "index": 3,
+      "home": "Lokomotiv Sofia",
+      "away": "Botev Vratsa ",
+      "league": "Bulgaria 1 - Play Out",
+      "pick_type": "Banker",
+      "entropy": 1.0001,
+      "spread": 3.1,
+      "reason": "spread=3.1, fav=1.7 \u2014 calibrated zone",
+      "league_draw_pct": 28.0
+    },
+    {
+      "index": 4,
+      "home": "Dunfermline",
+      "away": "Arbroath",
+      "league": "Scotland First Division Play Off",
+      "pick_type": "Double Chance",
+      "entropy": 1.0734,
+      "spread": 1.25,
+      "reason": "spread=1.25 \u2014 moderate uncertainty",
+      "league_draw_pct": 27.0
+    },
+    {
+      "index": 5,
+      "home": "Clyde",
+      "away": "Spartans",
+      "league": "Scotland Second Division Play Out",
+      "pick_type": "Double Chance",
+      "entropy": 1.0935,
+      "spread": 0.7,
+      "reason": "spread=0.7 \u2014 moderate uncertainty",
+      "league_draw_pct": 28.0
+    },
+    {
+      "index": 6,
+      "home": "Alloa",
+      "away": "Airdrie",
+      "league": "Scotland Second Division Play Off",
+      "pick_type": "Double Chance",
+      "entropy": 1.092,
+      "spread": 0.8,
+      "reason": "spread=0.8 \u2014 moderate uncertainty",
+      "league_draw_pct": 28.0
+    },
+    {
+      "index": 7,
+      "home": "Queen of S.",
+      "away": "Stenhousemuir",
+      "league": "Scotland Second Division Play Off",
+      "pick_type": "Double Chance",
+      "entropy": 1.0928,
+      "spread": 0.75,
+      "reason": "spread=0.75 \u2014 moderate uncertainty",
+      "league_draw_pct": 28.0
+    },
+    {
+      "index": 8,
+      "home": "Juventud L.P.",
+      "away": "Atletico Mineiro",
+      "league": "Copa Sudamericana",
+      "pick_type": "Double Chance",
+      "entropy": 1.0733,
+      "spread": 1.3,
+      "reason": "spread=1.3 \u2014 moderate uncertainty",
+      "league_draw_pct": 30.0
+    },
+    {
+      "index": 9,
+      "home": "Ind. Petrolero",
+      "away": "Caracas",
+      "league": "Copa Sudamericana",
+      "pick_type": "Double Chance",
+      "entropy": 1.0734,
+      "spread": 1.25,
+      "reason": "spread=1.25 \u2014 moderate uncertainty",
+      "league_draw_pct": 30.0
+    },
+    {
+      "index": 10,
+      "home": "Dep.Riestra",
+      "away": "Gremio",
+      "league": "Copa Sudamericana",
+      "pick_type": "Speculative",
+      "entropy": 1.0983,
+      "spread": 0.15,
+      "reason": "spread=0.15 < 0.30 \u2014 coin flip, avoid single",
+      "league_draw_pct": 30.0
+    },
+    {
+      "index": 11,
+      "home": "B.Guayaquil",
+      "away": "Boca Juniors",
+      "league": "Copa Libertadores",
+      "pick_type": "Banker",
+      "entropy": 1.0535,
+      "spread": 2.0,
+      "reason": "spread=2.0, fav=2.0 \u2014 calibrated zone",
+      "league_draw_pct": 30.0
+    },
+    {
+      "index": 12,
+      "home": "Puerto Cabello",
+      "away": "Cienciano",
+      "league": "Copa Sudamericana",
+      "pick_type": "Banker",
+      "entropy": 1.0482,
+      "spread": 1.95,
+      "reason": "spread=1.95, fav=1.95 \u2014 calibrated zone",
+      "league_draw_pct": 30.0
+    },
+    {
+      "index": 13,
+      "home": "Deportivo Cuenca",
+      "away": "San Lorenzo",
+      "league": "Copa Sudamericana",
+      "pick_type": "Double Chance",
+      "entropy": 1.0962,
+      "spread": 0.45,
+      "reason": "spread=0.45 \u2014 moderate uncertainty",
+      "league_draw_pct": 30.0
+    },
+    {
+      "index": 14,
+      "home": "Shimizu SP",
+      "away": "Cerezo Osaka",
+      "league": "Japan - J1 League",
+      "pick_type": "Double Chance",
+      "entropy": 1.0916,
+      "spread": 0.85,
+      "reason": "spread=0.85 \u2014 moderate uncertainty",
+      "league_draw_pct": 28.0
+    },
+    {
+      "index": 15,
+      "home": "V-Varen Nagasaki ",
+      "away": "Okayama",
+      "league": "Japan - J1 League",
+      "pick_type": "Double Chance",
+      "entropy": 1.095,
+      "spread": 0.6,
+      "reason": "spread=0.6 \u2014 moderate uncertainty",
+      "league_draw_pct": 28.0
+    },
+    {
+      "index": 16,
+      "home": "Fukuoka",
+      "away": "Kyoto Purple Sanga",
+      "league": "Japan - J1 League",
+      "pick_type": "Double Chance",
+      "entropy": 1.0919,
+      "spread": 0.75,
+      "reason": "spread=0.75 \u2014 moderate uncertainty",
+      "league_draw_pct": 28.0
+    }
+  ]
+}
