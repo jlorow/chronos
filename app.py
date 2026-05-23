@@ -226,7 +226,7 @@ def render_ticket(ticket_data: dict, analysis: list, scenario: str, num_games: i
         st.dataframe(
             df,
             hide_index   = True,
-            use_container_width = True,
+            width = "stretch",
             column_config = {
                 "#"      : st.column_config.NumberColumn(width="small"),
                 "Pred"   : st.column_config.TextColumn(width="small"),
@@ -382,7 +382,7 @@ def tab_forecast(jackpot: str):
                     st.dataframe(
                         df,
                         hide_index          = True,
-                        use_container_width = True,
+                        width = "stretch",
                         column_config       = {
                             "#"          : st.column_config.NumberColumn(width="small"),
                             "Pred"       : st.column_config.TextColumn(width="small"),
@@ -922,7 +922,7 @@ def tab_log_results(jackpot: str):
         submitted = st.form_submit_button(
             "✅ Log Results",
             type="primary",
-            use_container_width=True,
+            width="stretch",
         )
 
     if submitted:
@@ -1111,7 +1111,7 @@ def tab_performance(jackpot: str):
     st.dataframe(
         df,
         hide_index          = True,
-        use_container_width = True,
+        width = "stretch",
     )
 
     # Draw prediction accuracy chart
@@ -1130,7 +1130,7 @@ def tab_performance(jackpot: str):
         if draw_data:
             st.markdown("**Draw Count — Predicted vs Actual**")
             chart_df = pd.DataFrame(draw_data).set_index("Round")
-            st.line_chart(chart_df, use_container_width=True)
+            st.line_chart(chart_df, width="stretch")
 
 
 # ================================================================

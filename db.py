@@ -348,9 +348,9 @@ def get_performance(jackpot: str, limit: int = 30) -> list:
                 "Games"         : f.get("num_games", "-"),
                 "Best Score"    : actual["best_score"] if actual else "-",
                 "Best Ticket"   : actual["best_ticket"] if actual else "-",
-                "Draw Predicted": dist_err.get("predicted_draws", "-"),
-                "Draw Actual"   : dist_err.get("actual_draws", "-"),
-                "Draw Error"    : dist_err.get("draw_error", "-"),
+                "Draw Predicted": str(dist_err.get("predicted_draws", "-")),
+                "Draw Actual"   : str(dist_err.get("actual_draws", "-")),
+                "Draw Error"    : str(dist_err.get("draw_error", "-")),
                 "Logged"        : "✓" if actual else "✗",
                 "forecast_id"   : f["id"],
             })
